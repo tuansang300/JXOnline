@@ -1,0 +1,6 @@
+[MAIN]
+help=10
+icon=setting
+title=设置光源闪烁帧数
+type=light_static
+want=float

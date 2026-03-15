@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(strings 'D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/lib/CoreClient.lib')",
+      "Bash(strings 'D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/lib/release/CoreClient.lib')",
+      "Bash(cat \"D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/lib/CoreClient.lib\")",
+      "Bash(cat \"D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/lib/release/CoreClient.lib\")",
+      "Bash(xxd CoreClient.lib)",
+      "Bash(ls \"D:/JX/Source full JX \\(unrarme\"'!'\"#@\\)/JX/swrod3/SwordOnline/lib/CoreClient.lib\")",
+      "Bash(powershell -Command \"Select-String -Path ''D:\\\\JX\\\\Source full JX \\(unrarme!#@\\)\\\\JX\\\\swrod3\\\\SwordOnline\\\\lib\\\\CoreClient.lib'' -Pattern ''CoreClient'' -Encoding Byte -AllMatches | Select-Object -First 5\")",
+      "Bash(powershell -Command \"[System.Text.Encoding]::ASCII.GetString\\([System.IO.File]::ReadAllBytes\\(''D:\\\\JX\\\\Source full JX \\(unrarme!#@\\)\\\\JX\\\\swrod3\\\\SwordOnline\\\\lib\\\\CoreClient.lib''\\)\\) -replace ''[^\\\\x20-\\\\x7E]'',''.'' | Select-String -Pattern ''CoreClient.+?\\\\.dll'' -AllMatches | ForEach-Object { $_.Matches.Value } | Sort-Object -Unique\")",
+      "Bash(powershell -Command \"Get-ChildItem ''D:\\\\JX\\\\Source full JX*'' | Select Name\")",
+      "Bash(powershell -Command \"$path = \\(Get-ChildItem ''D:\\\\JX\\\\Source full JX*'' -Directory\\).FullName; $libpath = Join-Path $path ''JX\\\\swrod3\\\\SwordOnline\\\\lib\\\\CoreClient.lib''; $bytes = [System.IO.File]::ReadAllBytes\\($libpath\\); $text = [System.Text.Encoding]::ASCII.GetString\\($bytes\\); $matches = [regex]::Matches\\($text, ''CoreClient[^\\\\x00]*?\\\\.dll''\\); foreach\\($m in $matches\\) { $m.Value } | Sort-Object -Unique\")",
+      "Bash(powershell -NoProfile:*)",
+      "Bash(ls \"D:\\\\JX\\\\Source full JX \\(unrarme!#@\\)\\\\JX\\\\swrod3\\\\SwordOnline\\\\Sources\\\\S3Client\")"
+    ]
+  }
+}

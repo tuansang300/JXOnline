@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Server Debug|Win32">
+      <Configuration>Server Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3AC38896-9AA6-4ED1-94C1-3C693233C055}</ProjectGuid>
+    <Keyword>MFCProj</Keyword>
+    <RootNamespace>Status</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Server Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>Dynamic</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Server Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>../../run_release\</OutDir>
+    <IntDir>.\Release\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>Status</TargetName>
+    <TargetExt>.dll</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>../../run\</OutDir>
+    <IntDir>.\Debug\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>Status</TargetName>
+    <TargetExt>.dll</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Server Debug|Win32'">
+    <OutDir>../../run\</OutDir>
+    <IntDir>.\Debug\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>Status</TargetName>
+    <TargetExt>.dll</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>..\Headers;..\..\Headers;..\..\..\Headers;..\..\..\..\Headers;..\..\..\SwordOnline\Sources\Engine\Src;%(AdditionalIncludeDirectories);..\..\..\..\dxsdk\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;DIRECTDRAW_VERSION=0x0700;DIRECTINPUT_VERSION=0x0800;_WIN32_WINNT=0x0601;WINVER=0x0601;NTDDI_VERSION=0x06010000;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <WarningLevel>Level3</WarningLevel>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <SDLCheck>false</SDLCheck>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalOptions>/Zc:strictStrings- /Zc:forScope- /Zc:twoPhase- %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Shlwapi.lib;automap.lib;common.lib;engine.lib;image.lib;command.lib;graphicsutility.lib;CommonVc7.lib;Graphics.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>../../run_release/Status.dll</OutputFile>
+      <SubSystem>Windows</SubSystem>
+      <ProgramDatabaseFile>.\Release/Status.pdb</ProgramDatabaseFile>
+      <ModuleDefinitionFile>.\Status.def</ModuleDefinitionFile>
+      <ImportLibrary>../../lib/Status.lib</ImportLibrary>
+      <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalLibraryDirectories>..\..\lib;..\..\..\..\dxsdk\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_AFXDLL;NDEBUG;_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;DIRECTDRAW_VERSION=0x0700;DIRECTINPUT_VERSION=0x0800;_WIN32_WINNT=0x0601;WINVER=0x0601;NTDDI_VERSION=0x06010000;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>2052</Culture>
+    </ResourceCompile>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;DIRECTDRAW_VERSION=0x0700;DIRECTINPUT_VERSION=0x0800;_WIN32_WINNT=0x0601;WINVER=0x0601;NTDDI_VERSION=0x06010000;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\Headers;..\..\Headers;..\..\..\Headers;..\..\..\..\Headers;..\..\..\SwordOnline\Sources\Engine\Src;%(AdditionalIncludeDirectories);..\..\..\..\dxsdk\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;DIRECTDRAW_VERSION=0x0700;DIRECTINPUT_VERSION=0x0800;_WIN32_WINNT=0x0601;WINVER=0x0601;NTDDI_VERSION=0x06010000;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <SDLCheck>false</SDLCheck>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalOptions>/Zc:strictStrings- /Zc:forScope- /Zc:twoPhase- %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Shlwapi.lib;automap.lib;../../lib/common.lib;engine.lib;../../lib/image.lib;../../lib/command.lib;../../lib/graphicsutility.lib;CommonVc7.lib;Graphics.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>../../run/Status.dll</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <ProgramDatabaseFile>.\Debug/Status.pdb</ProgramDatabaseFile>
+      <ModuleDefinitionFile>.\Status.def</ModuleDefinitionFile>
+      <ImportLibrary>../../lib/Status.lib</ImportLibrary>
+      <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalLibraryDirectories>..\..\lib;..\..\..\..\dxsdk\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_AFXDLL;_DEBUG;_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;DIRECTDRAW_VERSION=0x0700;DIRECTINPUT_VERSION=0x0800;_WIN32_WINNT=0x0601;WINVER=0x0601;NTDDI_VERSION=0x06010000;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>2052</Culture>
+    </ResourceCompile>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;DIRECTDRAW_VERSION=0x0700;DIRECTINPUT_VERSION=0x0800;_WIN32_WINNT=0x0601;WINVER=0x0601;NTDDI_VERSION=0x06010000;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Server Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\Headers;..\..\Headers;..\..\..\Headers;..\..\..\..\Headers;..\..\..\SwordOnline\Sources\Engine\Src;%(AdditionalIncludeDirectories);..\..\..\..\dxsdk\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;DIRECTDRAW_VERSION=0x0700;DIRECTINPUT_VERSION=0x0800;_WIN32_WINNT=0x0601;WINVER=0x0601;NTDDI_VERSION=0x06010000;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <SDLCheck>false</SDLCheck>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <ConformanceMode>false</ConformanceMode>
+      <AdditionalOptions>/Zc:strictStrings- /Zc:forScope- /Zc:twoPhase- %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>Shlwapi.lib;automap.lib;../../lib/common.lib;engine.lib;../../lib/image.lib;../../lib/command.lib;../../lib/graphicsutility.lib;CommonVc7.lib;Graphics.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>../../run/Status.dll</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <ProgramDatabaseFile>.\Debug/Status.pdb</ProgramDatabaseFile>
+      <ModuleDefinitionFile>.\Status.def</ModuleDefinitionFile>
+      <ImportLibrary>../../lib/Status.lib</ImportLibrary>
+      <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalLibraryDirectories>..\..\lib;..\..\..\..\dxsdk\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_AFXDLL;_DEBUG;_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;DIRECTDRAW_VERSION=0x0700;DIRECTINPUT_VERSION=0x0800;_WIN32_WINNT=0x0601;WINVER=0x0601;NTDDI_VERSION=0x06010000;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>2052</Culture>
+    </ResourceCompile>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;_SILENCE_STDEXT_HASH_DEPRECATION_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_NONSTDC_NO_DEPRECATE;DIRECTDRAW_VERSION=0x0700;DIRECTINPUT_VERSION=0x0800;_WIN32_WINNT=0x0601;WINVER=0x0601;NTDDI_VERSION=0x06010000;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Controls\FileFindEx.cpp" />
+    <ClCompile Include="NpcSettingDlg.cpp" />
+    <ClCompile Include="ObjDlg.cpp" />
+    <ClCompile Include="ObstacleDlg.cpp" />
+    <ClCompile Include="SelectDlg.cpp" />
+    <ClCompile Include="SpecialDlg.cpp" />
+    <ClCompile Include="Status.cpp" />
+    <None Include="Status.def" />
+    <ClCompile Include="StdAfx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Server Debug|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="StringDlg.cpp" />
+    <ClCompile Include="activeiniform.cpp" />
+    <ClCompile Include="cActor.cpp" />
+    <ClCompile Include="cDoodad.cpp" />
+    <ClCompile Include="cMissle.cpp" />
+    <ClCompile Include="cStatus.cpp" />
+    <ClCompile Include="cStatusCamera.cpp" />
+    <ClCompile Include="cStatusDoodadDynamic.cpp" />
+    <ClCompile Include="cStatusDoodadSimple.cpp" />
+    <ClCompile Include="cStatusDynamic.cpp" />
+    <ClCompile Include="cStatusGeneral.cpp" />
+    <ClCompile Include="cStatusGroup.cpp" />
+    <ClCompile Include="cStatusGroupDynamic.cpp" />
+    <ClCompile Include="cStatusLightStatic.cpp" />
+    <ClCompile Include="cStatusMachine.cpp" />
+    <ClCompile Include="cStatusObstacle.cpp" />
+    <ClCompile Include="cStatusRegion.cpp" />
+    <ClCompile Include="cStatusSpecial.cpp" />
+    <ClCompile Include="cStatusTerrainDiamond.cpp" />
+    <ClCompile Include="cStatusTerrainRoad.cpp" />
+    <ClCompile Include="cStatusTerrainSquare.cpp" />
+    <ClCompile Include="cStatusTest.cpp" />
+    <ClCompile Include="objUtility.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="NpcSettingDlg.h" />
+    <ClInclude Include="ObjDlg.h" />
+    <ClInclude Include="ObstacleDlg.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="SelectDlg.h" />
+    <ClInclude Include="SpecialDlg.h" />
+    <ClInclude Include="Status.h" />
+    <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="StringDlg.h" />
+    <ClInclude Include="activeiniform.h" />
+    <ClInclude Include="cActor.h" />
+    <ClInclude Include="cDoodad.h" />
+    <ClInclude Include="cMissle.h" />
+    <ClInclude Include="cStatus.h" />
+    <ClInclude Include="cStatusCamera.h" />
+    <ClInclude Include="cStatusDoodadDynamic.h" />
+    <ClInclude Include="cStatusDoodadSimple.h" />
+    <ClInclude Include="cStatusDynamic.h" />
+    <ClInclude Include="cStatusGeneral.h" />
+    <ClInclude Include="cStatusGroup.h" />
+    <ClInclude Include="cStatusGroupDynamic.h" />
+    <ClInclude Include="cStatusLightStatic.h" />
+    <ClInclude Include="cStatusMachine.h" />
+    <ClInclude Include="cStatusObstacle.h" />
+    <ClInclude Include="cStatusRegion.h" />
+    <ClInclude Include="cStatusSpecial.h" />
+    <ClInclude Include="cStatusTerrainDiamond.h" />
+    <ClInclude Include="cStatusTerrainRoad.h" />
+    <ClInclude Include="cStatusTerrainSquare.h" />
+    <ClInclude Include="cStatusTest.h" />
+    <ClInclude Include="..\..\Headers\iStatus.h" />
+    <ClInclude Include="objUtility.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Status.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\Status.rc2" />
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

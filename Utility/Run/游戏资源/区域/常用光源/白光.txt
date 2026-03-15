@@ -1,0 +1,5 @@
+[MAIN]
+help=255,255,255,255
+icon=light
+lighttype=environment
+type=region

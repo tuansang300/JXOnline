@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{88D14C26-63A2-53A5-8332-BAEE643F27A8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Document">
+      <UniqueIdentifier>{A72D04B5-FC26-59CB-AA40-28A260EB39EC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ground">
+      <UniqueIdentifier>{563E28A9-F3CD-5833-BF00-01610655558C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{F11E40CB-A985-5EEF-ABD5-76D6AAD3B7E2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Obj">
+      <UniqueIdentifier>{FFD096E6-E984-5498-B45D-EC3C45662114}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{4801BE4B-6FB4-50A1-A075-E6409CA471C1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{23D8B78B-8959-5AAC-8C4C-7802BC8EF397}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Command.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <None Include="Command.def">
+      <Filter>Source Files</Filter>
+    </None>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cCmdCameraOffsetTo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cCommandMachine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cMacroCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cCmdCameraOffset.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="cCmdCameraScale.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="cCmdCameraSet.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="cCmdGroundChangeBrightness.cpp">
+      <Filter>Ground</Filter>
+    </ClCompile>
+    <ClCompile Include="cCmdGroundChangeTile.cpp">
+      <Filter>Ground</Filter>
+    </ClCompile>
+    <ClCompile Include="cCmdGroundFillRect.cpp">
+      <Filter>Ground</Filter>
+    </ClCompile>
+    <ClCompile Include="cCmdGroundToggleGrid.cpp">
+      <Filter>Ground</Filter>
+    </ClCompile>
+    <ClCompile Include="cCmdGroundDynamic.cpp">
+      <Filter>Document</Filter>
+    </ClCompile>
+    <ClCompile Include="cCmdNewDocument.cpp">
+      <Filter>Document</Filter>
+    </ClCompile>
+    <ClCompile Include="cCmdOpenDocument.cpp">
+      <Filter>Document</Filter>
+    </ClCompile>
+    <ClCompile Include="cCmdSaveDocument.cpp">
+      <Filter>Document</Filter>
+    </ClCompile>
+    <ClCompile Include="cCmdObjAdd.cpp">
+      <Filter>Obj</Filter>
+    </ClCompile>
+    <ClCompile Include="cCmdObjRemove.cpp">
+      <Filter>Obj</Filter>
+    </ClCompile>
+    <ClCompile Include="cCmdObjSetParam.cpp">
+      <Filter>Obj</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Command.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cCmdCameraOffsetTo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cCommandMachine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cMacroCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Headers\iCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cCmdCameraOffset.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="cCmdCameraScale.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="cCmdCameraSet.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="cCmdGroundChangeBrightness.h">
+      <Filter>Ground</Filter>
+    </ClInclude>
+    <ClInclude Include="cCmdGroundChangeTile.h">
+      <Filter>Ground</Filter>
+    </ClInclude>
+    <ClInclude Include="cCmdGroundFillRect.h">
+      <Filter>Ground</Filter>
+    </ClInclude>
+    <ClInclude Include="cCmdGroundToggleGrid.h">
+      <Filter>Ground</Filter>
+    </ClInclude>
+    <ClInclude Include="cCmdGroundDynamic.h">
+      <Filter>Document</Filter>
+    </ClInclude>
+    <ClInclude Include="cCmdNewDocument.h">
+      <Filter>Document</Filter>
+    </ClInclude>
+    <ClInclude Include="cCmdOpenDocument.h">
+      <Filter>Document</Filter>
+    </ClInclude>
+    <ClInclude Include="cCmdSaveDocument.h">
+      <Filter>Document</Filter>
+    </ClInclude>
+    <ClInclude Include="cCmdObjAdd.h">
+      <Filter>Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="cCmdObjRemove.h">
+      <Filter>Obj</Filter>
+    </ClInclude>
+    <ClInclude Include="cCmdObjSetParam.h">
+      <Filter>Obj</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Command.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\Command.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

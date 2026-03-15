@@ -1,0 +1,4 @@
+// Wrapper for <exception> - redirects to the MSVC <exception> header
+// Needed by STLport's _STLP_NATIVE_CPP_RUNTIME_HEADER(exception)
+#pragma once
+#include <exception>

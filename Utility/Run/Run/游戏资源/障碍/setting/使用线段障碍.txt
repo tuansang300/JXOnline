@@ -1,0 +1,5 @@
+[MAIN]
+help=F
+icon=setting
+type=obstacle
+want=bool

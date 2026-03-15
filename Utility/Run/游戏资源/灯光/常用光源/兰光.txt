@@ -1,0 +1,6 @@
+[MAIN]
+icon=light
+type=light_static
+lighttype=static
+lightcolor=0,0,255,255
+lightradius=7

@@ -1,0 +1,15 @@
+icon=doodad
+planedefaulttype=MAIN
+type=doodad_simple
+file=柱子.spr
+frames=4
+directions=1
+resourceid=347
+centerx=15
+centery=130
+planetype=垂直不切分
+planelightedtype=按照一个圆挡光
+planelightedradius=0.2
+anglexy=0
+height=0
+obstacletype=一般阻挡

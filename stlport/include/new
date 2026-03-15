@@ -1,0 +1,4 @@
+// Wrapper for <new> - redirects to the MSVC <new> header
+// Needed by STLport's _STLP_NATIVE_CPP_RUNTIME_HEADER(new)
+#pragma once
+#include <new>

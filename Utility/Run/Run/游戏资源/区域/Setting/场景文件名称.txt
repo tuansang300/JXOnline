@@ -1,0 +1,5 @@
+[MAIN]
+help=bcc\quickneess
+icon=setting
+type=region
+want=string

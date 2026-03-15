@@ -1,0 +1,6 @@
+[MAIN]
+help=8
+icon=setting
+title=设置光源最大半径
+type=light_static
+want=float

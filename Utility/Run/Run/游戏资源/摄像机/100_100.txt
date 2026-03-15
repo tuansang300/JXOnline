@@ -1,0 +1,7 @@
+[MAIN]
+cameratype=normal
+eye=1600.000000,3477.128174,160.000000
+icon=camera
+scale=14.200000
+to=1600.000000,3200.000000,0.000000
+type=camera

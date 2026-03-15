@@ -1,0 +1,6 @@
+[MAIN]
+help=2
+icon=setting
+title=设置光源半径变化帧数
+type=light_static
+want=float

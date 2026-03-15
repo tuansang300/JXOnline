@@ -1,0 +1,94 @@
+TrapId	Script
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+80	.\script\两湖区\巴陵县\trap\巴陵县to南岳镇.lua
+81	.\script\两湖区\巴陵县\trap\巴陵县to武陵山.lua
+
+83	.\script\两湖区\巴陵县\trap\巴陵县to神农架.lua
+
+
+
+
+
+
+90	.\script\两湖区\巴陵县\trap\巴陵县东门.lua
+91	.\script\两湖区\巴陵县\trap\巴陵县南门.lua
+92	.\script\两湖区\巴陵县\trap\巴陵县西门.lua
+93	.\script\两湖区\巴陵县\trap\巴陵县北门.lua

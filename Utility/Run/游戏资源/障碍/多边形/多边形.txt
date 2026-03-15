@@ -1,0 +1,5 @@
+[MAIN]
+geometrytype=3
+icon=obstacle
+obstacletype=1
+type=obstacle

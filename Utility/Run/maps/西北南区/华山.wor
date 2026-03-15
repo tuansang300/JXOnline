@@ -1,0 +1,7 @@
+[MAIN]
+brightness=255
+color=255,255,255,255
+event=event002
+rect=140,106,165,129
+verson=0
+windspeed=0.100000,0.000000,0.000000

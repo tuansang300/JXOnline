@@ -1,0 +1,6 @@
+[MAIN]
+help=0
+icon=setting
+title=设置光源高度
+type=light_static
+want=float

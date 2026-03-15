@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Server Debug|Win32">
+      <Configuration>Server Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A0D9A8E7-C05D-5E1F-2A5B-6C7D8E9F0A1B}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Engine</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Server Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Server Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)Utility\run\</OutDir>
+    <IntDir>$(SolutionDir)build\Engine\$(Configuration)\intermediate\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Server Debug|Win32'">
+    <OutDir>$(SolutionDir)Utility\run\</OutDir>
+    <IntDir>$(SolutionDir)build\Engine\$(Configuration)\intermediate\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>..\..\..\Bin\Client\</OutDir>
+    <IntDir>$(SolutionDir)build\Engine\$(Configuration)\intermediate\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_MBCS;_USRDLL;ENGINE_EXPORTS;USE_STANDALONE_SPR;WINVER=0x0500;_WINSOCKAPI_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <ConformanceMode>false</ConformanceMode>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <ForceConformanceInForLoopScope>false</ForceConformanceInForLoopScope>
+      <AdditionalOptions>/Zc:strictStrings-</AdditionalOptions>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>Include;Src;..\..\Headers;..\Pack\ucl-1.01\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OutputFile>$(OutDir)Engine.dll</OutputFile>
+      <AdditionalDependencies>wsock32.lib;dsound.lib;dxguid.lib;ddraw.lib;dinput8.lib;comdlg32.lib;mp3lib.lib;JpgLib.lib;LuaLibDll.lib;kernel32.lib;user32.lib;gdi32.lib;winmm.lib;ole32.lib;oleaut32.lib;vfw32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir);$(SolutionDir)Library\VideoLib\;$(ProjectDir)..\Library\VideoLib\;$(ProjectDir)..\MultiServer\S3Relay\;$(ProjectDir)..\JpgLib\Debug\;..\..\lib\debug;..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <IgnoreSpecificDefaultLibraries>LIBC.lib;LIBCD.lib;LIBCMT.lib;LIBCMTD.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Server Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_MBCS;_USRDLL;ENGINE_EXPORTS;USE_STANDALONE_SPR;WINVER=0x0500;_WINSOCKAPI_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <ConformanceMode>false</ConformanceMode>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <ForceConformanceInForLoopScope>false</ForceConformanceInForLoopScope>
+      <AdditionalOptions>/Zc:strictStrings-</AdditionalOptions>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>Include;Src;..\..\Headers;..\Pack\ucl-1.01\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OutputFile>$(OutDir)Engine.dll</OutputFile>
+      <AdditionalDependencies>wsock32.lib;dsound.lib;dxguid.lib;ddraw.lib;dinput8.lib;comdlg32.lib;mp3lib.lib;JpgLib.lib;LuaLibDll.lib;kernel32.lib;user32.lib;gdi32.lib;winmm.lib;ole32.lib;oleaut32.lib;vfw32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir);$(SolutionDir)Library\VideoLib\;$(ProjectDir)..\Library\VideoLib\;$(ProjectDir)..\MultiServer\S3Relay\;$(ProjectDir)..\JpgLib\Debug\;..\..\lib\debug;..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <IgnoreSpecificDefaultLibraries>LIBC.lib;LIBCD.lib;LIBCMT.lib;LIBCMTD.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_MBCS;_USRDLL;ENGINE_EXPORTS;WINVER=0x0500;_WINSOCKAPI_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <ConformanceMode>false</ConformanceMode>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <ForceConformanceInForLoopScope>false</ForceConformanceInForLoopScope>
+      <AdditionalOptions>/Zc:strictStrings-</AdditionalOptions>
+      <AdditionalIncludeDirectories>Include;Src;..\..\Headers;..\Pack\ucl-1.01\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OutputFile>$(OutDir)Engine.dll</OutputFile>
+      <AdditionalDependencies>wsock32.lib;dsound.lib;dxguid.lib;ddraw.lib;dinput8.lib;comdlg32.lib;mp3lib.lib;JpgLib.lib;LuaLibDll.lib;kernel32.lib;user32.lib;gdi32.lib;winmm.lib;ole32.lib;oleaut32.lib;vfw32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(ProjectDir);$(SolutionDir)Library\VideoLib\;$(ProjectDir)..\Library\VideoLib\;..\..\lib\release;..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <IgnoreSpecificDefaultLibraries>LIBC.lib;LIBCD.lib;LIBCMTD.lib;msvcrt.lib;msvcrtd.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="Src\stdafx.cpp" />
+    <ClCompile Include="Src\KEngine.cpp" />
+    <ClCompile Include="Src\KMemManager.cpp" />
+    <ClCompile Include="Src\KMemBase.cpp" />
+    <ClCompile Include="Src\KMemClass.cpp" />
+    <ClCompile Include="Src\KMemClass1.cpp" />
+    <ClCompile Include="Src\KMemStack.cpp" />
+    <ClCompile Include="Src\KMutex.cpp" />
+    <ClCompile Include="Src\KAutoMutex.cpp" />
+    <ClCompile Include="Src\KTimer.cpp" />
+    <ClCompile Include="Src\KRandom.cpp" />
+    <ClCompile Include="Src\KThread.cpp" />
+    <ClCompile Include="Src\KCache.cpp" />
+    <ClCompile Include="Src\KList.cpp" />
+    <ClCompile Include="Src\KNode.cpp" />
+    <ClCompile Include="Src\KBinTree.cpp" />
+    <ClCompile Include="Src\KFindBinTree.cpp" />
+    <ClCompile Include="Src\KSortBinTree.cpp" />
+    <ClCompile Include="Src\KLinkArray.cpp" />
+    <ClCompile Include="Src\KSafeList.cpp" />
+    <ClCompile Include="Src\KSortList.cpp" />
+    <ClCompile Include="Src\KStrBase.cpp" />
+    <ClCompile Include="Src\KStrNode.cpp" />
+    <ClCompile Include="Src\KStrList.cpp" />
+    <ClCompile Include="Src\KHashNode.cpp" />
+    <ClCompile Include="Src\KHashTable.cpp" />
+    <ClCompile Include="Src\KHashList.cpp" />
+    <ClCompile Include="Src\KOctree.cpp" />
+    <ClCompile Include="Src\KOctreeNode.cpp" />
+    <ClCompile Include="Src\KScript.cpp" />
+    <ClCompile Include="Src\KScriptSet.cpp" />
+    <ClCompile Include="Src\KScriptList.cpp" />
+    <ClCompile Include="Src\KScriptCache.cpp" />
+    <ClCompile Include="Src\KLuaScriptSet.cpp" />
+    <ClCompile Include="Src\KStepLuaScript.cpp" />
+    <ClCompile Include="Src\KEicScript.cpp" />
+    <ClCompile Include="Src\KEicScriptSet.cpp" />
+    <ClCompile Include="Src\KGraphics.cpp" />
+    <ClCompile Include="Src\KCanvas.cpp" />
+    <ClCompile Include="Src\KDrawBase.cpp" />
+    <ClCompile Include="Src\KDrawBitmap.cpp" />
+    <ClCompile Include="Src\KDrawBitmap16.cpp" />
+    <ClCompile Include="Src\KDrawSprite.cpp" />
+    <ClCompile Include="Src\KDrawFont.cpp" />
+    <ClCompile Include="Src\KDrawDotFont.cpp" />
+    <ClCompile Include="Src\KDrawFade.cpp" />
+    <ClCompile Include="Src\KPalette.cpp" />
+    <ClCompile Include="Src\KColors.cpp" />
+    <ClCompile Include="Src\Text.cpp" />
+    <ClCompile Include="Src\KWin32.cpp" />
+    <ClCompile Include="Src\KWin32Wnd.cpp" />
+    <ClCompile Include="Src\KWin32App.cpp" />
+    <ClCompile Include="Src\KMessage.cpp" />
+    <ClCompile Include="Src\KMsgNode.cpp" />
+    <ClCompile Include="Src\KEvent.cpp" />
+    <ClCompile Include="Src\KMouse.cpp" />
+    <ClCompile Include="Src\KKeyboard.cpp" />
+    <ClCompile Include="Src\KDInput.cpp" />
+    <ClCompile Include="Src\KVideo.cpp" />
+    <ClCompile Include="Src\KCodec.cpp" />
+    <ClCompile Include="Src\KWavCodec.cpp" />
+    <ClCompile Include="Src\KZipCodec.cpp" />
+    <ClCompile Include="Src\KCodecLha.cpp" />
+    <ClCompile Include="Src\KCodecLzo.cpp" />
+    <ClCompile Include="Src\KSpriteCodec.cpp" />
+    <ClCompile Include="Src\KBmp2Spr.cpp" />
+    <ClCompile Include="Src\KBitmapConvert.cpp" />
+    <ClCompile Include="Src\KImageStore.cpp" />
+    <ClCompile Include="Src\KSoundCache.cpp" />
+    <ClCompile Include="Src\KSpriteCache.cpp" />
+    <ClCompile Include="Src\KPcxFile.cpp" />
+    <ClCompile Include="Src\KJpgFile.cpp" />
+    <ClCompile Include="Src\KTgaFile32.cpp" />
+    <ClCompile Include="Src\KZipFile.cpp" />
+    <ClCompile Include="Src\KZipList.cpp" />
+    <ClCompile Include="Src\KZipData.cpp" />
+    <ClCompile Include="Src\ZPackFile.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Src\ZSPRPackFile.cpp" />
+    <ClCompile Include="Src\KMusic.cpp" />
+    <ClCompile Include="Src\KWavMusic.cpp" />
+    <ClCompile Include="Src\KMp3Music.cpp" />
+    <ClCompile Include="Src\KMpgMusic.cpp" />
+    <ClCompile Include="Src\KDSound.cpp" />
+    <ClCompile Include="Src\KWavSound.cpp" />
+    <ClCompile Include="Src\KMp4Audio.cpp" />
+    <ClCompile Include="Src\KMp4Movie.cpp" />
+    <ClCompile Include="Src\KTabFile.cpp" />
+    <ClCompile Include="Src\KScanDir.cpp" />
+    <ClCompile Include="Src\KFileCopy.cpp" />
+    <ClCompile Include="Src\KFileDialog.cpp" />
+    <ClCompile Include="Src\KNetServerNode.cpp" />
+    <ClCompile Include="Src\KNetThread.cpp" />
+    <ClCompile Include="Src\KDebug.cpp" />
+    <ClCompile Include="Src\KSG_StringProcess.cpp" />
+    <ClCompile Include="Src\KSG_MD5_String.cpp" />
+    <ClCompile Include="Src\KPolyRelation.cpp" />
+    <ClCompile Include="Src\KPolygon.cpp" />
+    <ClCompile Include="Src\LuaFuns.cpp" />
+    <ClCompile Include="Src\Cryptography\EDOneTimePad.cpp" />
+    <ClCompile Include="Src\KFile.cpp" />
+    <ClCompile Include="Src\KFilePath.cpp" />
+    <ClCompile Include="Src\KIniFile.cpp" />
+    <ClCompile Include="Src\KNetServer.cpp" />
+    <ClCompile Include="Src\KNetClient.cpp" />
+    <ClCompile Include="Src\KWavFile.cpp" />
+    <ClCompile Include="Src\KAviFile.cpp" />
+    <ClCompile Include="Src\KMp4Video.cpp" />
+    <ClCompile Include="Src\KDDraw.cpp" />
+    <ClCompile Include="Src\KBmpFile.cpp" />
+    <ClCompile Include="Src\KBmpFile24.cpp" />
+    <ClCompile Include="Src\KSprite.cpp" />
+    <ClCompile Include="Src\KSpriteMaker.cpp" />
+    <ClCompile Include="Src\KPakFile.cpp" />
+    <ClCompile Include="Src\KPakData.cpp" />
+    <ClCompile Include="Src\KPakList.cpp" />
+    <ClCompile Include="Src\KPakMake.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="Src\KPakTool.cpp" />
+    <ClCompile Include="Src\XPackFile.cpp" />
+    <ClCompile Include="Src\KFont.cpp" />
+    <ClCompile Include="Src\KGifFile.cpp" />
+    <ClCompile Include="Src\KImageRes.cpp" />
+    <ClCompile Include="Src\KBitmap.cpp" />
+    <ClCompile Include="Src\KBitmap16.cpp" />
+    <ClCompile Include="Src\KDError.cpp" />
+    <ClCompile Include="Src\KDrawSpriteAlpha.cpp" />
+    <ClCompile Include="Src\KLuaScript.cpp" />
+    <ClCompile Include="Src\KLubCmpl_Blocker.cpp" />
+    <ClCompile Include="Src\KTabFileCtrl.cpp" />
+    <ClCompile Include="Src\Kime.cpp" />
+    <ClCompile Include="Src\md5.cpp" />
+    <ClCompile Include="Src\ucl\n2b_d.c" />
+    <ClCompile Include="Src\LhaLib_stub.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

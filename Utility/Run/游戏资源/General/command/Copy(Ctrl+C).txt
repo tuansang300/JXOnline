@@ -1,0 +1,4 @@
+[MAIN]
+command=camera_reduce
+icon=command
+type=camera

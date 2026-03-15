@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls \"D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources/Headers/\")",
+      "Bash(ls \"D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources/Kernel/\")",
+      "Bash(ls \"D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Headers/\")",
+      "Bash(ls -d \"D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/\"*/)",
+      "Bash(cat '/d/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources/Engine/Engine.dsp')",
+      "Bash(wc -l \"/d/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources/Engine/Engine.dsp\")",
+      "Bash(ls -la \"D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources/Engine/\")",
+      "Bash(ls \"/d/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources/Engine/\")",
+      "Bash(grep \"\\\\.cpp$\")",
+      "Bash(python3:*)",
+      "Bash(ls \"D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources/Engine/Src/LhaLib_stub.c\")",
+      "Bash(where python:*)",
+      "Bash(where python3:*)",
+      "Bash(where py:*)"
+    ]
+  }
+}

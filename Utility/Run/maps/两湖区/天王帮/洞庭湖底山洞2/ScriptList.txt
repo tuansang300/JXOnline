@@ -1,0 +1,5 @@
+TrapId	Script
+
+
+
+4	.\script\两湖区\天王帮\洞庭湖底山洞1\trap\洞庭湖底1to天王帮.lua

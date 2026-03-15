@@ -1,0 +1,6 @@
+[MAIN]
+help=aaa
+icon=setting
+title="ÉèÖÃeventÃû³Æ"
+type=doodad_dynamic
+want=string

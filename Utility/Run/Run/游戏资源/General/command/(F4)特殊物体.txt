@@ -1,0 +1,3 @@
+[MAIN]
+command=general_trace
+icon=command

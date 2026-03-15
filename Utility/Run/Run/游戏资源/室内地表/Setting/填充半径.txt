@@ -1,0 +1,6 @@
+[MAIN]
+help=8
+icon=setting
+title="Моід°лѕ¶"
+type=terrain_diamond
+want=int

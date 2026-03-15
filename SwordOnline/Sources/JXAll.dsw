@@ -1,0 +1,301 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "Autoupdate"=.\Sources\Autoupdate\Autoupdate.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/Utility/Sources/Autoupdate", BPIAAAAA
+    .\sources\autoupdate
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Bishop"=.\Sources\MultiServer\Bishop\Bishop.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/SwordOnline/Sources/MultiServer/Bishop", HKSAAAAA
+    .\sources\multiserver\bishop
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Common"=.\Sources\MultiServer\Common\Common.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/SwordOnline/Sources/MultiServer/Common", HSNAAAAA
+    .\sources\multiserver\common
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Core"=.\Sources\Core\Core.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/SwordOnline/Sources/Core", FPAAAAAA
+    .\sources\core
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Engine"=.\Sources\Engine\Engine.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/SwordOnline/Sources/Engine", BAAAAAAA
+    .\sources\engine
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "ExpandPackage"=.\Sources\ExpandPackage2.0\ExpandPackage.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/SwordOnline/Sources/ExpandPackage2.0", HGTAAAAA
+    .\sources\expandpackage2.0
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "GameServer"=.\Sources\MultiServer\GameServer\GameServer.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/SwordOnline/Sources/MultiServer/GameServer", DHSAAAAA
+    .\sources\multiserver\gameserver
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Goddess"=.\Sources\MultiServer\Goddess\Goddess.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/SwordOnline/Sources/MultiServer/Goddess", KFTAAAAA
+    .\sources\multiserver\goddess
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Heaven"=.\Sources\MultiServer\Heaven\Heaven.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/SwordOnline/Sources/MultiServer/Heaven", VTNAAAAA
+    .\sources\multiserver\heaven
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Rainbow"=.\Sources\MultiServer\Rainbow\Rainbow.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/SwordOnline/Sources/MultiServer/Rainbow", EVNAAAAA
+    .\sources\multiserver\rainbow
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Represent2"=.\Sources\Represent\Represent2\Represent2.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/SwordOnline/Sources/Represent/Represent2", AYGAAAAA
+    .\sources\represent\represent2
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Represent3"=.\Sources\Represent\Represent3\Represent3.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/SwordOnline/Sources/Represent/Represent3", XVJAAAAA
+    .\sources\represent\represent3
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "S3Client"=.\Sources\S3Client\S3Client.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/SwordOnline/Sources/S3Client", VRDAAAAA
+    .\sources\s3client
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "S3Relay"=.\Sources\MultiServer\S3Relay\S3Relay.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/SwordOnline/Sources/MultiServer/S3Relay", BSSAAAAA
+    .\sources\multiserver\s3relay
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "S3RelayServer"=.\Sources\Sword3PaySys\S3RELAYSERVER\S3RelayServer.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/SwordOnline/Sources/Sword3PaySys/S3RELAYSERVER", DCTAAAAA
+    .\Sources\Sword3PaySys\S3RELAYSERVER
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Sword3PaySys"=.\Sources\Sword3PaySys\S3AccServer\Sword3PaySys.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/SwordOnline/Sources/Sword3PaySys/S3AccServer", FQKAAAAA
+    .\sources\sword3paysys\s3accserver
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "UpdateDLL"=.\Sources\UPDATEDLL\UpdateDLL.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+    begin source code control
+    "$/SwordOnline/Sources/UPDATEDLL", JGTAAAAA
+    .\sources\updatedll
+    end source code control
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "ZNull"=.\SOURCES\ZNull\ZNull.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

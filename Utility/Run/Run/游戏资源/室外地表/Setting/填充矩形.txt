@@ -1,0 +1,6 @@
+[MAIN]
+icon=setting
+type=terrain_square
+want=rect
+title="Ìî³ä¾ØÐÎ"
+help=0,0,0,0

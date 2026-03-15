@@ -1,0 +1,5 @@
+[MAIN]
+help=stone_01
+icon=setting
+type=group
+want=string

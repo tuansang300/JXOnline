@@ -1,0 +1,6 @@
+[MAIN]
+help=255,150,150,255
+icon=setting
+title=设置光源颜色
+type=light_static
+want=color

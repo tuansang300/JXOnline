@@ -1,0 +1,5 @@
+[MAIN]
+help=0
+icon=setting
+type=region
+want=int

@@ -1,0 +1,16 @@
+[MAIN]
+anispeed=0
+centerx=0
+centery=0
+directions=1
+file=road001.spr
+frames=11
+height=0
+icon=doodad
+kind=室外道路
+obstacletype=非阻挡
+planedefaulttype=MAIN
+planetype=平行于地表
+resourceid=8
+sorttype=地表
+type=doodad_simple

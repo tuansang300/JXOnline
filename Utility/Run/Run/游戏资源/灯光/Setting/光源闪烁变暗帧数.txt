@@ -1,0 +1,6 @@
+[MAIN]
+help=4
+icon=setting
+title=设置光源闪烁变暗帧数
+type=light_static
+want=int

@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Other">
+      <UniqueIdentifier>{45B6D154-B049-5857-86A8-D1A36AAB8D1E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TextCommandControl">
+      <UniqueIdentifier>{0D04E28B-1666-5280-91F7-B5288FB318A6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface">
+      <UniqueIdentifier>{DEDD2F50-D7F0-59DD-8C5F-88606C31EFC1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Login">
+      <UniqueIdentifier>{39BC6CC5-E631-5826-B429-0FF706B9A256}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NetworkConnection">
+      <UniqueIdentifier>{D98C966F-B8C5-5538-A7FD-A9A81125A29F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Login\SavedPlayerSelection">
+      <UniqueIdentifier>{25C11EF8-627F-5B6D-9CC9-FC4561FA6B49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Sound">
+      <UniqueIdentifier>{819C913D-7B7C-5300-A752-FE099CC414DA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Basics">
+      <UniqueIdentifier>{1E4964B5-3CB9-5248-9ED8-148B771C74FF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Application">
+      <UniqueIdentifier>{4470BB5E-65CE-5335-8C73-558919640907}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Application\CharacterStatusUI">
+      <UniqueIdentifier>{7A3BAF86-5D6B-57E2-9CC3-D6EDC7DECBA0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Application\TradeUI">
+      <UniqueIdentifier>{E77C6DC2-8106-5FE8-9CD5-E577730E5562}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Application\OtherUI">
+      <UniqueIdentifier>{499AF71A-7E2A-514F-9693-DD146F644C3F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Application\MiniMapUI">
+      <UniqueIdentifier>{73A15A9B-CC44-5CAD-A8F4-D245A890EB52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Application\TopBarAndMessageUI">
+      <UniqueIdentifier>{140FE500-8273-5EEE-9803-6E7274C18811}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Application\GameWorldUI">
+      <UniqueIdentifier>{CF500366-9B9F-56F1-99E2-A88ECBBFA982}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Application\LoginUI">
+      <UniqueIdentifier>{6EA2F988-9B6B-5410-865F-5C95F8C75D76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Application\SystemMessageUI">
+      <UniqueIdentifier>{949378CB-961E-5AE9-9BF6-420DC4DBE3D6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Application\ChatUI">
+      <UniqueIdentifier>{CDBD7E2B-1294-54B9-9704-A563A26725FA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Application\CharacterSelectUI">
+      <UniqueIdentifier>{E4B46DCD-8F1C-5145-BD48-0C1CD6957A73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Application\SettingsUI">
+      <UniqueIdentifier>{5172C8CA-2DB3-5ED7-ACB7-49513C26CB92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Application\ColorSelectUI">
+      <UniqueIdentifier>{88BB772C-CC93-5023-8645-CAF5459B6C10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Application\InventoryUI">
+      <UniqueIdentifier>{09E11910-105B-5A16-BDF7-8B2A7E18D327}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Application\ManagerUI">
+      <UniqueIdentifier>{50E2CB76-B151-5BD4-A041-2DDC5E0734A1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Application\TeamUI">
+      <UniqueIdentifier>{3F2808B2-6205-5E1E-852E-AA814B7B98B4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Application\TooltipUI">
+      <UniqueIdentifier>{5CEF8326-61AA-5779-A4D2-823F28C906CA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface\Application\StartupUI">
+      <UniqueIdentifier>{BF94BDAE-831A-5A28-95EB-4300933419D6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Ui\GameSpaceChangedNotify.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\ShortcutKey.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiBase.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiShell.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\Elem\AutoLocateWnd.cpp">
+      <Filter>Interface\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\Elem\MouseHover.cpp">
+      <Filter>Interface\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\Elem\PopupMenu.cpp">
+      <Filter>Interface\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\Elem\UiCursor.cpp">
+      <Filter>Interface\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\Elem\UiImage.cpp">
+      <Filter>Interface\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\Elem\WndButton.cpp">
+      <Filter>Interface\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\Elem\WndEdit.cpp">
+      <Filter>Interface\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\Elem\WndImage.cpp">
+      <Filter>Interface\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\Elem\WndImagePart.cpp">
+      <Filter>Interface\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\Elem\WndLabeledButton.cpp">
+      <Filter>Interface\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\Elem\WndList.cpp">
+      <Filter>Interface\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\Elem\WndList2.cpp">
+      <Filter>Interface\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\Elem\WndMessageListBox.cpp">
+      <Filter>Interface\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\Elem\WndMovingImage.cpp">
+      <Filter>Interface\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\Elem\WndObjContainer.cpp">
+      <Filter>Interface\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\Elem\WndPage.cpp">
+      <Filter>Interface\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\Elem\WndPureTextBtn.cpp">
+      <Filter>Interface\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\Elem\WndScrollBar.cpp">
+      <Filter>Interface\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\elem\WndShadow.cpp">
+      <Filter>Interface\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\Elem\WndShowAnimate.cpp">
+      <Filter>Interface\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\Elem\WndText.cpp">
+      <Filter>Interface\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\Elem\WndValueImage.cpp">
+      <Filter>Interface\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\Elem\WndWindow.cpp">
+      <Filter>Interface\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\Elem\Wnds.cpp">
+      <Filter>Interface\Basics</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiConnectInfo.cpp">
+      <Filter>Interface\Application\LoginUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiLogin.cpp">
+      <Filter>Interface\Application\LoginUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiLoginBg.cpp">
+      <Filter>Interface\Application\LoginUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiSelServer.cpp">
+      <Filter>Interface\Application\LoginUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiPlayerBar.cpp">
+      <Filter>Interface\Application\CharacterStatusUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiStatus.cpp">
+      <Filter>Interface\Application\CharacterStatusUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiManage.cpp">
+      <Filter>Interface\Application\ManagerUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiOptions.cpp">
+      <Filter>Interface\Application\SettingsUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiInit.cpp">
+      <Filter>Interface\Application\StartupUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiGetMoney.cpp">
+      <Filter>Interface\Application\InventoryUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiItem.cpp">
+      <Filter>Interface\Application\InventoryUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiSkillTree.cpp">
+      <Filter>Interface\Application\InventoryUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiSkills.cpp">
+      <Filter>Interface\Application\InventoryUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\uicase\UiStoreBox.cpp">
+      <Filter>Interface\Application\InventoryUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiESCDlg.cpp">
+      <Filter>Interface\Application\OtherUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiGetString.cpp">
+      <Filter>Interface\Application\OtherUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiMsgSel.cpp">
+      <Filter>Interface\Application\OtherUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiSelPlayerNearby.cpp">
+      <Filter>Interface\Application\OtherUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiNewPlayer.cpp">
+      <Filter>Interface\Application\CharacterSelectUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiSelNativePlace.cpp">
+      <Filter>Interface\Application\CharacterSelectUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiSelPlayer.cpp">
+      <Filter>Interface\Application\CharacterSelectUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiChannelSubscibe.cpp">
+      <Filter>Interface\Application\ChatUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiChatCentre.cpp">
+      <Filter>Interface\Application\ChatUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiChatStatus.cpp">
+      <Filter>Interface\Application\ChatUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiFriendInterview.cpp">
+      <Filter>Interface\Application\ChatUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiInformation.cpp">
+      <Filter>Interface\Application\TooltipUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiInformation2.cpp">
+      <Filter>Interface\Application\TooltipUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiTeamApply.cpp">
+      <Filter>Interface\Application\TeamUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiTeamManage.cpp">
+      <Filter>Interface\Application\TeamUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiHeaderControlBar.cpp">
+      <Filter>Interface\Application\TopBarAndMessageUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\uicase\UiMsgCentrePad.cpp">
+      <Filter>Interface\Application\TopBarAndMessageUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UIcase\UiShop.cpp">
+      <Filter>Interface\Application\TradeUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiTrade.cpp">
+      <Filter>Interface\Application\TradeUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiTradeConfirmWnd.cpp">
+      <Filter>Interface\Application\TradeUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiGame.cpp">
+      <Filter>Interface\Application\GameWorldUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiSysMsgCentre.cpp">
+      <Filter>Interface\Application\SystemMessageUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\uicase\UiMiniMap.cpp">
+      <Filter>Interface\Application\MiniMapUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiCase\UiSelColor.cpp">
+      <Filter>Interface\Application\ColorSelectUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Ui\UiSoundSetting.cpp">
+      <Filter>Interface\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="S3Client.cpp">
+      <Filter>Other</Filter>
+    </ClCompile>
+    <ClCompile Include="NetConnect\NetConnectAgent.cpp">
+      <Filter>NetworkConnection</Filter>
+    </ClCompile>
+    <ClCompile Include="Login\Login.cpp">
+      <Filter>Login</Filter>
+    </ClCompile>
+    <ClCompile Include="Login\Character\SelSavedCharacter.cpp">
+      <Filter>Login\SavedPlayerSelection</Filter>
+    </ClCompile>
+    <ClCompile Include="TextCtrlCmd\TextCtrlCmd.cpp">
+      <Filter>TextCommandControl</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="Ui\Elem\WndToolBar.cpp" />
+    <ClCompile Include="Ui\Elem\ComWindow.cpp" />
+    <ClCompile Include="Ui\Elem\SpecialFuncs.cpp" />
+    <ClCompile Include="Ui\Elem\TextPic.cpp" />
+    <ClCompile Include="Ui\UiChatPhrase.cpp" />
+    <ClCompile Include="Ui\ChatFilter.cpp" />
+    <ClCompile Include="Ui\FilterTextLib.cpp" />
+    <ClCompile Include="Ui\UiCase\UiParadeItem.cpp" />
+    <ClCompile Include="Ui\UiCase\UiToolsControlBar.cpp" />
+    <ClCompile Include="Ui\UiCase\UiNewPlayerStartMsg.cpp" />
+    <ClCompile Include="Ui\UiCase\UiHelper.cpp" />
+    <ClCompile Include="Ui\UiCase\UiHelper2.cpp" />
+    <ClCompile Include="Ui\UiCase\UiReconnect.cpp" />
+    <ClCompile Include="Ui\UiCase\UiFaceSelector.cpp" />
+    <ClCompile Include="Ui\UiCase\UiStrengthRank.cpp" />
+    <ClCompile Include="Ui\UiCase\UiTongManager.cpp" />
+    <ClCompile Include="Ui\UiCase\UiWorldMap.cpp" />
+    <ClCompile Include="Ui\UiCase\UiPlayVideo.cpp" />
+    <ClCompile Include="Ui\UiCase\UiNewsMessage.cpp" />
+    <ClCompile Include="Ui\UiCase\UiTaskNote.cpp" />
+    <ClCompile Include="Ui\UiCase\UiTongCreateSheet.cpp" />
+    <ClCompile Include="Ui\UiCase\UiTongAssignBox.cpp" />
+    <ClCompile Include="Ui\UiCase\UiTongGetString.cpp" />
+    <ClCompile Include="Ui\UiCase\UiTaskDataFile.cpp" />
+    <ClCompile Include="ErrorCode.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Ui\ShortcutKey.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiBase.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiShell.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\Elem\AutoLocateWnd.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\Elem\MouseHover.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\Elem\PopupMenu.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\Elem\UiCursor.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\Elem\UiImage.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\Elem\WndButton.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\Elem\WndEdit.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\Elem\WndGameSpace.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\Elem\WndImage.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\Elem\WndImagePart.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\Elem\WndLabeledButton.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\Elem\WndList.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\Elem\WndList2.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\Elem\WndMessage.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\Elem\WndMessageListBox.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\Elem\WndMovingImage.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\Elem\WndObjContainer.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\Elem\WndPage.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\Elem\WndPureTextBtn.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\Elem\WndScrollBar.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\elem\WndShadow.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\Elem\WndShowAnimate.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\Elem\WndText.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\Elem\WndValueImage.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\Elem\WndWindow.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\Elem\Wnds.h">
+      <Filter>Interface\Basics</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiConnectInfo.h">
+      <Filter>Interface\Application\LoginUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiLogin.h">
+      <Filter>Interface\Application\LoginUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiLoginBg.h">
+      <Filter>Interface\Application\LoginUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiSelServer.h">
+      <Filter>Interface\Application\LoginUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiPlayerBar.h">
+      <Filter>Interface\Application\CharacterStatusUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiStatus.h">
+      <Filter>Interface\Application\CharacterStatusUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiManage.h">
+      <Filter>Interface\Application\ManagerUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiOptions.h">
+      <Filter>Interface\Application\SettingsUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiInit.h">
+      <Filter>Interface\Application\StartupUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiGetMoney.h">
+      <Filter>Interface\Application\InventoryUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiItem.h">
+      <Filter>Interface\Application\InventoryUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiSkillTree.h">
+      <Filter>Interface\Application\InventoryUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiSkills.h">
+      <Filter>Interface\Application\InventoryUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\uicase\UiStoreBox.h">
+      <Filter>Interface\Application\InventoryUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiESCDlg.h">
+      <Filter>Interface\Application\OtherUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiGetString.h">
+      <Filter>Interface\Application\OtherUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiMsgSel.h">
+      <Filter>Interface\Application\OtherUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiSelPlayerNearby.h">
+      <Filter>Interface\Application\OtherUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiNewPlayer.h">
+      <Filter>Interface\Application\CharacterSelectUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiSelNativePlace.h">
+      <Filter>Interface\Application\CharacterSelectUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiSelPlayer.h">
+      <Filter>Interface\Application\CharacterSelectUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiChannelSubscibe.h">
+      <Filter>Interface\Application\ChatUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiChatCentre.h">
+      <Filter>Interface\Application\ChatUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiChatStatus.h">
+      <Filter>Interface\Application\ChatUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiFriendInterview.h">
+      <Filter>Interface\Application\ChatUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiInformation.h">
+      <Filter>Interface\Application\TooltipUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiInformation2.h">
+      <Filter>Interface\Application\TooltipUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiTeamApply.h">
+      <Filter>Interface\Application\TeamUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiTeamManage.h">
+      <Filter>Interface\Application\TeamUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiHeaderControlBar.h">
+      <Filter>Interface\Application\TopBarAndMessageUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiMsgCentrePad.h">
+      <Filter>Interface\Application\TopBarAndMessageUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UIcase\UiShop.h">
+      <Filter>Interface\Application\TradeUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiTrade.h">
+      <Filter>Interface\Application\TradeUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiTradeConfirmWnd.h">
+      <Filter>Interface\Application\TradeUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiGame.h">
+      <Filter>Interface\Application\GameWorldUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiSysMsgCentre.h">
+      <Filter>Interface\Application\SystemMessageUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\uicase\UiMiniMap.h">
+      <Filter>Interface\Application\MiniMapUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiCase\UiSelColor.h">
+      <Filter>Interface\Application\ColorSelectUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Ui\UiSoundSetting.h">
+      <Filter>Interface\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="S3Client.h">
+      <Filter>Other</Filter>
+    </ClInclude>
+    <ClInclude Include="NetConnect\NetConnectAgent.h">
+      <Filter>NetworkConnection</Filter>
+    </ClInclude>
+    <ClInclude Include="NetConnect\NetMsgTargetObject.h">
+      <Filter>NetworkConnection</Filter>
+    </ClInclude>
+    <ClInclude Include="Login\Login.h">
+      <Filter>Login</Filter>
+    </ClInclude>
+    <ClInclude Include="Login\LoginDef.h">
+      <Filter>Login</Filter>
+    </ClInclude>
+    <ClInclude Include="Login\Character\SelSavedCharacter.h">
+      <Filter>Login\SavedPlayerSelection</Filter>
+    </ClInclude>
+    <ClInclude Include="TextCtrlCmd\TextCtrlCmd.h">
+      <Filter>TextCommandControl</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Script1.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="test.ico" />
+  </ItemGroup>
+</Project>

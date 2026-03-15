@@ -1,0 +1,6 @@
+[MAIN]
+help=1
+icon=setting
+title=设置光源位置变化距离
+type=light_static
+want=float

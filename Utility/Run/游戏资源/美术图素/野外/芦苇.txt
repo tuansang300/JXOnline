@@ -1,0 +1,16 @@
+icon=doodad
+planedefaulttype=MAIN
+type=doodad_simple
+file=芦苇.spr
+frames=10
+directions=1
+resourceid=58
+centerx=22
+centery=92
+planetype=垂直不切分
+planelightedtype=不挡光
+planelightedradius=0
+anglexy=0
+height=0
+obstacletype=非阻挡
+kind=一般类型

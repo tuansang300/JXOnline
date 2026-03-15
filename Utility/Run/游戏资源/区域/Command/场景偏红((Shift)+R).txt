@@ -1,0 +1,4 @@
+[MAIN]
+icon=command
+lightcommand=region_turnred
+type=region

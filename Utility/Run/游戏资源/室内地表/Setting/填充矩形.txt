@@ -1,0 +1,6 @@
+[MAIN]
+help=0,0,0,0
+icon=setting
+title="Ìî³ä¾ØÐÎ"
+type=terrain_diamond
+want=rect

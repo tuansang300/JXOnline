@@ -1,0 +1,5 @@
+[MAIN]
+help=a\abc
+icon=setting
+type=obstacle
+want=string

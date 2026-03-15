@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls \"D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources/Represent/Represent3/\")",
+      "Bash(find \"D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources/\" -type d -name \"Include\")",
+      "Bash(find \"D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources/\" -name \"*.sln\")",
+      "Bash(find 'D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources/' -name *.vcxproj)",
+      "Bash(ls -la \"D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources/Engine/Include/\")",
+      "Bash(find \"D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources\" -name \"*.vcxproj\")",
+      "Bash(ls -la 'D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources/Engine/')",
+      "Bash(find \"D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources/\" -maxdepth 3 -name \"*.sln\")",
+      "Bash(grep -l \"Server Release\" \"D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources/\"*.sln)",
+      "Bash(ls -la 'D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources/Core/')",
+      "Bash(ls \"D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources/Engine/\")",
+      "Bash(find \"D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources/\" -name \"*.h\" -o -name \"*.cpp\")",
+      "Bash(xargs grep:*)",
+      "Bash(find \"D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources/Core\" -maxdepth 2 -name \"*.vcxproj\")",
+      "Bash(find 'D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources' -type f \\\\\\(-name *.h -o -name *.cpp \\\\\\))",
+      "Bash(xargs dirname:*)",
+      "Bash(ls \"D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources/Represent/iRepresent/\")",
+      "Bash(grep -r g_GetMainHWnd 'D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources/' --include=*.h)",
+      "Bash(grep -r g_FileName2Id 'D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources/' --include=*.h)",
+      "Bash(find 'D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources/' -name *.h)",
+      "Read(//d/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/Lib/**)",
+      "Read(//d/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Lib/**)",
+      "Bash(ls \"D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Lib/\")",
+      "Bash(ls \"D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Lib/release/\")"
+    ]
+  }
+}

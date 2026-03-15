@@ -1,0 +1,6 @@
+[MAIN]
+help=0.1f
+icon=setting
+title=设置光源半径变化速度
+type=light_static
+want=float

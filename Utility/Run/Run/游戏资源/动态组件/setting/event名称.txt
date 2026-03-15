@@ -1,0 +1,6 @@
+[MAIN]
+help=test
+icon=setting
+title="ÉèÖÃeventÃû³Æ"
+type=group_dynamic
+want=string

@@ -1,0 +1,5 @@
+[MAIN]
+help=test122
+icon=setting
+type=group_dynamic
+want=string

@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find \"D:/JX/Source full JX \\(unrarme!#@\\)/JX/swrod3/SwordOnline/Sources/Represent/iRepresent/\" -name \"*.cpp\" -not -path \"*/Debug/*\" -not -path \"*/Release/*\" -not -path \"*/build/*\")",
+      "Bash(ls \"D:\\\\JX\\\\Source full JX \\(unrarme!#@\\)\\\\JX\\\\swrod3\\\\SwordOnline\\\\Sources\\\\Represent\\\\iRepresent\"\")"
+    ]
+  }
+}
