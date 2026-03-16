@@ -37,9 +37,25 @@ BOOL CRoleNameFilter::Initialize()
 	if (m_pTextFilter)
 		return FALSE;
 
+	// Debug: show full path being searched
+	{
+		char szFullPath[MAX_PATH] = {0};
+		if (_fullpath(szFullPath, file_rolenameflt, MAX_PATH))
+		{
+			printf("[RoleNameFilter] Trying to open: %s\n", szFullPath);
+			OutputDebugStringA("[RoleNameFilter] Trying to open: ");
+			OutputDebugStringA(szFullPath);
+			OutputDebugStringA("\n");
+		}
+	}
+
 	FILE* pFileRoleNameFlt = fopen(file_rolenameflt, "rt");
 	if (pFileRoleNameFlt == NULL)
+	{
+		printf("[RoleNameFilter] FAILED to open: %s\n", file_rolenameflt);
+		OutputDebugStringA("[RoleNameFilter] FAILED to open file!\n");
 		return FALSE;
+	}
 
 	extern CFilterTextLib g_libFilterText;
 	if (SUCCEEDED(g_libFilterText.CreateTextFilter(&m_pTextFilter)))

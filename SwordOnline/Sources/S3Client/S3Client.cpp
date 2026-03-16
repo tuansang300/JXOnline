@@ -33,7 +33,7 @@ CChatFilter g_ChatFilter;
 #define REPRESENT_MODULE_3			"Represent3.dll"
 #define CREATE_REPRESENT_SHELL_FUN	"CreateRepresentShell"
 #define	GAME_FPS			18
-//RepresentÄ£¿é½Ó¿ÚµÄÖ¸Õë
+//RepresentÃ„Â£Â¿Ã©Â½Ã“Â¿ÃšÂµÃ„Ã–Â¸Ã•Ã«
 struct iRepresentShell*	g_pRepresentShell = NULL;
 struct IInlinePicEngineSink* g_pIInlinePicSink = NULL;
 iCoreShell*				g_pCoreShell = NULL;
@@ -47,7 +47,7 @@ KMusic*					g_pMusic = NULL;
 #endif
 	
 int					g_bScreen = true;
-char				g_szGameName[33] = "½£ÏÀÇéÔµ¡¤ÍøÂç°æ";
+char				g_szGameName[33] = "Â½Â£ÃÃ€Ã‡Ã©Ã”ÂµÂ¡Â¤ÃÃ¸Ã‚Ã§Â°Ã¦";
 
 
 KClientCallback g_ClientCallback;
@@ -175,10 +175,22 @@ BOOL KMyApp::GameInit()
 	g_SetRootPath(NULL);
 	g_SetFilePath("\\");
 
+	// Debug: show resolved paths
+	{
+		char szRoot[MAX_PATH] = {0};
+		char szFull[MAX_PATH] = {0};
+		g_GetRootPath(szRoot);
+		g_GetFullPath(szFull, "\\config.ini");
+		char szMsg[1024];
+		sprintf(szMsg, "[S3Client] RootPath: %s\n[S3Client] \\config.ini -> %s\n", szRoot, szFull);
+		OutputDebugStringA(szMsg);
+		MessageBoxA(NULL, szMsg, "S3Client Path Debug", MB_OK);
+	}
+
 	KIniFile*	pSetting = g_UiBase.GetCommConfigFile();
 	if (pSetting)
 	{
-		pSetting->GetString("Main", "GameName", "½£ÏÀÇéÔµ¡¤ÍøÂç°æ", g_szGameName, sizeof(g_szGameName));
+		pSetting->GetString("Main", "GameName", "Swordsman Love Online", g_szGameName, sizeof(g_szGameName));
         SetWindowText(g_GetMainHWnd(), g_szGameName);
 	}
 

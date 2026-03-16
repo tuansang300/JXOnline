@@ -52,7 +52,7 @@ bool S3PDB_MSSQLServer_Connection::OpenConnect(_LPDATABASEINFO lpDBIdentifier)
 	{
 		bRet = false;
 		_ConnectionPtr pCon;
-		HRESULT hr = pCon.CreateInstance(" ADODB.Connection");
+		HRESULT hr = pCon.CreateInstance("ADODB.Connection");
 		if ((SUCCEEDED(hr))
 			&& (NULL != pCon))
 		{
@@ -77,7 +77,7 @@ bool S3PDB_MSSQLServer_Connection::OpenConnect(_LPDATABASEINFO lpDBIdentifier)
 				{
 					m_pCon = pCon;
 
-					m_pCmd.CreateInstance(" ADODB.Command");
+					m_pCmd.CreateInstance("ADODB.Command");
 
 					if (m_pCmd)
 						m_pCmd->ActiveConnection = m_pCon;
@@ -105,8 +105,20 @@ bool S3PDB_MSSQLServer_Connection::Do(const char* lpszSql)
 bool S3PDB_MSSQLServer_Connection::DoCmd(const char* lpszSql)
 {
 	BOOL bRet = false;
-	if (m_pCon == NULL || m_pCmd == NULL)
+
+	if (lpszSql == NULL || lpszSql[0] == '\0')
+	{
+		gTrace("[DoCmd] ERROR: lpszSql is NULL or empty!");
 		return bRet;
+	}
+
+	gTrace("[DoCmd] SQL: %s", lpszSql);
+
+	if (m_pCon == NULL || m_pCmd == NULL)
+	{
+		gTrace("[DoCmd] ERROR: m_pCon=0x%p, m_pCmd=0x%p", (void*)m_pCon, (void*)m_pCmd);
+		return bRet;
+	}
 
 	try
 	{
@@ -114,10 +126,10 @@ bool S3PDB_MSSQLServer_Connection::DoCmd(const char* lpszSql)
 		m_pCmd->Execute(NULL, NULL, adCmdText);
 		bRet = TRUE;
 	}
-	catch (_com_error &e)
-    {
-		gTrace("[S3PDB_MSSQLServer_Connection::Do COM error: %s", e.ErrorMessage());
-    }
+	catch (_com_error& e)
+	{
+		gTrace("[DoCmd] COM error #%d: %s", e.Error(), e.ErrorMessage());
+	}
 
 	return bRet;
 }
@@ -133,7 +145,7 @@ bool S3PDB_MSSQLServer_Connection::DoResult(const char* lpszSql)
 		try
 		{
 			_RecordsetPtr pResult;
-			HRESULT hr = pResult.CreateInstance(" ADODB.Recordset");
+			HRESULT hr = pResult.CreateInstance("ADODB.Recordset");
 			hr =
 			pResult->Open(lpszSql,
 			_variant_t( (IDispatch*)(m_pCon), true),
@@ -147,12 +159,12 @@ bool S3PDB_MSSQLServer_Connection::DoResult(const char* lpszSql)
 		}
 		catch (_com_error &e)
 		{
-			gTrace("[S3PDB_MSSQLServer_Connection::Do COM error: %s", e.ErrorMessage());
+			gTrace("[S3PDB_MSSQLServer_Connection::Do COM error: %s 150", e.ErrorMessage());
 		}
 	}
 	catch (_com_error &e)
     {
-		gTrace("[S3PDB_MSSQLServer_Connection::Do COM error: %s", e.ErrorMessage());
+		gTrace("[S3PDB_MSSQLServer_Connection::Do COM error: %s 155", e.ErrorMessage());
     }
 
 	return bRet;
@@ -197,7 +209,7 @@ bool S3PDB_MSSQLServer_Connection::QueryResult(const char* lpszSql, S3P_MSSQLSer
 		try
 		{
 			_RecordsetPtr pResult;
-			HRESULT hr = pResult.CreateInstance(" ADODB.Recordset");
+			HRESULT hr = pResult.CreateInstance("ADODB.Recordset");
 			hr =
 					pResult->Open(lpszSql,
 					_variant_t( (IDispatch*)(m_pCon), true),

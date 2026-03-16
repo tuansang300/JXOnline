@@ -196,7 +196,8 @@ int APIENTRY WinMain(HINSTANCE hInstance,
 	pServer->OpenService(INADDR_ANY, siPort);
 
 	MSG msg;
-	LoadString(hInstance, IDC_S3RELAYSYS, g_szWindowClass, MAX_PATH);
+	if (!LoadString(hInstance, IDC_S3RELAYSYS, g_szWindowClass, MAX_PATH))
+		_tcscpy(g_szWindowClass, "JXOnline-RelaySystem");
 
 	RegisterSysClass(hInstance);
 

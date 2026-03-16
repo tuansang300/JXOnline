@@ -113,6 +113,13 @@ typedef __int64 ssize_t;
 typedef int ssize_t;
 #endif
 
+/*
+ * BDB 4.1.25 libdb41s.lib was compiled with VC6 where time_t is 32-bit.
+ * VS2022 defaults to 64-bit time_t, which shifts the DB_ENV struct layout
+ * and causes crashes. Force 32-bit time_t for BDB struct compatibility.
+ */
+typedef __time32_t db_time_t;
+
 /* Basic types that are exported or quasi-exported. */
 typedef	u_int32_t	db_pgno_t;	/* Page number type. */
 typedef	u_int16_t	db_indx_t;	/* Page offset type. */
@@ -826,7 +833,7 @@ struct __db_txn_active {
 
 struct __db_txn_stat {
 	DB_LSN	  st_last_ckp;		/* lsn of the last checkpoint */
-	time_t	  st_time_ckp;		/* time of last checkpoint */
+	db_time_t st_time_ckp;		/* time of last checkpoint */
 	u_int32_t st_last_txnid;	/* last transaction id given out */
 	u_int32_t st_maxtxns;		/* maximum txns possible */
 	u_int32_t st_naborts;		/* number of aborted transactions */
@@ -1601,7 +1608,7 @@ struct __db_env {
 
 	/* Transactions. */
 	u_int32_t	 tx_max;	/* Maximum number of transactions. */
-	time_t		 tx_timestamp;	/* Recover to specific timestamp. */
+	db_time_t	 tx_timestamp;	/* Recover to specific timestamp. */
 	db_timeout_t	 tx_timeout;	/* Timeout for transactions. */
 
 	/*******************************************************
@@ -1772,7 +1779,7 @@ struct __db_env {
 
 	void *tx_handle;		/* Txn handle and methods. */
 	int  (*set_tx_max) __P((DB_ENV *, u_int32_t));
-	int  (*set_tx_timestamp) __P((DB_ENV *, time_t *));
+	int  (*set_tx_timestamp) __P((DB_ENV *, db_time_t *));
 	int  (*txn_begin) __P((DB_ENV *, DB_TXN *, DB_TXN **, u_int32_t));
 	int  (*txn_checkpoint) __P((DB_ENV *, u_int32_t, u_int32_t, u_int32_t));
 	int  (*txn_id_set) __P((DB_ENV *, u_int32_t, u_int32_t));

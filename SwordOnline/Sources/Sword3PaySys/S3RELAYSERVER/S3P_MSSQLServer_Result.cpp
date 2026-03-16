@@ -139,7 +139,7 @@ int S3P_MSSQLServer_Result::GetResult( _Recordset** ppResult)
 		return m_nAddRef;
 	if (m_pResult == NULL)
 	{
-		HRESULT hr = m_pResult.CreateInstance(" ADODB.Recordset");
+		HRESULT hr = m_pResult.CreateInstance("ADODB.Recordset");
 		if (FAILED(hr))
 		{
 			m_pResult = NULL;

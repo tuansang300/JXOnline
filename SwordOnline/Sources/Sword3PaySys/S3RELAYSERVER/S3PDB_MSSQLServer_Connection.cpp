@@ -52,7 +52,7 @@ bool S3PDB_MSSQLServer_Connection::OpenConnect(_LPDATABASEINFO lpDBIdentifier)
 	{
 		bRet = false;
 		_ConnectionPtr pCon;
-		HRESULT hr = pCon.CreateInstance(" ADODB.Connection");
+		HRESULT hr = pCon.CreateInstance("ADODB.Connection");
 		if ((SUCCEEDED(hr))
 			&& (NULL != pCon))
 		{
@@ -77,7 +77,7 @@ bool S3PDB_MSSQLServer_Connection::OpenConnect(_LPDATABASEINFO lpDBIdentifier)
 				{
 					m_pCon = pCon;
 
-					m_pCmd.CreateInstance(" ADODB.Command");
+					m_pCmd.CreateInstance("ADODB.Command");
 
 					if (m_pCmd)
 						m_pCmd->ActiveConnection = m_pCon;
@@ -131,7 +131,7 @@ bool S3PDB_MSSQLServer_Connection::Do(const char* lpszSql)
 					}
 					catch (_com_error &e)
 					{
-						gTrace("[S3PDB_MSSQLServer_Connection::Do COM error: %s", e.ErrorMessage());
+						gTrace("[S3PDB_MSSQLServer_Connection::Do COM error: %s 134", e.ErrorMessage());
 					}
 				}
 
@@ -141,7 +141,7 @@ bool S3PDB_MSSQLServer_Connection::Do(const char* lpszSql)
 	}
 	catch (_com_error &e)
     {
-		gTrace("[S3PDB_MSSQLServer_Connection::Do COM error: %s", e.ErrorMessage());
+		gTrace("[S3PDB_MSSQLServer_Connection::Do COM error: %s 144", e.ErrorMessage());
     }
 
 	return bRet;

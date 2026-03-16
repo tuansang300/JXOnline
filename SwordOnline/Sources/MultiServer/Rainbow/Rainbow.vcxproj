@@ -83,6 +83,13 @@
       <ModuleDefinitionFile>.\Rainbow.def</ModuleDefinitionFile>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>
+copy "$(TargetPath)" "$(SolutionDir)build\MultiServer\S3Relay\$(Configuration)\" /Y
+copy "$(TargetPath)" "$(SolutionDir)bin\multiserver\" /Y
+      </Command>
+      <Message>Copying Rainbow.dll to server directories...</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Server Debug|Win32'">
     <ClCompile>
@@ -103,6 +110,13 @@
       <ModuleDefinitionFile>.\Rainbow.def</ModuleDefinitionFile>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>
+copy "$(TargetPath)" "$(SolutionDir)build\MultiServer\S3Relay\$(Configuration)\" /Y
+copy "$(TargetPath)" "$(SolutionDir)bin\multiserver\" /Y
+      </Command>
+      <Message>Copying Rainbow.dll to server directories...</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -125,6 +139,13 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>
+copy "$(TargetPath)" "$(SolutionDir)build\MultiServer\S3Relay\$(Configuration)\" /Y
+copy "$(TargetPath)" "$(SolutionDir)bin\multiserver\" /Y
+      </Command>
+      <Message>Copying Rainbow.dll to server directories...</Message>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="IClient.cpp" />

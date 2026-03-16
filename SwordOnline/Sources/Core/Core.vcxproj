@@ -104,6 +104,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>$(OutDir)CoreClient.dll</OutputFile>
+      <ImportLibrary>..\..\lib\debug\CoreClient.lib</ImportLibrary>
       <AdditionalDependencies>engine.lib;common.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;lualibdll.lib;Shlwapi.lib;Winmm.lib;Src\USBKey\EP1KDL20.LIB;Src\USBKey\EpsForJoLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\lib\debug;..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
@@ -160,6 +161,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OutputFile>$(OutDir)CoreClient.dll</OutputFile>
+      <ImportLibrary>..\..\lib\release\CoreClient.lib</ImportLibrary>
       <AdditionalDependencies>engine.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;lualibdll.lib;Shlwapi.lib;Winmm.lib;Src\USBKey\EP1KDL20.LIB;Src\USBKey\EpsForJoLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\..\lib\release;..\..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>

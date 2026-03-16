@@ -8,6 +8,7 @@
 #pragma warning(disable: 4786)
 #include "S3PAccount.h"
 #include "S3PDBConVBC.h"
+#include "GlobalFun.h"
 #include "S3PResultVBC.h"
 #include "COMUtil.h"
 
@@ -23,51 +24,83 @@ DWORD GetGMID();
 
 int S3PAccount::Login(S3PDBConVBC* pConn, const char* strAccName, const char* strPassword, DWORD ClientID, WORD& nExtPoint, DWORD& nLeftTime)
 {
+	gTrace("[Login] === Start === AccName='%s', Password='%s', ClientID=%u",
+		strAccName ? strAccName : "(null)",
+		strPassword ? strPassword : "(null)",
+		ClientID);
+
 	int iRet = ACTION_FAILED;
 	if (NULL == pConn)
 	{
+		gTrace("[Login] ERROR: pConn is NULL!");
 		return iRet;
 	}
 	char strSQL[MAX_PATH];
 	sprintf(strSQL, "select iClientID from Account_info where (cAccName = '%s') and (cPassword COLLATE Chinese_PRC_CS_AS = '%s')", strAccName, strPassword);
+	gTrace("[Login] SQL: %s", strSQL);
+
 	S3PResultVBC* pResult = NULL;
 	if (pConn->QuerySql(strSQL, &pResult))
 	{
+		int nRows = pResult ? pResult->num_rows() : -1;
+		gTrace("[Login] QuerySql OK, num_rows=%d", nRows);
+
 		if (pResult->num_rows() <= 0)
+		{
 			iRet = E_ACCOUNT_OR_PASSWORD;
+			gTrace("[Login] FAILED: Account or Password wrong (no rows)");
+		}
 		else
 		{
 			_variant_t clientID = 0L;
 			pResult->get_field_data(0, &clientID, sizeof(_variant_t));
+			gTrace("[Login] iClientID: vt=%d, lVal=%ld", clientID.vt, clientID.lVal);
+
 			if (clientID.vt == VT_NULL || clientID.lVal == 0)
 			{
 				long iLeft = 0;
 				long iExp = 0;
-				if (GetLeftSecondsOfDeposit(pConn, strAccName, iLeft, iExp) == ACTION_SUCCESS && iLeft > 1800)	//×îÐ¡Ê£ÓàÊ±¼ä30·ÖÖÓ
+				gTrace("[Login] Account free, checking deposit...");
+				if (GetLeftSecondsOfDeposit(pConn, strAccName, iLeft, iExp) == ACTION_SUCCESS && iLeft > 1800)
 				{
+					gTrace("[Login] Deposit OK: iLeft=%ld, iExp=%ld", iLeft, iExp);
 					sprintf(strSQL, "update Account_info set iClientID = %d, dLoginDate = null where (cAccName = '%s')", ClientID, strAccName);
 					if (pConn->Do(strSQL))
 					{
 						iRet = ACTION_SUCCESS;
 						nExtPoint = iExp;
 						nLeftTime = iLeft;
+						gTrace("[Login] SUCCESS: nExtPoint=%d, nLeftTime=%u", nExtPoint, nLeftTime);
+					}
+					else
+					{
+						gTrace("[Login] FAILED: Update SQL failed");
 					}
 				}
 				else
 				{
 					iRet = E_ACCOUNT_NODEPOSIT;
+					gTrace("[Login] FAILED: No deposit or iLeft<=1800");
 				}
 			}
 			else
 			{
 				iRet = (GetGMID() == clientID.lVal) ? E_ACCOUNT_FREEZE : E_ACCOUNT_EXIST;
+				gTrace("[Login] FAILED: Account in use, iClientID=%ld, GMID=%u, %s",
+					clientID.lVal, GetGMID(),
+					(iRet == E_ACCOUNT_FREEZE) ? "FREEZE" : "EXIST");
 			}
 		}
 	}
-	
+	else
+	{
+		gTrace("[Login] FAILED: QuerySql failed!");
+	}
+
 	if (pResult)
 		pResult->unuse();
 
+	gTrace("[Login] === End === result=%d", iRet);
 	return iRet;
 }
 
@@ -85,7 +118,7 @@ int S3PAccount::LoginGame(S3PDBConVBC* pConn, DWORD ClientID, const char* strAcc
 		if (NewClientID == ClientID)
 		{
 			char strSQL[MAX_PATH];
-			//dLoginDate is null ÒÑ¾­LoginÖ®ºódLoginDate²Å»ánull
+			//dLoginDate is null ï¿½Ñ¾ï¿½LoginÖ®ï¿½ï¿½dLoginDateï¿½Å»ï¿½null
 			sprintf(strSQL, "update Account_info set dLoginDate = getdate() where (cAccName = '%s') and (iClientID = %d) and (dLoginDate is null)", strAccName, ClientID);
 			if (pConn->Do(strSQL))
 			{
@@ -108,16 +141,18 @@ int S3PAccount::Logout(S3PDBConVBC* pConn, DWORD ClientID, const char* strAccNam
 		return iRet;
 	}
 	char strSQL[2*MAX_PATH];
-	sprintf(strSQL, "update View_AccountMoney set iLeftSecond = iLeftSecond - (datediff(second, dLoginDate, getdate())) where (datediff(second, getdate(), dEndDate) <= 0) and (iClientID = %d or iClientID = %d) and (cAccName = '%s') and (dLoginDate is not null)",
+	sprintf(strSQL, "update h set h.iLeftSecond = h.iLeftSecond - (datediff(second, a.dLoginDate, getdate())) from Account_Habitus h inner join Account_Info a on h.cAccName = a.cAccName where (datediff(second, getdate(), h.dEndDate) <= 0) and (h.iClientID = %d or h.iClientID = %d) and (h.cAccName = '%s') and (a.dLoginDate is not null)",
 		ClientID, GetGMID(), strAccName);
-	pConn->Do(strSQL);	//¿Ûµã,¼´Ê¹±»µÄ¶³½áÕÊ»§
+	gTrace("[Logout] SQL1: %s", strSQL);
+	pConn->Do(strSQL);
 
 	if (nExtPoint != 0)
 	{
-		sprintf(strSQL, "update View_AccountMoney set nExtPoint = CASE WHEN nExtPoint - %d >= 0 THEN nExtPoint - %d WHEN nExtPoint - %d < 0 THEN 0 END where (datediff(second, getdate(), dEndDate) <= 0) and (iClientID = %d or iClientID = %d) and (cAccName = '%s') and (dLoginDate is not null)",
+		sprintf(strSQL, "update h set h.nExtPoint = CASE WHEN h.nExtPoint - %d >= 0 THEN h.nExtPoint - %d WHEN h.nExtPoint - %d < 0 THEN 0 END from Account_Habitus h inner join Account_Info a on h.cAccName = a.cAccName where (datediff(second, getdate(), h.dEndDate) <= 0) and (h.iClientID = %d or h.iClientID = %d) and (h.cAccName = '%s') and (a.dLoginDate is not null)",
 			nExtPoint, nExtPoint, nExtPoint, ClientID, GetGMID(), strAccName);
-		pConn->Do(strSQL);	//¿Û¸½¼Óµã,¼´Ê¹±»µÄ¶³½áÕÊ»§
-		//²ð³ÉÁ½¾äÊÇÒòÎªÖ´ÐÐµÄSQLÓÐ³¤¶ÈÏÞÖÆ
+		gTrace("[Logout] SQL2: %s", strSQL);
+		pConn->Do(strSQL);
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªÖ´ï¿½Ðµï¿½SQLï¿½Ð³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
 
 	DWORD NewClientID = 0;
@@ -337,8 +372,9 @@ int S3PAccount::ElapseAll(S3PDBConVBC* pConn, DWORD ClientID)
 	{
 		return iRet;
 	}
-	char strSQL[MAX_PATH];
-	sprintf(strSQL, "update View_AccountMoney set iLeftSecond = iLeftSecond - (datediff(second, dLoginDate, getdate())) where (datediff(second, getdate(), dEndDate) <= 0) and (iClientID = %d) and (dLoginDate is not null)", ClientID);
+	char strSQL[2*MAX_PATH];
+	sprintf(strSQL, "update h set h.iLeftSecond = h.iLeftSecond - (datediff(second, a.dLoginDate, getdate())) from Account_Habitus h inner join Account_Info a on h.cAccName = a.cAccName where (datediff(second, getdate(), h.dEndDate) <= 0) and (h.iClientID = %d) and (a.dLoginDate is not null)", ClientID);
+	gTrace("[ElapseAll] SQL: %s", strSQL);
 	pConn->Do(strSQL);
 
 	return ACTION_SUCCESS;
@@ -400,7 +436,7 @@ int S3PAccount::GetLeftSecondsOfDeposit(S3PDBConVBC* pConn,
 			pResult->get_field_data(2, &extPoint, sizeof(_variant_t));
 			liLeft = left.lVal;
 
-			if (diffDate.vt == VT_I4 && diffDate.lVal > 0)	//°üÔÂÓÐÐ§
+			if (diffDate.vt == VT_I4 && diffDate.lVal > 0)	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
 			{
 				liLeft += diffDate.lVal;
 			}

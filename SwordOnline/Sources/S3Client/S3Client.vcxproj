@@ -94,7 +94,7 @@
       <OutputFile>../../../Bin/Client/S3Client.exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>../../lib/;%(AdditionalLibraryDirectories);..\..\..\..\dxsdk\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../lib/release;../../lib/;%(AdditionalLibraryDirectories);..\..\..\..\dxsdk\lib</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>.\Release/S3Client.pdb</ProgramDatabaseFile>
       <GenerateMapFile>true</GenerateMapFile>
       <MapFileName>.\Release/S3Client.map</MapFileName>
@@ -131,7 +131,7 @@
       <OutputFile>\JXOnline\S3Client_d.exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>../../lib/;%(AdditionalLibraryDirectories);..\..\..\..\dxsdk\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../lib/debug;../../lib/;%(AdditionalLibraryDirectories);..\..\..\..\dxsdk\lib</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>.\Debug/S3Client_d.pdb</ProgramDatabaseFile>
       <GenerateMapFile>true</GenerateMapFile>
       <MapFileName>.\Debug/S3Client_d.map</MapFileName>
@@ -168,7 +168,7 @@
       <OutputFile>\JXOnline\S3Client_d.exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>../../lib/;%(AdditionalLibraryDirectories);..\..\..\..\dxsdk\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>../../lib/debug;../../lib/;%(AdditionalLibraryDirectories);..\..\..\..\dxsdk\lib</AdditionalLibraryDirectories>
       <ProgramDatabaseFile>.\Debug/S3Client_d.pdb</ProgramDatabaseFile>
       <GenerateMapFile>true</GenerateMapFile>
       <MapFileName>.\Debug/S3Client_d.map</MapFileName>

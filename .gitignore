@@ -361,32 +361,25 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
-/SwordOnline/Sources/MultiServer/S3Relay/FriendDB
-/SwordOnline/Sources/MultiServer/S3Relay/FriendDB/FriendTable
 /SwordOnline/Sources/MultiServer/S3Relay/FriendDB/log.0000000001
 /SwordOnline/Sources/MultiServer/S3Relay/FriendDB/__db.001
 /SwordOnline/Sources/MultiServer/S3Relay/FriendDB/__db.002
 /SwordOnline/Sources/MultiServer/S3Relay/FriendDB/__db.003
 /SwordOnline/Sources/MultiServer/S3Relay/FriendDB/__db.004
 /SwordOnline/Sources/MultiServer/S3Relay/FriendDB/__db.005
-/SwordOnline/Sources/MultiServer/S3Relay/TongDB
 /SwordOnline/Sources/MultiServer/S3Relay/TongDB/log.0000000001
-/SwordOnline/Sources/MultiServer/S3Relay/TongDB/TongTable
 /SwordOnline/Sources/MultiServer/S3Relay/TongDB/__db.001
 /SwordOnline/Sources/MultiServer/S3Relay/TongDB/__db.002
 /SwordOnline/Sources/MultiServer/S3Relay/TongDB/__db.003
 /SwordOnline/Sources/MultiServer/S3Relay/TongDB/__db.004
 /SwordOnline/Sources/MultiServer/S3Relay/TongDB/__db.005
-/SwordOnline/Sources/MultiServer/S3Relay/TongMemberDB
 /SwordOnline/Sources/MultiServer/S3Relay/TongMemberDB/log.0000000001
-/SwordOnline/Sources/MultiServer/S3Relay/TongMemberDB/MemberTable
 /SwordOnline/Sources/MultiServer/S3Relay/TongMemberDB/MemberTable.0
 /SwordOnline/Sources/MultiServer/S3Relay/TongMemberDB/__db.001
 /SwordOnline/Sources/MultiServer/S3Relay/TongMemberDB/__db.002
 /SwordOnline/Sources/MultiServer/S3Relay/TongMemberDB/__db.003
 /SwordOnline/Sources/MultiServer/S3Relay/TongMemberDB/__db.004
 /SwordOnline/Sources/MultiServer/S3Relay/TongMemberDB/__db.005
-/SwordOnline/Sources/MultiServer/S3Relay
 /SwordOnline/Sources/MultiServer/S3Relay/__db.001
 /SwordOnline/Sources/MultiServer/S3Relay/__db.002
 /SwordOnline/Sources/MultiServer/S3Relay/__db.003
