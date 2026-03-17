@@ -135,12 +135,12 @@ BOOL CAutoupdateApp::InitInstance()
 
 	if (IsTheSelfRun())
 	{
-		AfxMessageBox("自动升级程序正在运行中，请稍候 ！");
+		AfxMessageBox("The auto-update program is running, please wait!");
 		return FALSE;
 	}
 	if (IsTheGameRun())
 	{
-		AfxMessageBox("游戏程序正在运行中，不能进行自动升级，请关闭游戏后再试 ！");
+		AfxMessageBox("The game is currently running. Please close the game and try the update again.");
 		return FALSE;
 	}
 

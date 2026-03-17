@@ -111,7 +111,7 @@ void CSprStatic::DrawDivide(int divide, int xoff, int yoff)
 			dc.LineTo(pt);
 			if (m_stDivide.eDoodadType == 1) //draw hor
 			{
-			#pragma message (ATTENTION("不再支持了"))
+			#pragma message (ATTENTION("No longer supported"))
 				ptOld.y -= m_stDivide.nHeight / divide;
 				CPoint point = pt;
 				point.y -= m_stDivide.nHeight / divide;

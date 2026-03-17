@@ -23,7 +23,7 @@
 KUiHelper* KUiHelper::m_pSelf = NULL;
 int        KUiHelper::ms_nImgFrame = 0;
 
-#define		SCHEME_INI_HELP		"ºÚµ•∞Ô÷˙ΩÁ√Ê.ini"
+#define		SCHEME_INI_HELP		"help_ui.ini"
 #define     INTERFACE_FRAME       0
 #define     KEYBOARD_FRAME        1
 #define     WUXING_INTERFIX_FRAME 2

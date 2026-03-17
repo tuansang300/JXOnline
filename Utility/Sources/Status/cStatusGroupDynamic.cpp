@@ -36,7 +36,7 @@ BOOL cStatusGroupDynamic::Create()
 	cStatusGroup::Create();
 	m_pDynamic->Create();
 
-	m_pDynamic->CreateFromFolder("游戏资源\\动态组件");
+	m_pDynamic->CreateFromFolder("GameResource\\DynamicComponent");
 	//load attribute and settings!
 
 	return TRUE;

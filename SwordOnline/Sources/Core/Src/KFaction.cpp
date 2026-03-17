@@ -25,8 +25,8 @@ BOOL	KFaction::Init()
 {
 	KIniFile	Ini;
 	char		szSection[80], szBuffer[32];
-	char		szSeries[series_num][16] = {"金", "木", "水", "火", "土"};
-	char		szCamp[camp_num][16] = {"新手", "正派", "邪派", "中立", "杀手", "野兽", "路人"};
+	char		szSeries[series_num][16] = { "Metal", "Wood", "Water", "Fire", "Earth" };
+	char		szCamp[camp_num][16] = {"Beginner", "Good", "Evil", "Neutral", "Assassin", "Beast", "Civilian"};
 	int			i, j, k, nArrayPos;
 
 	// 清空
@@ -45,7 +45,7 @@ BOOL	KFaction::Init()
 	for (i = 0; i < MAX_FACTION; i++)
 	{
 		sprintf(szSection, "%d", i);
-		Ini.GetString(szSection, "Series", "金", szBuffer, sizeof(szBuffer));
+		Ini.GetString(szSection, "Series", "Metal", szBuffer, sizeof(szBuffer));
 		// 找到阵营数组中的相应位置
 		for (j = 0; j < series_num; j++)
 		{
@@ -63,8 +63,8 @@ BOOL	KFaction::Init()
 			break;
 		}
 		_ASSERT(j < series_num);
-		Ini.GetString(szSection, "Name", "少林派", m_sAttribute[nArrayPos].m_szName, sizeof(m_sAttribute[nArrayPos].m_szName));
-		Ini.GetString(szSection, "Camp", "正义", szBuffer, sizeof(szBuffer));
+		Ini.GetString(szSection, "Name", "Shaolin", m_sAttribute[nArrayPos].m_szName, sizeof(m_sAttribute[nArrayPos].m_szName));
+		Ini.GetString(szSection, "Camp", "Good", szBuffer, sizeof(szBuffer));
 		for (j = 0; j < camp_num; j++)
 		{
 			if (strcmp(szBuffer, szCamp[j]) == 0)

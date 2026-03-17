@@ -18,9 +18,9 @@ Description : 排名窗口的实现部分
 #include "UiStrengthRank.h"
 
 
-#define INDEX_AND_RANK_DATA_INI "排名的临时文件.ini"
-#define INDEX_AND_RANK_MAPPING "\\Ui\\排名ID.ini"
-#define STRENGTH_RANK_INI "排名.ini"
+#define INDEX_AND_RANK_DATA_INI "ranking_temp_data.ini"
+#define INDEX_AND_RANK_MAPPING "\\UI\\ranking_id.ini"
+#define STRENGTH_RANK_INI "ranking.ini"
 
 //发送获取信息请求以后，得不到响应的超时时间
 #define GET_RANK_TIME_OUT 10000

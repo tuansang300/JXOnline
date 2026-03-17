@@ -14,7 +14,7 @@
 #include "UiNewsMessage.h"
 #include <time.h>
 
-#define NEWS_MESSAGE_INI "新闻消息来了.ini"
+#define NEWS_MESSAGE_INI "news_messages.ini"
 #define DEFAULT_MESSAGE  "\\Ui\\DefaultMessage.ini"
 //最长无消息空闲时间，空闲时间持续超过此值时，就从ini中取消息来显示(单位：毫秒)
 #define	MAX_IDLE_TIME	600000	//10分钟

@@ -205,7 +205,8 @@ BOOL cItem::Save()
 	catch (ios_base::failure f) 
 	{
 		CString s = f.what();
-		s += " 请去掉文件""" + m_strFile + """的只读属性或者释放磁盘空间。";
+		s += " Please remove the read-only attribute of file \"" + m_strFile +
+			"\" or free up disk space.";
 		AfxMessageBox(s);
 		return FALSE;
 	}

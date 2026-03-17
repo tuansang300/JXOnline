@@ -94,7 +94,7 @@ cStatusDynamic::~cStatusDynamic()
 
 void cStatusDynamic::SaveID()
 {
-	CString sIni = "游戏资源\\动态物体\\dynamic.ini";
+	CString sIni = "GameResources\\DynamicObjects\\dynamic.ini";
 	AppGetFullPath(sIni);
 	iItem* pItem = Common_CreateItem(sIni,iItem::FLAG_CREATE);
 	wrap_ptr<iItem> ptr(pItem);
@@ -111,18 +111,18 @@ void cStatusDynamic::ObjPropertyExtra(iObj* pPlane)
 	CString sIniFile;
 	if (!GetObjIniFile(pPlane,sIniFile))
 	{
-		AfxMessageBox("请检查事件文件或者obj的名称是否为空");
+		AfxMessageBox("Please check if the event file or object name is empty.");
 		return;
 	}
 	CString strTemplateFile,strSection;
 	if (!GetObjTemplate(pPlane,strTemplateFile,strSection))
 	{
-		AfxMessageBox("尚未指定obj的模板");
+		AfxMessageBox("Object template has not been specified.");
 		return;
 	}
 	if (strTemplateFile.IsEmpty())
 	{
-		AfxMessageBox("尚未指定obj的模板");
+		AfxMessageBox("Object template has not been specified.");
 		return;
 	}
 	AppGetFullPath(strTemplateFile);
@@ -197,10 +197,10 @@ BOOL cStatusDynamic::ShowNpcSetting(iObj* pPlane,const CString& strTemplateFile,
 	
 	
 	
-	g_GetFullPath(FilePath,"人物类型.txt");
+	g_GetFullPath(FilePath,"CharacterType.txt");
 	if (!SysTabFile.Load(FilePath)) 
 	{
-		ASSERT("无法打开人物类型.txt 文件，请确认是否已将角色有关的文件考至正确的目录下!");
+		ASSERT("Cannot open CharacterType.txt. Please ensure that the related character files are in the correct directory.");
 		m_pSettingDlg = FALSE;
 		return FALSE;
 	}
@@ -222,7 +222,7 @@ BOOL cStatusDynamic::ShowNpcSetting(iObj* pPlane,const CString& strTemplateFile,
 	}
 	
 	
-	g_GetFullPath(FilePath, "Npc动作表.txt");
+	g_GetFullPath(FilePath, "NpcActionTable.txt");
 	//加载Npc动作表
 	if (TabFile.Load(FilePath))
 	{
@@ -236,13 +236,13 @@ BOOL cStatusDynamic::ShowNpcSetting(iObj* pPlane,const CString& strTemplateFile,
 				ActionList += Action;
 			}
 		}
-		m_pSettingDlg->m_ActiveIniForm.AddCtrl("动作", "IndexList", ActionList.GetBuffer(ActionList.GetLength()), "", "");
-		m_pSettingDlg->m_ActiveIniForm.SetCtrlRecord("动作", FALSE);
-		m_pSettingDlg->m_ActiveIniForm.SetCtrlPos("动作",7);
+		m_pSettingDlg->m_ActiveIniForm.AddCtrl("ActionList", "IndexList", ActionList.GetBuffer(ActionList.GetLength()), "", "");
+		m_pSettingDlg->m_ActiveIniForm.SetCtrlRecord("ActionList", FALSE);
+		m_pSettingDlg->m_ActiveIniForm.SetCtrlPos("ActionList",7);
 		TabFile.Clear();
 	}
 	
-	m_pSettingDlg->m_ActiveIniForm.AddCtrl("RideHorse", "IndexList", "不骑马|骑马","","");
+	m_pSettingDlg->m_ActiveIniForm.AddCtrl("RideHorse", "IndexList", "NoHorse|RideHorse","","");
 	m_pSettingDlg->m_ActiveIniForm.SetCtrlPos("RideHorse", 8);
 	m_pSettingDlg->OnDataChangedActiveiniformctrl1("NpcResType");
 		
@@ -483,8 +483,8 @@ BOOL cStatusDynamic::GetTrapScript(iObj* pPlane, CString &strScriptFile)
 	return TRUE;
 }
 
-const CString c_strEvent= "event名称.txt";
-const CString c_strTrapID = "trap点ID.txt";
+const CString c_strEvent= "EventName.txt";
+const CString c_strTrapID = "TrapPointID.txt";
 
 BOOL cStatusDynamic::CreateFromFolder(LPCSTR szFolder)
 {
@@ -516,7 +516,7 @@ BOOL cStatusDynamic::Create()
 {
 	cStatus::Create();
 	
-	CString sIni = "游戏资源\\动态物体\\dynamic.ini";
+	CString sIni = "GameResources\\DynamicObjects\\Dynamic.ini";
 	AppGetFullPath(sIni);
 	iItem* pItem = Common_CreateItem(sIni,iItem::FLAG_LOAD);
 	if (pItem == NULL)
@@ -651,7 +651,7 @@ void cStatusDynamic::ChangeObjProperty(iObj* pPlane)
 	{
 		if (GetGround()->FindDynamicNick(strNick))
 		{
-			AfxMessageBox("这个名字已经被使用了");
+			AfxMessageBox("This name is already in use.");
 			return;
 		}
 		CString sOld;
@@ -708,7 +708,7 @@ BOOL cStatusDynamic::GetObjScriptFile(iObj* p,CString& sScript)
 
 	if (!GetObjTemplate(p,strTemplateFile,strSection))
 	{
-		AfxMessageBox("尚未指定obj的模板");
+		AfxMessageBox("Object template has not been specified.");
 		return FALSE;
 	}
 	if (!GetObjIniFile(p,sIni))		
@@ -819,7 +819,7 @@ BOOL cStatusDynamic::GetObjScriptFile(iObj* p,CString& sScript)
 			return FALSE;
 		}
 		else
-		if (AfxMessageBox("当前未设置脚本文件，是否需要自动为其生成脚本？", MB_OKCANCEL) == IDOK)
+		if (AfxMessageBox("No script file is assigned. Generate one automatically?", MB_OKCANCEL) == IDOK)
 		{
 			CString strScript  = sIni.Left(sIni.GetLength() - 4) + "_script.ini";
 			sScript = strScript;

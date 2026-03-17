@@ -90,11 +90,11 @@ int __stdcall RefreshStatus(int nCurrentStatus, long lParam)
 	switch(nCurrentStatus)
 	{
 	case defUPDATE_STATUS_INITIALIZING:
-		dlg->m_DisplayVersionCtl.SetWindowText("�������ӷ�����...");
+		dlg->m_DisplayVersionCtl.SetWindowText("Connecting to server...");
 		dlg->m_progress.SetPos(20);
 		break;
 	case defUPDATE_STATUS_VERIFING:
-		dlg->m_DisplayVersionCtl.SetWindowText("���ڽ����û�У��...");
+		dlg->m_DisplayVersionCtl.SetWindowText("Performing user verification...");
 		dlg->m_progress.SetPos(40);
 		break;
 	case defUPDATE_RESULT_VERSION_NOT_ENOUGH:
@@ -109,11 +109,11 @@ int __stdcall RefreshStatus(int nCurrentStatus, long lParam)
 //��Ҫһ�����ֶ�������
 		break;
 	case defUPDATE_STATUS_PROCESSING_INDEX:
-		dlg->m_DisplayVersionCtl.SetWindowText("�������ظ�����Ϣ...");
+		dlg->m_DisplayVersionCtl.SetWindowText("Receiving server data...");
 		dlg->m_progress.SetPos(60);
 		break;
 	case defUPDATE_STATUS_DOWNLOADING:
-		dlg->m_DisplayVersionCtl.SetWindowText("���������ļ�...");
+		dlg->m_DisplayVersionCtl.SetWindowText("Updating files...");
 		dlg->m_progress.SetPos(80);
 		break;
 	case defUPDATE_STATUS_DOWNLOADING_FILE:
@@ -127,11 +127,11 @@ int __stdcall RefreshStatus(int nCurrentStatus, long lParam)
 		}
 		break;
 	case defUPDATE_STATUS_UPDATING:
-		dlg->m_DisplayVersionCtl.SetWindowText("���ڸ���ϵͳ...");
+		dlg->m_DisplayVersionCtl.SetWindowText("Updating system...");
 		dlg->m_progress.SetPos(100);
 		break;
 	case defUPDATE_RESULT_UPDATE_SUCCESS:
-		dlg->m_DisplayVersionCtl.SetWindowText("�������...");
+		dlg->m_DisplayVersionCtl.SetWindowText("Update finished.");
 		dlg->m_progress.SetPos(100);
 		dlg->m_progressCurrent.SetPos(100);
 		dlg->m_EnterGameButton.ShowWindow(SW_SHOW);
@@ -141,7 +141,7 @@ int __stdcall RefreshStatus(int nCurrentStatus, long lParam)
 		dlg->m_EnterGameButton.EnableWindow(true);
 		break;
 	case defUPDATE_RESULT_VERSION_MORE:
-		dlg->m_DisplayVersionCtl.SetWindowText("�Ѿ������°汾������Ҫ����");
+		dlg->m_DisplayVersionCtl.SetWindowText("Your game is already up to date.");
 		dlg->m_progress.SetPos(100);
 		dlg->m_progressCurrent.SetPos(100);
 		dlg->m_EnterGameButton.ShowWindow(SW_SHOW);
@@ -236,9 +236,9 @@ UINT UpdateThread(LPVOID p)
 {
 	bStop = false;
 	Sleep(10);
-	dlg->m_DisplayProgressCtl.SetWindowText("������½���");
-	dlg->m_DisplayVersionCtl.SetWindowText("���ڽ����Զ�����");
-	dlg->m_DisplayCurrentCtl.SetWindowText("��ǰ�����ļ�");
+	dlg->m_DisplayProgressCtl.SetWindowText("Download progress");
+	dlg->m_DisplayVersionCtl.SetWindowText("Auto update in progress");
+	dlg->m_DisplayCurrentCtl.SetWindowText("Current download file");
 
     int ret = AutoUpdateDLL((char*)p);
 
@@ -248,7 +248,7 @@ UINT UpdateThread(LPVOID p)
 		dlg->m_nCurrentHost++;
 		if(dlg->m_nCurrentHost >= dlg->m_strHosts.GetSize()) {
 			//dlg->m_DisplayVersionCtl.SetWindowText("�޿��õĸ��·������������Գ��Խ�����Ϸ�����ǿ��ܻ���ִ���");
-			dlg->m_DisplayVersionCtl.SetWindowText("�޿��õĸ��·������������ԡ�");
+			dlg->m_DisplayVersionCtl.SetWindowText("No update server available. Please try again later.");
 			dlg->m_progress.SetPos(00);
 			dlg->m_progressCurrent.SetPos(0);
 			//dlg->m_EnterGameButton.ShowWindow(SW_SHOW);
@@ -296,7 +296,7 @@ UINT UpdateThread(LPVOID p)
 		dlg->EndDialog(IDCANCEL);
 	}
 	else {
-		dlg->m_DisplayVersionCtl.SetWindowText("�������...");
+		dlg->m_DisplayVersionCtl.SetWindowText("Update finished.");
 		dlg->m_progress.SetPos(100);
 		dlg->m_progressCurrent.SetPos(100);
 		dlg->m_EnterGameButton.ShowWindow(SW_SHOW);
@@ -314,9 +314,9 @@ UINT UpdateThread(LPVOID p)
 	int aVersion = ::GetPrivateProfileInt("Version", "Version", 0, aCfgPath);
 	aMajorVersion -= 1;
 	if (aMajorVersion < 0) aMajorVersion = 0;
-	CString aFormCaption = "������Ե�����(";
+	CString aFormCaption = "Update server list(";
 	char aIntStr[8];
-	aFormCaption +="���� ";
+	aFormCaption +="Attempt ";
 	itoa(aMajorVersion, aIntStr, 10);
 	aFormCaption += aIntStr;
 	if(aVersion <= 14)
@@ -499,9 +499,9 @@ BOOL CAutoupdateDlg::OnInitDialog()
 	int aVersion = ::GetPrivateProfileInt("Version", "Version", 0, aCfgPath);
 	aMajorVersion -= 1;
 	if (aMajorVersion < 0) aMajorVersion = 0;
-	CString aFormCaption = "������Ե�����(";
+	CString aFormCaption = "Connecting to update server(";
 	char aIntStr[8];
-	aFormCaption +="���� ";
+	aFormCaption +="Attempt ";
 	itoa(aMajorVersion, aIntStr, 10);
 	aFormCaption += aIntStr;
 	if(aVersion <= 14)
@@ -750,7 +750,7 @@ void CAutoupdateDlg::OnCancel() {
 	CWnd* p = GetDlgItem(IDCANCEL);
 	CString str;
 	p->GetWindowText(str);
-	m_DisplayVersionCtl.SetWindowText("ȡ������...");
+	m_DisplayVersionCtl.SetWindowText("Cancelling update...");
 	m_progress.SetPos(0);
 	m_progressCurrent.SetPos(0);
 	bStop = true;

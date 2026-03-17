@@ -793,9 +793,9 @@ bool CoreServerShell::CheckProtocolSize(const char* pChar, int nSize)
 	}
 	if (wCheckSize != nSize)
 	{
-		g_DebugLog("[error]网络接收协议大小不匹配");
+		g_DebugLog("[error]Network receive protocol size mismatch");
 #ifndef _WIN32
-		printf("[error]网络接收协议大小不匹配<%d>, should %d, but %d\n", nProtocol, wCheckSize, nSize);
+		printf("[error]Network receive protocol size mismatch <%d>, should %d, but %d\n", nProtocol, wCheckSize, nSize);
 #endif
 		return false;
 	}

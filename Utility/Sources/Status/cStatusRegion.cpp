@@ -21,10 +21,10 @@ static char THIS_FILE[]=__FILE__;
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
-const CString c_strTime = "时间变化.txt";
-const CString c_strMinBrightness = "午夜亮度.txt";
-const CString c_strMaxBrightness = "正午亮度.txt";
-const CString c_strRegionCapture = "场景文件名称.txt";
+const CString c_strTime = "TimeChange.txt";
+const CString c_strMinBrightness = "MidnightBrightness.txt";
+const CString c_strMaxBrightness = "NoonBrightness.txt";
+const CString c_strRegionCapture = "SceneFileName.txt";
 
 cStatusRegion::cStatusRegion()
 {
@@ -51,7 +51,7 @@ BOOL cStatusRegion::Create()
 {
 	cStatus::Create();
 
-	CString sFolder = "游戏资源\\区域\\setting";
+	CString sFolder = "GameResource\\Region\\setting";
 	AppGetFullPath(sFolder);
 
 	//load attribute and settings!

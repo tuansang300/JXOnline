@@ -38,7 +38,7 @@
 #include "KTongProtocol.h"
 
 
-#define		CHAT_TEAM_DEFAULT_NAME		"我的好友"
+#define		CHAT_TEAM_DEFAULT_NAME		"My Friends"
 
 DWORD	g_dwChannelOr[CHAT_CUR_CHANNEL_NUM] =
 {
@@ -415,7 +415,7 @@ void	KPlayerChat::ServerSendChat(int nPlayerIdx, BYTE* pProtocol)
 		return;
 	if (pChat->m_wLength != sizeof(PLAYER_SEND_CHAT_COMMAND) - 1 - sizeof(pChat->m_szSentence) + pChat->m_btChatPrefixLen + pChat->m_wSentenceLen)
 	{
-		g_DebugLog("[chat]聊天数据包错误！");
+		g_DebugLog("[chat] Chat data packet error!");
 		return;
 	}
 
@@ -2039,7 +2039,7 @@ void KPlayerChat::SendInfoToIP(DWORD nIP, DWORD nID, char *lpszAccName, char *lp
 #endif
 
 #ifdef _SERVER
-#define BROTHER_UNITNAME "亲人\n"
+#define BROTHER_UNITNAME "Family\n"
 void KPlayerChat::MakeBrother(const STRINGLIST& brothers)
 {
 	if (brothers.size() == 0)
@@ -2088,7 +2088,7 @@ void KPlayerChat::MakeBrother(const STRINGLIST& brothers)
 #endif
 
 #ifdef _SERVER
-#define ENEMY_UNITNAME	 "仇人\n"
+#define ENEMY_UNITNAME	 "Enemy\n"
 void KPlayerChat::MakeEnemy(char* szPlayer, char* szEnemy)
 {
 	if (!szPlayer || szPlayer[0] == 0 ||

@@ -33,14 +33,14 @@ cStatusTerrainDiamond::~cStatusTerrainDiamond()
 
 }
 
-const CString c_strFillGround = "填充矩形.txt";
-const CString c_strFillRadius = "填充半径.txt";
+const CString c_strFillGround = "FillRectangle.txt";
+const CString c_strFillRadius = "FillRadius.txt";
 
 BOOL cStatusTerrainDiamond::Create()
 {
 	cStatus::Create();
 
-	CString sFolder= "游戏资源\\室内地表\\setting";
+	CString sFolder= "GameResource\\IndoorTerrain\\setting";
 	AppGetFullPath(sFolder);
 
 	CString sPathName;

@@ -53,7 +53,7 @@ void CObjDlg::OnOK()
 {
 	if (m_strNick.GetLength() >= MAX_NAME )
 	{
-		AfxMessageBox("名字太长");
+		AfxMessageBox("Name is too long");
 		return;
 	}
 	CDialog::OnOK();
@@ -72,7 +72,7 @@ BOOL CObjDlg::OnInitDialog()
 void CObjDlg::OnBrowseTemplate() 
 {
 	CString strFile;
-	CString strWork = "游戏资源\\动态物体";
+	CString strWork = "GameResources\\DynamicObjects";
 	AppGetFullPath(strWork);
 	if (AppGetFileDialog(strFile,strWork,"*.ini"))
 	{

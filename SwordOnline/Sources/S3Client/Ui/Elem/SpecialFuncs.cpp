@@ -84,7 +84,7 @@ bool SetScrPicPath(const char* szPath)
 	{
 		if(!SHGetSpecialFolderPath(NULL, szScrPicPath, CSIDL_DESKTOPDIRECTORY , false))
 			return false;
-		strcat(szScrPicPath,"\\╫ёою╫ьм╪\\");
+		strcat(szScrPicPath,"\\JX_Screenshots\\");
 	}
 	else
 	{

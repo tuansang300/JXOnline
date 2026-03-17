@@ -25,9 +25,9 @@
 
 extern iRepresentShell*	g_pRepresentShell;
 
-#define 	SCHEME_INI_TASKNOTE			"任务记事.ini"
-#define 	SCHEME_INI_SYSTEM			"任务记事-系统任务分页.ini"
-#define 	SCHEME_INI_PERSONAL			"任务记事-个人记事分页.ini"
+#define 	SCHEME_INI_TASKNOTE			"quest_log.ini"
+#define 	SCHEME_INI_SYSTEM			"quest_log_system_page.ini"
+#define 	SCHEME_INI_PERSONAL			"quest_log_personal_page.ini"
 
 //////////////////////////////////////////////////////////////////////////
 // Editor

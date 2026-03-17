@@ -17,7 +17,7 @@
 //#include "../UiSoundSetting.h"
 #include <crtdbg.h>
 
-#define	SCHEME_INI_NEWENTERINFO			"新手进入的初始界面.ini"
+#define	SCHEME_INI_NEWENTERINFO			"newbie_entry_ui.ini"
 #define	NEWENTERINFO_INI				"\\Ui\\NewEnterInfo.ini"
 
 KUiNewPlayerStartMsg* KUiNewPlayerStartMsg::m_pSelf = NULL;

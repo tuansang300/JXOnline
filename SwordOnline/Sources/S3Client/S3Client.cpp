@@ -47,7 +47,7 @@ KMusic*					g_pMusic = NULL;
 #endif
 	
 int					g_bScreen = true;
-char				g_szGameName[33] = "½£ÏÀÇéÔµ¡¤ÍøÂç°æ";
+char				g_szGameName[33] = "JX Online";
 
 
 KClientCallback g_ClientCallback;

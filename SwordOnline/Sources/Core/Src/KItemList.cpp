@@ -1061,7 +1061,7 @@ BOOL KItemList::EatMecidine(int nIdx)
 			Msg.byParamSize = 0;
 			Msg.byPriority = 1;
 			Msg.eType = SMT_PLAYER;
-			strcpy(Msg.szMessage, "无法在这里使用土地符！");
+			strcpy(Msg.szMessage, "You cannot use Town Portal here!");
 			CoreDataChanged(GDCNI_SYSTEM_MESSAGE, (unsigned int)&Msg, NULL);
 #endif
 			return FALSE;

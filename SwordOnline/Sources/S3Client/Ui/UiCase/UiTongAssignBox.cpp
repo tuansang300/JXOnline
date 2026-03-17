@@ -23,7 +23,7 @@ Description : 任命帮会职位的界面
 #include "UiTongGetString.h"
 
 
-#define TONG_ASSIGN_BOX_INI "帮会职位任命.ini"
+#define TONG_ASSIGN_BOX_INI "guild_position_assignment.ini"
 
 
 extern iCoreShell *g_pCoreShell;
@@ -152,9 +152,9 @@ void KUiTongAssignBox::LoadScheme(const char* pScheme)
 			ms_pSelf->m_TargetName.Init(&Ini, "PlayerName");
 			ms_pSelf->m_TextError.Init(&Ini, "ErrorBox");
 
-			ms_pSelf->m_BtnElder.SetText("长老");
-			ms_pSelf->m_BtnCaptain.SetText("队长");
-			ms_pSelf->m_BtnPilgarlic.SetText("帮众");
+			ms_pSelf->m_BtnElder.SetText("Elder");
+			ms_pSelf->m_BtnCaptain.SetText("Captain");
+			ms_pSelf->m_BtnPilgarlic.SetText("Guild Master");
 
 			Ini.GetString("Main", "AssignString", "", ms_pSelf->m_szAssign, sizeof(ms_pSelf->m_szAssign));
 			Ini.GetString("Main", "CancelString", "", ms_pSelf->m_szCancel, sizeof(ms_pSelf->m_szCancel));

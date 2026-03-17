@@ -180,8 +180,8 @@ int		CTongSet::AddMember(char *lpszPlayerName, char *lpszTongName)
 				DWORD channid = g_ChannelMgr.GetChannelID(szMsg, 0);
 				if (channid != -1)
 				{
-					sprintf(szMsg, "%s加入本帮！", lpszPlayerName);
-					g_ChannelMgr.SayOnChannel(channid, TRUE, std::string(), std::string("公告"), std::string(szMsg));
+					sprintf(szMsg, "%s has joined the guild!", lpszPlayerName);
+					g_ChannelMgr.SayOnChannel(channid, TRUE, std::string(), std::string("Announcement"), std::string(szMsg));
 				}
 
 				return i;

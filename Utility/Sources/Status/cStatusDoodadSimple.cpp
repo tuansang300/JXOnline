@@ -26,9 +26,9 @@ static char THIS_FILE[]=__FILE__;
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
-const CString c_strAutoLinkHor = "自动连接平行的面.txt";
-const CString c_strAutoLinkVer = "自动连接垂直的面.txt";
-const CString c_strAutoLinkTile = "自动对齐格子.txt";
+const CString c_strAutoLinkHor = "AutoLinkHorizontalPlanes.txt";
+const CString c_strAutoLinkVer = "AutoLinkVerticalPlanes.txt";
+const CString c_strAutoLinkTile = "AutoAlignGrid.txt";
 
 cStatusDoodadSimple::cStatusDoodadSimple()
 {
@@ -117,7 +117,7 @@ BOOL cStatusDoodadSimple::Create()
 {
 	cStatus::Create();
 
-	CString sFolder = "游戏资源\\美术图素\\setting";
+	CString sFolder = "GameResources\\ArtAssets\\Settings";
 	AppGetFullPath(sFolder);
 
 	//load attribute and settings!

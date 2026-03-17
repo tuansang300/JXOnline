@@ -12,7 +12,7 @@
 #include "KiniFile.h"
 
 
-#define ERROR_STRING		"\\UI\\错误描述.ini"
+#define ERROR_STRING		"\\UI\\error_desc.ini"
 #define	NEXT_LINE_CHARA		'~'
 
 //错误代码提示部分定义的全局变量

@@ -176,7 +176,7 @@ BOOL CSpecialDlg::OnInitDialog()
 
 	for (i=0; i<count; i++)
 	{
-		if (m_aDescription[i] == "²»ÄÜÐÞ¸Ä")
+		if (m_aDescription[i] == "CannotModify")
 		{
 			m_aValueControl[i].EnableWindow(FALSE);
 		}

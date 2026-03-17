@@ -232,7 +232,7 @@ BOOL KLibOfBPT::InitMAIT()
     //#ifdef _DEBUG
     #if 0
     //g_DebugLog("[魔法属性]%s五防抗性上限增加%d", pNpc->Name, pMagic->nValue[0]);
-    printf("[魔法属性]m_CMAIT[前缀后缀][类型][五行][级别]\n");
+    printf("[Magic Attributes] m_CMAIT [Prefix/Suffix] [Type] [Element] [Level]\n");
     for (nPrefixPostfix = 0; nPrefixPostfix < MATF_PREFIXPOSFIX; nPrefixPostfix++)
     {
         for (nType = 0; nType < MATF_CBDR; nType++)
@@ -257,7 +257,7 @@ BOOL KLibOfBPT::InitMAIT()
                     }
 
                     sprintf(szOutputString, 
-                        "[魔法属性]m_CMAIT[%d][%d][%d][%d]: Count = %3d, %s  \n",
+                        "[Magic Attributes] m_CMAIT[%d][%d][%d][%d]: Count = %3d, %s\n",
                         nPrefixPostfix,
                         nType,
                         nSeries,

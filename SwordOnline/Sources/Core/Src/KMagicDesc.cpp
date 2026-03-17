@@ -263,22 +263,22 @@ const char* KMagicDesc::GetDesc(void *pData)
 				switch(nValue)
 				{
 				case series_metal:
-					strcat(m_szDesc, "金系");
+					strcat(m_szDesc, "Metal");
 					break;
 				case series_wood:
-					strcat(m_szDesc, "木系");
+					strcat(m_szDesc, "Wood");
 					break;
 				case series_water:
-					strcat(m_szDesc, "水系");
+					strcat(m_szDesc, "Water");
 					break;
 				case series_fire:
-					strcat(m_szDesc, "火系");
+					strcat(m_szDesc, "Fire");
 					break;
 				case series_earth:
-					strcat(m_szDesc, "土系");
+					strcat(m_szDesc, "Earth");
 					break;
 				default:
-					strcat(m_szDesc, "无系");
+					strcat(m_szDesc, "None");
 					break;
 				}
 				i += 4;
@@ -287,19 +287,19 @@ const char* KMagicDesc::GetDesc(void *pData)
 				switch(nValue)
 				{
 				case 0:
-					strcat(m_szDesc, "内力");
+					strcat(m_szDesc, "Mana");
 					break;
 				case 1:
-					strcat(m_szDesc, "生命");
+					strcat(m_szDesc, "Life");
 					break;
 				case 2:
-					strcat(m_szDesc, "体力");
+					strcat(m_szDesc, "Stamina");
 					break;
 				case 3:
-					strcat(m_szDesc, "金钱");
+					strcat(m_szDesc, "Money");
 					break;
 				default:
-					strcat(m_szDesc, "内力");
+					strcat(m_szDesc, "Mana");
 					break;
 				}
 				i += 4;
@@ -316,12 +316,12 @@ const char* KMagicDesc::GetDesc(void *pData)
 					case 1:
 						if (nValue > 0)
 						{
-							strcat(m_szDesc, "增加");
+							strcat(m_szDesc, "Increase");
 						}
 						else
 						{
 							nValue = -nValue;
-							strcat(m_szDesc, "减少");
+							strcat(m_szDesc, "Decrease");
 						}
 						break;
 					default:
@@ -335,9 +335,9 @@ const char* KMagicDesc::GetDesc(void *pData)
 				break;
 			case 'x':		// 性别
 				if (nValue)
-					strcat(m_szDesc, "女性");
+					strcat(m_szDesc, "Female");
 				else
-					strcat(m_szDesc, "男性");
+					strcat(m_szDesc, "Male");
 				i += 4;
 				break;
 			default:

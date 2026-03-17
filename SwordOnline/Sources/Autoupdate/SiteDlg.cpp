@@ -56,7 +56,7 @@ BOOL CSiteDlg::OnInitDialog()
 //		m_SiteList.InsertItem(0, "石家庄服务器");
 //		m_SiteList.InsertItem(0, "石家庄服务器");
 //		m_SiteList.InsertItem(0, (*site_list)[i]);
-		sprintf(site_name, "自动升级站点%d", i + 1);
+		sprintf(site_name, "Auto update server %d", i + 1);
 		m_SiteList.InsertItem(i, site_name);
 	}
 	m_SiteList.SetCheck(nStart, TRUE);

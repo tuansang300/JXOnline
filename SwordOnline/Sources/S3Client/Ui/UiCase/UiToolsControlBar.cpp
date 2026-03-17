@@ -16,7 +16,7 @@
 #include "../../../core/src/coreshell.h"
 extern iCoreShell*		g_pCoreShell;
 
-#define	SCHEME_INI		"工具控制条.ini"
+#define	SCHEME_INI		"ToolControlBarConfig.ini"
 
 KUiToolsControlBar* KUiToolsControlBar::m_pSelf = NULL;
 

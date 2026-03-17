@@ -171,7 +171,7 @@ CORE_API void g_InitCore()
 	g_InitSeries();
     if (!g_InitMath())
     {
-    	g_DebugLog("[Math]初始化数学函数失败!");
+    	g_DebugLog("[Math] Failed to initialize math functions!");
     }
 	ItemSet.Init();
 	ItemGen.Init();
@@ -190,7 +190,7 @@ CORE_API void g_InitCore()
 	g_OrdinSkillsSetting.Load(SKILL_SETTING_FILE);
 	g_MisslesSetting.Load(MISSLES_SETTING_FILE);
 	g_NpcSetting.Load(NPC_SETTING_FILE);
-	g_DebugLog("[Script]脚本占空间为%d", sizeof(g_ScriptSet));
+	g_DebugLog("[Script] Script memory size: %d bytes", sizeof(g_ScriptSet));
 	
 	InitSkillSetting();
 	InitMissleSetting();
@@ -385,7 +385,7 @@ BOOL	InitNpcSetting()
 {
 	int nNpcTemplateNum = g_NpcSetting.GetHeight() - 1;
 	
-	g_DebugLog("人物模板数量%d", nNpcTemplateNum);
+	g_DebugLog("NPC template count: %d", nNpcTemplateNum);
 	//g_pNpcTemplate = new KNpcTemplate[nNpcTemplateNum * MAX_NPC_LEVEL]; //0,0为起点
 	memset(g_pNpcTemplate, 0, sizeof(void*) * MAX_NPCSTYLE * MAX_NPC_LEVEL);
 	
@@ -393,7 +393,7 @@ BOOL	InitNpcSetting()
 //	g_SetFilePath(RES_INI_FILE_PATH);
 	if ( !g_NpcKindFile.Load(NPC_RES_KIND_FILE_NAME) )
 	{
-		g_DebugLog("无法打开%s文件!!!", NPC_RES_KIND_FILE_NAME);
+		g_DebugLog("Cannot open file %s !!!", NPC_RES_KIND_FILE_NAME);
 	}
 	
 	g_DebugLog("NpcTempleSize is %d * %d * %d = %d", sizeof(KNpcTemplate) , nNpcTemplateNum , MAX_NPC_LEVEL, sizeof(KNpcTemplate) * nNpcTemplateNum * MAX_NPC_LEVEL);
@@ -406,7 +406,7 @@ BOOL	InitNpcSetting()
 	g_pNpcLevelScript->Init();
 	if (!g_pNpcLevelScript->Load(NPC_LEVELSCRIPT_FILENAME))
 	{
-		g_DebugLog ("[error]致命错误,无法正确读取%s", NPC_LEVELSCRIPT_FILENAME);
+		g_DebugLog ("[error] Fatal error, cannot correctly read %s", NPC_LEVELSCRIPT_FILENAME);
 		delete g_pNpcLevelScript;
 		g_pNpcLevelScript = NULL;
 	}
@@ -414,7 +414,7 @@ BOOL	InitNpcSetting()
 	
 	if (!g_pNpcLevelScript) 
 	{
-		g_DebugLog("%sNpc等级设定脚本无法加载，可能文件不存在或语法错误", NPC_LEVELSCRIPT_FILENAME);
+		g_DebugLog("%s NPC level setting script cannot be loaded. The file may not exist or contains syntax errors.", NPC_LEVELSCRIPT_FILENAME);
 	}
 	
 #ifndef _SERVER
@@ -439,7 +439,7 @@ BOOL	InitMissleSetting()
 			g_MisslesLib[nMissleId].m_nMissleId = nMissleId;
 		}
 	}
-	g_DebugLog("子碟类占用空间为%d", sizeof(g_MisslesLib));
+	g_DebugLog("Missile class memory usage: %d bytes", sizeof(g_MisslesLib));
 	return TRUE;
 }
 
@@ -559,7 +559,7 @@ unsigned int	InitAdjustColorTab()
 	if (!TabFile.Load(ADJUSTCOLOR_TABFILE))
 	{
 		_ASSERT(0);
-		g_DebugLog("无法打开%s", ADJUSTCOLOR_TABFILE);
+		g_DebugLog("Failed to open file %s", ADJUSTCOLOR_TABFILE);
 		return 0;
 	}
 

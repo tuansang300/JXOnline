@@ -866,7 +866,7 @@ void	KPlayerTong::SetSelfInfo(TONG_SELF_INFO_SYNC *pInfo)
 	if (m_nFlag == 1 && m_nFigure != pInfo->m_btFigure)
 	{
 		// 被任命
-		defFuncShowNormalMsg("您在帮会中的职位发生了变化！");
+		defFuncShowNormalMsg("Your guild rank has changed!");
 	}
 
 	this->m_nFlag = 1;

@@ -164,13 +164,13 @@ int LuaModifyRepute(Lua_State *L)
 	if (nValue < 0)
 	{
 		char szMsg[100];
-		sprintf(szMsg, "您的声望减少了%d点!", -nValue);		
+		sprintf(szMsg, "Your reputation decreased by %d points!", -nValue);		
 //		KPlayerChat::SendSystemInfo(1, nPlayerIndex, MESSAGE_SYSTEM_ANNOUCE_HEAD, (char *) szMsg, strlen(szMsg) );
 	}
 	else
 	{
 		char szMsg[100];
-		sprintf(szMsg, "您的声望增加了%d点!", nValue);		
+		sprintf(szMsg, "Your reputation increased by %d points!", nValue);		
 //		KPlayerChat::SendSystemInfo(1, nPlayerIndex, MESSAGE_SYSTEM_ANNOUCE_HEAD, (char *) szMsg, strlen(szMsg) );
 	}
 	
@@ -1284,7 +1284,7 @@ int LuaMsgToTeam(Lua_State * L)
 			const	char * szMsg = Lua_ValueToString(L,1);
 			int nTeamLeaderId = g_Team[Player[nPlayerIndex].m_cTeam.m_nID].m_nCaptain;
 			if (nTeamLeaderId > 0)
-				KPlayerChat::SendSystemInfo(1, nTeamLeaderId, "组队消息",(char *) szMsg, strlen(szMsg) );
+				KPlayerChat::SendSystemInfo(1, nTeamLeaderId, "Team Message",(char *) szMsg, strlen(szMsg) );
 			
 			for (int i = 0; i < MAX_TEAM_MEMBER; i ++)
 			{
@@ -1292,7 +1292,7 @@ int LuaMsgToTeam(Lua_State * L)
 				if (nMemberId > 0)
 				{
 					if (szMsg)
-						KPlayerChat::SendSystemInfo(1, nMemberId, "组队消息", (char *)szMsg, strlen(szMsg) );
+						KPlayerChat::SendSystemInfo(1, nMemberId, "Team Message", (char *)szMsg, strlen(szMsg) );
 				}
 			}
 		}
@@ -1445,7 +1445,7 @@ int LuaAddEventItem(Lua_State *L)
 	{
 		char * szEventItm = (char *)Lua_ValueToString(L,1);
 		
-		if (!g_EventItemTab.GetInteger(szEventItm, "具体类别", 0, &nEventId))
+		if (!g_EventItemTab.GetInteger(szEventItm, "SpecificType", 0, &nEventId))
 		{
 			Lua_PushNumber(L,0);
 			return 1;
@@ -1519,7 +1519,7 @@ int LuaAddItem(Lua_State * L)
 	int nParamNum = Lua_GetTopIndex(L);
 	if (nParamNum < 7)
 	{
-		g_DebugLog("[Script]使用AddItem参数数量不符!");
+		g_DebugLog("[Script] AddItem parameter count mismatch!");
 		Lua_PushNumber(L,0);
 		return 1;
 	}
@@ -1621,7 +1621,7 @@ int LuaGetTaskItemCount(Lua_State * L)
 			{
 				char * szEventItm = (char *)Lua_ValueToString(L,1);
 				
-				if (!g_EventItemTab.GetInteger(szEventItm, "具体类别", 0, &nEventId))
+				if (!g_EventItemTab.GetInteger(szEventItm, "DetailType", 0, &nEventId))
 				{
 					Lua_PushNumber(L,0);
 					return 1;
@@ -1639,7 +1639,7 @@ int LuaGetTaskItemCount(Lua_State * L)
 	}
 	else
 	{
-		g_DebugLog("GetItem 参数不够!");
+		g_DebugLog("GetItem: insufficient parameters!");
 		Lua_PushNumber(L , 0);
 	}
 	
@@ -1669,7 +1669,7 @@ int LuaDelItem(Lua_State * L)
 			else
 			{
 				char * szEventItm = (char *)Lua_ValueToString(L,1);
-				if (!g_EventItemTab.GetInteger(szEventItm, "具体类别", 0, &nEventId))
+				if (!g_EventItemTab.GetInteger(szEventItm, "DetailType", 0, &nEventId))
 				{
 					return 0;
 				}
@@ -1685,7 +1685,7 @@ int LuaDelItem(Lua_State * L)
 	}
 	else
 	{
-		g_DebugLog("HaveItem 参数不够!");
+		g_DebugLog("HaveItem: insufficient parameters!");
 	}
 	
 	return 0;
@@ -1709,7 +1709,7 @@ int LuaHaveItem(Lua_State *L)
 			{
 				char * szEventItm = (char *)Lua_ValueToString(L,1);
 				
-				if (!g_EventItemTab.GetInteger(szEventItm, "具体类别", 0, &nEventId))
+				if (!g_EventItemTab.GetInteger(szEventItm, "DetailType", 0, &nEventId))
 				{
 					Lua_PushNumber(L,0);
 					return 1;
@@ -1727,7 +1727,7 @@ int LuaHaveItem(Lua_State *L)
 	}
 	else
 	{
-		g_DebugLog("HaveItem 参数不够!");
+		g_DebugLog("HaveItem parameters not enough!");
 		Lua_PushNumber(L , 0);
 	}
 	
@@ -3493,7 +3493,7 @@ int LuaGetStationName(Lua_State * L)
 	}
 	int nStationId = (int)Lua_ValueToNumber(L,1);
 	char szName[50];
-	g_StationTabFile.GetString(nStationId + 1, " DESC", "无名城",  szName, 50 );
+	g_StationTabFile.GetString(nStationId + 1, " DESC", "Unnamed City",  szName, 50 );
 	Lua_PushString(L, szName);
 	return 1;
 }
@@ -3510,7 +3510,7 @@ int LuaGetWayPointName(Lua_State * L)
 	}
 	int nWayPointId = (int)Lua_ValueToNumber(L,1);
 	char szName[50];
-	g_WayPointTabFile.GetString(nWayPointId + 1, " DESC", "未记录",  szName, 50 );
+	g_WayPointTabFile.GetString(nWayPointId + 1, " DESC", "Not Recorded",  szName, 50 );
 	Lua_PushString(L, szName);
 	return 1;
 }
@@ -3732,11 +3732,11 @@ int LuaGetDockName(Lua_State * L)
 	
 	if (nDock > g_DockPriceTabFile.GetHeight() - 1)
 	{
-		strcpy(szName, "未知码头");
+		strcpy(szName, "Unknown Dock");
 		goto DockName;
 	}
 	
-	g_DockTabFile.GetString(nDock + 1, " DESC", "未知码头", szName, 100);
+	g_DockTabFile.GetString(nDock + 1, " DESC", "Unknown Dock", szName, 100);
 	
 DockName:
 	Lua_PushString (L, szName);

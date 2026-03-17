@@ -345,7 +345,7 @@ int	KSkillList::GetSkillSortList(KUiSkillData * pSkillList)
 			pSkill->nLevel = m_Skills[i].SkillLevel;
 			if ((++nCount) == 50)
 			{
-				g_DebugLog("Npc的技能数量超过了限制50！！！，请检查!!!");			
+				g_DebugLog("Error: NPC skill count exceeded the maximum limit (50). Please check!");			
 				break;
 			}
 		}

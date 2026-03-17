@@ -100,13 +100,13 @@ static BOOL LoadScriptToSortListA(char * szRelativeFile)
 		}
 		else
 		{
-			g_DebugLog("[脚本]加载脚本%s，出错，该脚本无法加载！！请检查！！", szRelativeFile);
+			g_DebugLog("[Script] Failed to load script %s, this script cannot be loaded!! Please check!!", szRelativeFile);
 			return FALSE;
 		}
 	}
 	else
 	{
-		g_DebugLog("[脚本]严重错误!脚本数量超限制%d！请立即解决！！", MAX_SCRIPT_IN_SET);
+		g_DebugLog("[Script] Critical error! Number of scripts exceeds the limit %d!! Please fix immediately!!", MAX_SCRIPT_IN_SET);
 		return FALSE;
 	}
 	
@@ -121,7 +121,7 @@ static BOOL LoadScriptToSortList(char * szFileName)
 	if (!szFileName || !szFileName[0]) return FALSE;
 	if (nCurrentScriptNum>= MAX_SCRIPT_IN_SET)
 	{
-		g_DebugLog("[Script]脚本总容量超过%d,严重错误请检查!",MAX_SCRIPT_IN_SET);
+		g_DebugLog("[Script] Total script capacity exceeded %d, critical error! Please check!",MAX_SCRIPT_IN_SET);
 		return FALSE;
 	}
 
@@ -202,7 +202,7 @@ void	LoadScriptInDirectory(LPSTR lpszRootDir, LPSTR lpszSubDir)
 					_strupr(szExt);
 					if ( (!strcmp(szExt, ".LUA")) || (!strcmp(szExt, ".TXT")))
 						if (!LoadScriptToSortList(FindData.name))
-							g_DebugLog("加载%s文件出错", FindData.name);
+							g_DebugLog("Error loading file %s", FindData.name);
 				}
 			}
 		}
@@ -249,7 +249,7 @@ void	LoadScriptInDirectory(LPSTR lpszRootDir, LPSTR lpszSubDir)
 ///					_strupr(szExt);
 					if ( (!strcmp(szExt, ".LUA")) || (!strcmp(szExt, ".TXT")))
 						if (!LoadScriptToSortList(ep->d_name))
-							g_DebugLog("加载%s文件出错", ep->d_name);
+							g_DebugLog("Error loading file %s", ep->d_name);
 				}
 			}
 		}

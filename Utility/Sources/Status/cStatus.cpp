@@ -1511,7 +1511,7 @@ BOOL cStatus::ClickOnMap(CPoint ptScreen) //是否点击了小地图
 		}
 	}
 
-#pragma message (ATTENTION("当地图跳转的时候，redo和undo会出错"))
+#pragma message (ATTENTION("Redo and undo may fail when switching maps"))
 	return FALSE;
 }
 

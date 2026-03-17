@@ -122,7 +122,7 @@ inline int	KSkill::Param2PCoordinate(int nLauncher, int nParam1, int nParam2 , i
 	}
 	
 	if (*npPX < 0 || *npPY < 0)	
-		g_DebugLog("Param2PCoordinateº¯Êý»ñµÃ²ÎÊýÎ¥·¨£¡nParam1 ,nParam2 [%d,%d], nPX,nPY", nParam1, nParam2, *npPX, * npPY);
+		g_DebugLog("Param2PCoordinate: invalid parameters! nParam1=%d, nParam2=%d, nPX=%d, nPY=%d", nParam1, nParam2, *npPX, * npPY);
 	
 	return nTargetId;
 }
@@ -1871,7 +1871,7 @@ void	KSkill::CreateMissle(int nLauncher, int nChildSkillId, int nMissleIndex)  c
 	pMissle->m_MissleRes.m_bNeedShadow   = m_bNeedShadow;
 	pMissle->m_MissleRes.m_nMaxShadowNum = m_nMaxShadowNum;
 	pMissle->m_MissleRes.m_nMissleId	 = nMissleIndex;
-	if (!pMissle->m_MissleRes.Init()) g_DebugLog("´´½¨×Óµ¯ÌùÍ¼Ê§°Ü£¡£¡£¡%s", __FILE__) ;
+	if (!pMissle->m_MissleRes.Init()) g_DebugLog("Missile texture initialization failed! File: %s", __FILE__) ;
 #endif
 	
 	pMissle->DoWait();
@@ -2012,8 +2012,8 @@ BOOL	KSkill::GetInfoFromTabFile(KITabFile *pSkillsSettingFile, int nRow)
 #ifndef _SERVER
 	pSkillsSettingFile->GetString(nRow, "SkillDesc", "", m_szSkillDesc, 100);
 	pSkillsSettingFile->GetInteger(nRow, "NeedShadow",		0, &m_bNeedShadow, TRUE);
-	pSkillsSettingFile->GetString(nRow, "SkillIcon","\\spr\\skill\\Í¼±ê\\Í¨ÓÃ.spr",	m_szSkillIcon, 80);
-	if (!m_szSkillIcon[0])	strcpy(m_szSkillIcon, "\\spr\\skill\\Í¼±ê\\Í¨ÓÃ.spr");
+	pSkillsSettingFile->GetString(nRow, "SkillIcon","\\spr\\skill\\icon\\common.spr",	m_szSkillIcon, 80);
+	if (!m_szSkillIcon[0])	strcpy(m_szSkillIcon, "\\spr\\skill\\icon\\common.spr");
 	pSkillsSettingFile->GetInteger(nRow, "LRSkill",		0, (int*)&m_eLRSkillInfo);
 	pSkillsSettingFile->GetString(nRow, "PreCastSpr", "", m_szPreCastEffectFile, 100);
 	pSkillsSettingFile->GetString(nRow, "ManCastSnd","", m_szManPreCastSoundFile, 100);
@@ -2072,14 +2072,14 @@ void		KSkill::LoadSkillLevelData(unsigned long  nLevel /* =0*/, int nParam)
 	Script.Init();
 	if (!Script.Load(szSettingScriptName)) 
 	{
-		g_DebugLog("ÎÞ·¨¶ÁÈ¡¼¼ÄÜÉè¶¨½Å±¾ÎÄ¼þ%s£¬ÇëÈ·ÈÏÊÇ·ñÎÄ¼þ´æÔÚ»ò½Å±¾Óï·¨ÓÐÎó£¡", szSettingScriptName);
+		g_DebugLog("Failed to read skill setting script file %s. Please check whether the file exists or the script syntax is incorrect!", szSettingScriptName);
 		return;
 	}
 	pScript  = &Script;
 #else
 	if (!m_dwSkillLevelDataScriptId) 
 	{
-		printf("ÖÂÃü´íÎó£¡ÎÞ·¨»ñµÃ¼¼ÄÜ[%s]µÄÉè¶¨½Å±¾£¬Çë¼ì²éÊÇ·ñ´æÔÚ»òÓï·¨ÓÐÎó£¡\n", GetSkillName());
+		printf("Fatal error! Unable to load configuration script for skill [%s]. Please check whether it exists or if the syntax is incorrect!\n", GetSkillName());
 		return ;
 	}
 	
@@ -2087,7 +2087,7 @@ void		KSkill::LoadSkillLevelData(unsigned long  nLevel /* =0*/, int nParam)
 	
 	if (!pScript)
 	{
-		printf("ÖÂÃü´íÎó£¡ÎÞ·¨»ñµÃ¼¼ÄÜ[%s]µÄÉè¶¨½Å±¾£¬Çë¼ì²éÊÇ·ñ´æÔÚ»òÓï·¨ÓÐÎó£¡\n", GetSkillName());
+		printf("Fatal error! Unable to load configuration script for skill [%s]. Please check whether it exists or if the syntax is incorrect!\n", GetSkillName());
 		return ;
 	}
 #endif
@@ -2125,7 +2125,7 @@ void		KSkill::LoadSkillLevelData(unsigned long  nLevel /* =0*/, int nParam)
 		else
 		{
 			char szMsg[300];
-			sprintf(szMsg, "µ±»ñµÃ¸Ã¼¼ÄÜµÈ¼¶Îª%d£¨%s,%s£©Ê±£¬³ö´í£¬Çë¼ì²é½Å±¾!,",nLevel, szSettingNameValue, szSettingDataValue);
+			sprintf(szMsg, "Error when retrieving skill data at level %d (%s, %s). Please check the script!",nLevel, szSettingNameValue, szSettingDataValue);
 			g_DebugLog(szMsg);
 			break;
 		}
@@ -2582,49 +2582,49 @@ void	KSkill::GetDesc(unsigned long ulSkillId, unsigned long ulCurLevel, char * p
 	{
 	case SKILL_SS_Missles:
 		{
-			strcat(pszMsg, "×Óµ¯¼¼\n");
+			strcat(pszMsg, "Missile Skill\n");
 			szTemp[0] = 0;
 			switch(pTempSkill->m_eMisslesForm)
 			{
 			case SKILL_MF_Wall:
 				{
-					sprintf(szTemp, "Ç½ÐÎ ÊýÁ¿%d\n", pTempSkill->m_nChildSkillNum);
+					sprintf(szTemp, "Wall formation  Count: %d\n", pTempSkill->m_nChildSkillNum);
 				}break;			//Ç½ÐÎ	¶à¸ö×Óµ¯³Ê´¹Ö±·½ÏòÅÅÁÐ£¬ÀàÊ½»ðÇ½×´
 				
 			case SKILL_MF_Line:
 				{
-					sprintf(szTemp, "ÏßÐÎ ÊýÁ¿%d\n", pTempSkill->m_nChildSkillNum);
+					sprintf(szTemp, "Line formation  Count: %d\n", pTempSkill->m_nChildSkillNum);
 				}break;					//ÏßÐÎ	¶à¸ö×Óµ¯³ÊÆ½ÐÐÓÚÍæ¼Ò·½ÏòÅÅÁÐ
 			case SKILL_MF_Spread:
 				{
-					sprintf(szTemp, "É¢ÐÎ ÊýÁ¿%d\n", pTempSkill->m_nChildSkillNum);
+					sprintf(szTemp, "Line formation  Count: %d\n", pTempSkill->m_nChildSkillNum);
 				}break;				//É¢ÐÎ	¶à¸ö×Óµ¯³ÊÒ»¶¨µÄ½Ç¶ÈµÄ·¢É¢×´	
 			case SKILL_MF_Circle:
 				{
-					sprintf(szTemp, "Ô²ÐÎ·¢É¢ ÊýÁ¿%d\n", pTempSkill->m_nChildSkillNum);
+					sprintf(szTemp, "Circular spread  Count: %d\n", pTempSkill->m_nChildSkillNum);
 				}break;				//Ô²ÐÎ	¶à¸ö×Óµ¯Î§³ÉÒ»¸öÈ¦
 			case SKILL_MF_Random:{}break;				//Ëæ»ú	¶à¸ö×Óµ¯Ëæ»úÅÅ·Å
 			case SKILL_MF_Zone:
 				{
 					if (pTempSkill->m_nValue1)
-						sprintf(szTemp, "Ô²ÐÎÇøÓò ÊýÁ¿%d\n", pTempSkill->m_nChildSkillNum);
+						sprintf(szTemp, "Circular area  Count: %d\n", pTempSkill->m_nChildSkillNum);
 					else 
-						sprintf(szTemp, "·½ÐÎÇøÓò ÊýÁ¿%d\n", pTempSkill->m_nChildSkillNum);
+						sprintf(szTemp, "Square area  Count: %d\n", pTempSkill->m_nChildSkillNum);
 					
 				}break;					//ÇøÓò	¶à¸ö×Óµ¯·ÅÖÁÔÚÄ³¸ö·¶Î§ÄÚ
 			case SKILL_MF_AtTarget:
 				{
 					if (pTempSkill->m_nValue1)
-						sprintf(szTemp, "¶¨µãÔ²ÐÎÇøÓò ÊýÁ¿%d\n", pTempSkill->m_nChildSkillNum);
+						sprintf(szTemp, "Targeted circular area  Count: %d\n", pTempSkill->m_nChildSkillNum);
 					else 
-						sprintf(szTemp, "¶¨µã·½ÐÎÇøÓò ÊýÁ¿%d\n", pTempSkill->m_nChildSkillNum);
+						sprintf(szTemp, "Targeted square area  Count: %d\n", pTempSkill->m_nChildSkillNum);
 				}break;				//¶¨µã	¶à¸ö×Óµ¯¸ù¾Ý
 			case SKILL_MF_AtFirer:
 				{
 					if (pTempSkill->m_nValue1)
-						sprintf(szTemp, "¶¨µãÔ²ÐÎÇøÓò ÊýÁ¿%d\n", pTempSkill->m_nChildSkillNum);
+						sprintf(szTemp, "Caster-centered circular area  Count: %d\n", pTempSkill->m_nChildSkillNum);
 					else 
-						sprintf(szTemp, "¶¨µã·½ÐÎÇøÓò ÊýÁ¿%d\n", pTempSkill->m_nChildSkillNum);
+						sprintf(szTemp, "Caster-centered square area  Count: %d\n", pTempSkill->m_nChildSkillNum);
 					
 				}break;				//±¾Éí	¶à¸ö×Óµ¯Í£ÔÚÍæ¼Òµ±Ç°Î»ÖÃ
 			}
@@ -2634,20 +2634,20 @@ void	KSkill::GetDesc(unsigned long ulSkillId, unsigned long ulCurLevel, char * p
 		
 	case SKILL_SS_Melee:
 		{
-			strcat(pszMsg, "¸ñ¶·¼¼\n");
+			strcat(pszMsg, "Combat Skill\n");
 		}break;
 	case SKILL_SS_InitiativeNpcState:
 		{
-			strcat(pszMsg, "Ö÷¶¯¸¨ÖúÎä¹¦\n");			
+			strcat(pszMsg, "Active Support Skill\n");			
 			if (pTempSkill->m_StateAttribs[0].nValue[1] > 0)
 			{
-				sprintf (szTemp, "×´Ì¬³ÖÐøÊ±¼ä:%d\n" ,pTempSkill->m_StateAttribs[0].nValue[1]);
+				sprintf (szTemp, "State duration: %d\n" ,pTempSkill->m_StateAttribs[0].nValue[1]);
 				strcat(pszMsg,szTemp);
 			}
 		}break;	//	Ö÷¶¯Àà		±¾¼¼ÄÜÓÃÓÚ¸Ä±äµ±Ç°NpcµÄÖ÷¶¯×´Ì¬
 	case SKILL_SS_PassivityNpcState:
 		{
-			strcat(pszMsg, "±»¶¯¸¨ÖúÎä¹¦\n");
+			strcat(pszMsg, "±Passive Support Skill\n");
 		}break;		//	±»¶¯Àà		±¾¼¼ÄÜÓÃÓÚ¸Ä±äNpcµÄ±»¶¯×´Ì¬
 		
 		
@@ -2661,62 +2661,62 @@ void	KSkill::GetDesc(unsigned long ulSkillId, unsigned long ulCurLevel, char * p
 	case SKILL_SS_RepairWeapon:{}break;			//	ÐÞ¸´Àà		±¾¼¼ÄÜÓÃÓÚÐÞ¸´×°±¸
 	case SKILL_SS_Capture:{}break;				//	²¶×½Àà		±¾¼¼ÄÜÓÃÓÚ²¶×½¶¯ÎïNpc
 	}
-	if (g_MisslesLib[pTempSkill->m_nChildSkillId].m_bRangeDamage) strcat(pszMsg, "ÇøÓòÉËº¦ ");
+	if (g_MisslesLib[pTempSkill->m_nChildSkillId].m_bRangeDamage) strcat(pszMsg, "Area Damage ");
 	
 	switch(g_MisslesLib[pTempSkill->m_nChildSkillId].m_eMoveKind)
 	{
 	case MISSLE_MMK_Stand:
 		{
-			strcat(pszMsg, "Ô­µØ ");
+			strcat(pszMsg, "Stationary");
 		}break;							//	Ô­µØ
 	case MISSLE_MMK_Line:
 		{
-			strcat(pszMsg, "Ö±Ïß·ÉÐÐ ");
+			strcat(pszMsg, "Linear Flight ");
 		}break;							//	Ö±Ïß·ÉÐÐ
 	case MISSLE_MMK_Random:{}break;							//	Ëæ»ú·ÉÐÐ£¨°µºÚ¶þÅ®Î×µÄCharged Bolt£©
 	case MISSLE_MMK_Circle:
 		{
-			strcat(pszMsg, "»·ÐÎ·ÉÐÐ ");
+			strcat(pszMsg, "Circular Flight");
 		}break;							//	»·ÐÐ·ÉÐÐ£¨Î§ÈÆÔÚÉí±ß£¬°µºÚ¶þ´Ì¿ÍµÄ¼¯Æø£©
 	case MISSLE_MMK_Helix:
 		{
-			strcat(pszMsg, "»·ÐÎ·ÉÐÐ ");
+			strcat(pszMsg, "Helix Flight ");
 		}break;							//	°¢»ùÃ×µÂÂÝÐýÏß£¨°µºÚ¶þÓÎÏÀµÄBless Hammer£©
 	case MISSLE_MMK_Follow:{}break;							//	¸ú×ÙÄ¿±ê·ÉÐÐ
 	case MISSLE_MMK_Motion:{}break;							//	Íæ¼Ò¶¯×÷Àà
 	case MISSLE_MMK_Parabola:
 		{
-			strcat(pszMsg, "Å×Îï·ÉÐÐ ");
+			strcat(pszMsg, "Parabolic Flight");
 		}break;						//	Å×ÎïÏß
 	case MISSLE_MMK_SingleLine:{}break;						//	±ØÖÐµÄµ¥Ò»Ö±Ïß·ÉÐÐÄ§·¨
 	}
 	
 	if (!g_MisslesLib[pTempSkill->m_nChildSkillId].m_bCollideVanish)
-		strcat(pszMsg, "´©Í¸ ");
+		strcat(pszMsg, Piercing¸ ");
 	if (g_MisslesLib[pTempSkill->m_nChildSkillId].m_nDamageRange > 1) 
 	{
-		sprintf(szTemp, "ÉËº¦·¶Î§:%d ", g_MisslesLib[pTempSkill->m_nChildSkillId].m_nDamageRange);
+		sprintf(szTemp, "Damage Range: %d ", g_MisslesLib[pTempSkill->m_nChildSkillId].m_nDamageRange);
 		strcat(pszMsg, szTemp);
 	}
 	if (g_MisslesLib[pTempSkill->m_nChildSkillId].m_nKnockBack)
 	{
-		sprintf(szTemp, "ÕðÍË¾àÀë:%d ", g_MisslesLib[pTempSkill->m_nChildSkillId].m_nKnockBack);
+		sprintf(szTemp, "Knockback Distance: %d", g_MisslesLib[pTempSkill->m_nChildSkillId].m_nKnockBack);
 		strcat(pszMsg, szTemp);
 	}
 	if (g_MisslesLib[pTempSkill->m_nChildSkillId].m_bAutoExplode)
 	{
-		strcat(pszMsg, "ÏûÍö×Ô±¬ ");
+		strcat(pszMsg, "Explodes on vanish ");
 	}
 	
-	if (pTempSkill->m_bIsAura) strcat(pszMsg, "¹â»· ");
-	if (pTempSkill->m_bIsPhysical) strcat(pszMsg, "ÎïÀí ");
-	if (pTempSkill->m_bIsMelee) strcat(pszMsg, "½üÉí ");
-	if (pTempSkill->m_bTargetOnly) strcat(pszMsg, "±ØÖÐ ");
-	if (pTempSkill->m_bTargetAlly) strcat(pszMsg, "¶ÔÓÑ ");
-	if (pTempSkill->m_bTargetEnemy) strcat(pszMsg, "¶ÔµÐ ");
-	if (pTempSkill->m_bTargetObj)	  strcat(pszMsg, "¶ÔÎï ");
-	if (pTempSkill->m_bTargetSelf) strcat(pszMsg, "¶ÔÒÑ ");
-	if (pTempSkill->m_bUseAttackRate) strcat(pszMsg, "¿¼ÂÇÃüÖÐÂÊ ");
+	if (pTempSkill->m_bIsAura) strcat(pszMsg, "Aura ");
+	if (pTempSkill->m_bIsPhysical) strcat(pszMsg, "Physical ");
+	if (pTempSkill->m_bIsMelee) strcat(pszMsg, "Melee");
+	if (pTempSkill->m_bTargetOnly) strcat(pszMsg, "Guaranteed Hit");
+	if (pTempSkill->m_bTargetAlly) strcat(pszMsg, "Target Ally");
+	if (pTempSkill->m_bTargetEnemy) strcat(pszMsg, "Target Enemy ");
+	if (pTempSkill->m_bTargetObj)	  strcat(pszMsg, "Target Object");
+	if (pTempSkill->m_bTargetSelf) strcat(pszMsg, "Target Self ");
+	if (pTempSkill->m_bUseAttackRate) strcat(pszMsg, "Use Hit Rate");
 #endif
 	
 	strcat (pszMsg, "\n");
@@ -2726,7 +2726,7 @@ void	KSkill::GetDesc(unsigned long ulSkillId, unsigned long ulCurLevel, char * p
 	
 	if (!pTempSkill->IsPhysical())
 	{
-		sprintf(szTemp, "µ±Ç°µÈ¼¶:%d", ulCurLevel);
+		sprintf(szTemp, "Current Level: %d", ulCurLevel);
 		strcat(pszMsg, szTemp);
 		strcat(pszMsg, "\n");
 	}
@@ -2744,12 +2744,12 @@ void	KSkill::GetDesc(unsigned long ulSkillId, unsigned long ulCurLevel, char * p
 		{
 		case 1:
 			{
-				strcat(pszMsg, "ÆïÂíÖÐ²»ÄÜÊ©Õ¹\n");
+				strcat(pszMsg, "Cannot cast while riding a horse\n");
 			}
 			break;
 		case 2:
 			{
-				strcat(pszMsg, "±ØÐëÆïÂíÊ©Õ¹\n");
+				strcat(pszMsg, "Must be riding a horse to cast\n");
 			}
 			break;
 		default:
@@ -2763,7 +2763,7 @@ void	KSkill::GetDesc(unsigned long ulSkillId, unsigned long ulCurLevel, char * p
 		{
 			if (pNextSkill)
 			{
-				strcat(pszMsg, "\n<color=Red>ÏÂÒ»¼¶\n");
+				strcat(pszMsg, "\n<color=Red>Next Level\n");
 				pNextSkill->GetDescAboutLevel(pszMsg);
 			}
 			else
@@ -2786,15 +2786,15 @@ void KSkill::GetDescAboutLevel(char * pszMsg)
 		{
 		case attrib_mana:
 			
-			sprintf(szTemp, "ÄÚÁ¦ÏûºÄ:%d\n", nGetCost);
+			sprintf(szTemp, "Mana Cost: %d\n", nGetCost);
 			strcat(pszMsg,szTemp);
 			break;
 		case attrib_stamina:
-			sprintf(szTemp, "ÌåÁ¦ÏûºÄ:%d\n", nGetCost);
+			sprintf(szTemp, "Stamina Cost: %d\n", nGetCost);
 			strcat(pszMsg,szTemp);
 			break;
 		case attrib_life:
-			sprintf(szTemp, "ÉúÃüÏûºÄ:%d\n", nGetCost);
+			sprintf(szTemp, "Life Cost: %d\n", nGetCost);
 			strcat(pszMsg,szTemp);
 			break;
 		}
@@ -2803,7 +2803,7 @@ void KSkill::GetDescAboutLevel(char * pszMsg)
 	int nGetAttackRadius = GetAttackRadius();
 	if (nGetAttackRadius)
 	{
-		sprintf(szTemp,"ÓÐÐ§¾àÀë:%d\n", nGetAttackRadius);
+		sprintf(szTemp,"Effective Range: %d\n", nGetAttackRadius);
 		strcat(pszMsg,szTemp);
 	}
 

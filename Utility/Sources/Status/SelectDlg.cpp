@@ -59,9 +59,22 @@ END_MESSAGE_MAP()
 // CSelectDlg message handlers
 
 CString g_aStrFilterType[] = 
-	{"全部","默认","Y","面积","偏移","Z","前后",""};
+	{ "All",
+	"Default",
+	"Y",
+	"Area",
+	"Offset",
+	"Z",
+	"FrontBack",
+	"" };
 CString g_aStrFilterParamType[] = 
-	{"默认","最小","最大","前面","后面","中间",""};
+	{ "Default",
+	"Min",
+	"Max",
+	"Front",
+	"Back",
+	"Middle",
+	"" };
 
 
 BOOL CSelectDlg::UpdateSelect() 

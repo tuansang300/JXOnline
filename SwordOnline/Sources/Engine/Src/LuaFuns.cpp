@@ -205,7 +205,7 @@ int LuaSendScriptMessage(Lua_State * L)
 	
 	if (pSendedScript == NULL)
 	{
-		g_DebugLog("无法找到指定的脚本对象");
+		g_DebugLog("Script error: unable to locate target script object");
 		return 0;
 	}
 	

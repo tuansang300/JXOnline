@@ -131,7 +131,7 @@ void KNpcAttribModify::AddColdDamageV(KNpc* pNpc, void* pData)
 		pNpc->m_CurrentColdDamage.nValue[1] = 0;
 		pNpc->m_CurrentColdDamage.nValue[2] = 0;
 	}
-	g_DebugLog("[数值]%s冰伤害增加(%d)", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[VALUE] %s Ice damage increased (%d)", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::AddFireDamageV(KNpc* pNpc, void* pData)
@@ -139,7 +139,7 @@ void KNpcAttribModify::AddFireDamageV(KNpc* pNpc, void* pData)
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentFireDamage.nValue[0] += pMagic->nValue[0];
 	pNpc->m_CurrentFireDamage.nValue[2] += pMagic->nValue[0];
-	g_DebugLog("[数值]%s火伤害增加(%d)", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[VALUE] %s Fire damage increased (%d)", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::AddLightingDamageV(KNpc* pNpc, void* pData)
@@ -147,7 +147,7 @@ void KNpcAttribModify::AddLightingDamageV(KNpc* pNpc, void* pData)
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentLightDamage.nValue[0] += pMagic->nValue[0];
 	pNpc->m_CurrentLightDamage.nValue[2] += pMagic->nValue[0];
-	g_DebugLog("[数值]%s电伤害增加(%d)", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[VALUE] %s Lightning damage increased (%d)", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::AddPhysicsDamageP(KNpc* pNpc, void* pData)
@@ -169,17 +169,17 @@ void KNpcAttribModify::AddPhysicsDamageP(KNpc* pNpc, void* pData)
 		}
 		pNpc->m_CurrentHandEnhance += pMagic->nValue[0];
 		pNpc->m_CurrentRangeEnhance += pMagic->nValue[0];
-		g_DebugLog("[数值]%s所有物理攻击力增加百分之%d", pNpc->Name, pMagic->nValue[0]);
+		g_DebugLog("[VALUE] %s All physical attack increased by %d%%", pNpc->Name, pMagic->nValue[0]);
 	}
 	else if (nType == WEAPON_RANGE_ALL)
 	{
 		pNpc->m_CurrentRangeEnhance += pMagic->nValue[0];
-		g_DebugLog("[数值]%s远程物理攻击力增加百分之%d", pNpc->Name, pMagic->nValue[0]);
+		g_DebugLog("[VALUE] %s Ranged physical attack increased by %d%%", pNpc->Name, pMagic->nValue[0]);
 	}
 	else if (nType == WEAPON_NONE)
 	{
 		pNpc->m_CurrentHandEnhance += pMagic->nValue[0];
-		g_DebugLog("[数值]%s空手物理攻击力增加百分之%d", pNpc->Name, pMagic->nValue[0]);
+		g_DebugLog("[VALUE] %s Unarmed physical attack increased by %d%%", pNpc->Name, pMagic->nValue[0]);
 	}
 	else if (nType == WEAPON_MELEE_ALL)
 	{
@@ -187,12 +187,12 @@ void KNpcAttribModify::AddPhysicsDamageP(KNpc* pNpc, void* pData)
 		{
 			pNpc->m_CurrentMeleeEnhance[i] += pMagic->nValue[0];
 		}
-		g_DebugLog("[数值]%s近程物理攻击力增加百分之%d", pNpc->Name, pMagic->nValue[0]);
+		g_DebugLog("[VALUE] %s Melee physical attack increased by %d%%", pNpc->Name, pMagic->nValue[0]);
 	}
 	else if (nType >= 0 && nType < MAX_MELEE_WEAPON)
 	{
 		pNpc->m_CurrentMeleeEnhance[nType] += pMagic->nValue[0];
-		g_DebugLog("[数值]%s近程武器%d物理攻击力增加百分之%d", pNpc->Name, nType, pMagic->nValue[0]);
+		g_DebugLog("[VALUE] %s melee weapon %d physical attack increased by %d%%", pNpc->Name, nType, pMagic->nValue[0]);
 	}
 }
 
@@ -214,7 +214,7 @@ void KNpcAttribModify::AddPoisonDamageV(KNpc* pNpc, void* pData)
 		pNpc->m_CurrentPoisonDamage.nValue[1] = 0;
 		pNpc->m_CurrentPoisonDamage.nValue[2] = 0;
 	}	
-	g_DebugLog("[数值]%s毒状态变为：间隔%d帧发作一次%d伤害，共持续%d帧", pNpc->Name, pNpc->m_CurrentPoisonDamage.nValue[2], pNpc->m_CurrentPoisonDamage.nValue[0], pNpc->m_CurrentPoisonDamage.nValue[1]);	
+	g_DebugLog("[VALUE] %s poison state: deals %d damage every %d frames, total duration %d frames", pNpc->Name, pNpc->m_CurrentPoisonDamage.nValue[2], pNpc->m_CurrentPoisonDamage.nValue[0], pNpc->m_CurrentPoisonDamage.nValue[1]);	
 }
 
 void KNpcAttribModify::AddPhysicsDamageV(KNpc* pNpc, void* pData)
@@ -223,7 +223,7 @@ void KNpcAttribModify::AddPhysicsDamageV(KNpc* pNpc, void* pData)
 //	pNpc->m_PhysicsDamage.nValue[0] += pMagic->nValue[0];
 //	pNpc->m_PhysicsDamage.nValue[2] += pMagic->nValue[0];
 	pNpc->m_CurrentAddPhysicsDamage += pMagic->nValue[0];
-	g_DebugLog("[数值]%s物理伤害力增加(%d)", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[VALUE] %s physical damage increased (%d)", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::AllresP(KNpc* pNpc, void* pData)
@@ -234,27 +234,27 @@ void KNpcAttribModify::AllresP(KNpc* pNpc, void* pData)
 	pNpc->m_CurrentLightResist += pMagic->nValue[0];
 	pNpc->m_CurrentPoisonResist += pMagic->nValue[0];
 	pNpc->m_CurrentPhysicsResist += pMagic->nValue[0];
-	g_DebugLog("[数值]%s五防抗性增加%d", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[VALUE] %s all resistances increased by %d", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::AllSkillV(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
-	g_DebugLog("[数值]%s所有技能加%d级，未完成", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[VALUE] %s all resistances increased by %d", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::AttackRatingP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentAttackRating += pNpc->m_AttackRating * pMagic->nValue[0] / 100;
-	g_DebugLog("[数值]%s命中率增加百分之%d(%d点)", pNpc->Name, pMagic->nValue[0], pNpc->m_AttackRating * pMagic->nValue[0] / 100);
+	g_DebugLog("[VALUE] %s hit rate increased by %d%% (%d points)", pNpc->Name, pMagic->nValue[0], pNpc->m_AttackRating * pMagic->nValue[0] / 100);
 }
 
 void KNpcAttribModify::AttackRatingV(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentAttackRating += pMagic->nValue[0];
-	g_DebugLog("[数值]%s五防抗性增加%d", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[VALUE] %s all resistances increased by %d", pNpc->Name, pMagic->nValue[0]);
 	
 }
 
@@ -262,7 +262,7 @@ void KNpcAttribModify::AttackSpeedV(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentAttackSpeed += pMagic->nValue[0];
-	g_DebugLog("[数值]%s攻击速度增加%d", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[VALUE] %s attack speed increased by %d", pNpc->Name, pMagic->nValue[0]);
 	
 }
 
@@ -281,7 +281,7 @@ void KNpcAttribModify::CastSpeedV(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentCastSpeed += pMagic->nValue[0];
-	g_DebugLog("[数值]%s施法速度增加%d", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[VALUE] %s cast speed increased by %d", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::ChangeCampV(KNpc* pNpc, void* pData)
@@ -293,7 +293,7 @@ void KNpcAttribModify::ChangeCampV(KNpc* pNpc, void* pData)
 			pNpc->m_CurrentCamp = pMagic->nValue[0];
 		else
 			pNpc->m_CurrentCamp = pNpc->m_Camp;
-		g_DebugLog("[数值]%s当前阵营变为%d", pNpc->Name, pMagic->nValue[0]);
+		g_DebugLog("[VALUE] %s current camp changed to %d", pNpc->Name, pMagic->nValue[0]);
 	}
 	
 }
@@ -305,13 +305,13 @@ void KNpcAttribModify::ColdArmorV(KNpc* pNpc, void* pData)
 	{
 		pNpc->m_ColdArmor.nValue[0] = pMagic->nValue[0];
 		pNpc->m_ColdArmor.nTime = pMagic->nValue[1];
-		g_DebugLog("[数值]%s冰护盾变为%d点持续%d帧", pNpc->Name, pMagic->nValue[0], pMagic->nValue[1]);	
+		g_DebugLog("[VALUE] %s Ice shield set to %d points, lasting %d frames", pNpc->Name, pMagic->nValue[0], pMagic->nValue[1]);	
 	}
 	else
 	{
 		pNpc->m_ColdArmor.nValue[0] = 0;
 		pNpc->m_ColdArmor.nTime = 0;
-		g_DebugLog("[数值]%s冰护盾消失", pNpc->Name);	
+		g_DebugLog("[VALUE] %s Ice shield disappeared", pNpc->Name);	
 	}
 }
 
@@ -319,14 +319,14 @@ void KNpcAttribModify::ColdresP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentColdResist += pMagic->nValue[0];
-	g_DebugLog("[数值]%s冰抗性增加了%d点", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[VALUE] %s cold resistance increased by %d points", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::DeadlyStrikeP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentDeadlyStrike += pMagic->nValue[0];
-	g_DebugLog("[数值]%s致命一击百分比增加%d", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[VALUE] %s critical hit chance increased by %d%%", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::DexterityV(KNpc* pNpc, void* pData)
@@ -337,13 +337,13 @@ void KNpcAttribModify::DexterityV(KNpc* pNpc, void* pData)
 	if (pNpc->m_nPlayerIdx <= 0)
 		return;
 	Player[pNpc->m_nPlayerIdx].ChangeCurDexterity(pMagic->nValue[0]);
-	g_DebugLog("[数值]%s当前敏捷增加了%d点", pNpc->Name, pMagic->nValue[0]);	
+	g_DebugLog("[VALUE] %s current dexterity increased by %d points", pNpc->Name, pMagic->nValue[0]);	
 }
 
 void KNpcAttribModify::EarthSkillV(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
-	g_DebugLog("[数值]%s土系技能加%d级", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[VALUE] %s earth-element skills +%d levels", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::EnergyV(KNpc* pNpc, void* pData)
@@ -354,14 +354,14 @@ void KNpcAttribModify::EnergyV(KNpc* pNpc, void* pData)
 	if (pNpc->m_nPlayerIdx <= 0)
 		return;
 	Player[pNpc->m_nPlayerIdx].ChangeCurEngergy(pMagic->nValue[0]);
-	g_DebugLog("[数值]%s当前精力增加了%d点", pNpc->Name, pMagic->nValue[0]);	
+	g_DebugLog("[VALUE] %s current energy increased by %d points", pNpc->Name, pMagic->nValue[0]);	
 }
 
 void KNpcAttribModify::FastHitRecoverV(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentHitRecover += pMagic->nValue[0];
-	g_DebugLog("[数值]%s快速命中回复增加%d", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[VALUE] %s fast hit recovery increased by %d", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::FastWalkRunP(KNpc* pNpc, void* pData)
@@ -370,7 +370,7 @@ void KNpcAttribModify::FastWalkRunP(KNpc* pNpc, void* pData)
 	// 文档要求修改为直接加点数
 	pNpc->m_CurrentWalkSpeed += (pNpc->m_WalkSpeed * pMagic->nValue[0]) / 100;
 	pNpc->m_CurrentRunSpeed += (pNpc->m_RunSpeed * pMagic->nValue[0]) / 100;
-	g_DebugLog("[数值]%s移动速度增加%d", pNpc->Name, pMagic->nValue[0]);	
+	g_DebugLog("[VALUE] %s movement speed increased by %d%%", pNpc->Name, pMagic->nValue[0]);	
 }
 
 void KNpcAttribModify::FireArmorV(KNpc* pNpc, void* pData)
@@ -380,20 +380,20 @@ void KNpcAttribModify::FireArmorV(KNpc* pNpc, void* pData)
 	{
 		pNpc->m_FireArmor.nValue[0] = pMagic->nValue[0];
 		pNpc->m_FireArmor.nTime = pMagic->nValue[1];
-		g_DebugLog("[数值]%s火护盾变为%d点持续%d帧", pNpc->Name, pMagic->nValue[0], pMagic->nValue[1]);
+		g_DebugLog("[VALUE] %s fire shield set to %d points, lasting %d frames", pNpc->Name, pMagic->nValue[0], pMagic->nValue[1]);
 	}
 	else
 	{
 		pNpc->m_FireArmor.nValue[0] = 0;
 		pNpc->m_FireArmor.nTime = 0;
-		g_DebugLog("[数值]%s火护盾消失", pNpc->Name);
+		g_DebugLog("[VALUE] %s fire shield disappeared", pNpc->Name);
 	}
 }
 
 void KNpcAttribModify::FireSkillV(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
-	g_DebugLog("[数值]%s火系技能加%d级", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[VALUE] %s fire-element skills +%d levels", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::FreezeTimeReduceP(KNpc* pNpc, void* pData)
@@ -409,42 +409,42 @@ void KNpcAttribModify::FreezeTimeReduceP(KNpc* pNpc, void* pData)
 //	装备TODO	
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentFreezeTimeReducePercent += pMagic->nValue[0];
-	g_DebugLog("[数值]%s冰冻时间减少百分之%d", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[VALUE] %s freeze duration reduced by %d%%", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::KnockBackP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentKnockBack += pMagic->nValue[0];
-	g_DebugLog("[数值]%s震退百分比增加%d", pNpc->Name, pMagic->nValue[0]);	
+	g_DebugLog("[VALUE] %s knockback chance increased by %d%%", pNpc->Name, pMagic->nValue[0]);	
 }
 
 void KNpcAttribModify::LifeMaxP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentLifeMax += pNpc->m_LifeMax * pMagic->nValue[0] / 100;
-	g_DebugLog("[数值]%s生命上限增加了百分之%d(%d点)", pNpc->Name, pMagic->nValue[0], pNpc->m_LifeMax * pMagic->nValue[0] / 100);	
+	g_DebugLog("[VALUE] %s max life increased by %d%% (%d points)", pNpc->Name, pMagic->nValue[0], pNpc->m_LifeMax * pMagic->nValue[0] / 100);	
 }
 
 void KNpcAttribModify::LifeMaxV(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentLifeMax += pMagic->nValue[0];
-	g_DebugLog("[数值]%s生命上限增加了%d点", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[VALUE] %s max life increased by %d points", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::LifeReplenishV(KNpc* pNpc, void* pData)
 {
-	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
+	KMagicAttrib* pMagic = (KMagicAttrib*)pData;
 	pNpc->m_CurrentLifeReplenish += pMagic->nValue[0];
-	g_DebugLog("[数值]%s生命回复速度增加了%d点", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[VALUE] %s life regeneration speed increased by %d points",
+		pNpc->Name, pMagic->nValue[0]);
 }
-
 void KNpcAttribModify::LifeV(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentLife += pMagic->nValue[0];
-	g_DebugLog("[数值]%s生命增加了%d点", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[VALUE] %s life increased by %d points", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::LightingArmorV(KNpc* pNpc, void* pData)
@@ -454,13 +454,13 @@ void KNpcAttribModify::LightingArmorV(KNpc* pNpc, void* pData)
 	{
 		pNpc->m_LightArmor.nValue[0] = pMagic->nValue[0];
 		pNpc->m_LightArmor.nTime = pMagic->nValue[1];
-		g_DebugLog("[数值]%s电护盾变为%d点持续%d帧", pNpc->Name, pMagic->nValue[0], pMagic->nValue[1]);	
+		g_DebugLog("[VALUE] %s lightning shield set to %d points, lasting %d frames", pNpc->Name, pMagic->nValue[0], pMagic->nValue[1]);	
 	}
 	else
 	{
 		pNpc->m_LightArmor.nValue[0] = 0;
 		pNpc->m_LightArmor.nTime = 0;
-		g_DebugLog("[数值]%s电护盾消失", pNpc->Name);	
+		g_DebugLog("[VALUE] %s lightning shield disappeared", pNpc->Name);	
 	}
 }
 
@@ -468,7 +468,7 @@ void KNpcAttribModify::LightingresP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentLightResist += pMagic->nValue[0];
-	g_DebugLog("[数值]%s电抗性增加了%d点", pNpc->Name, pMagic->nValue[0]);	
+	g_DebugLog("[VALUE] %s lightning resistance increased by %d points", pNpc->Name, pMagic->nValue[0]);	
 }
 
 void KNpcAttribModify::LuckyV(KNpc* pNpc, void* pData)
@@ -476,7 +476,7 @@ void KNpcAttribModify::LuckyV(KNpc* pNpc, void* pData)
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	if (pNpc->IsPlayer())
 	{
-		g_DebugLog("[数值]%sMF值增加了%d,未完成", pNpc->Name, pMagic->nValue[0]);
+		g_DebugLog("[VALUE] %s MF value increased by %d (not implemented)", pNpc->Name, pMagic->nValue[0]);
 	}
 }
 
@@ -484,28 +484,28 @@ void KNpcAttribModify::ManaMaxP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentManaMax += pNpc->m_ManaMax * pMagic->nValue[0] / 100;
-	g_DebugLog("[数值]%s内力上限增加了百分之%d(%d点)", pNpc->Name, pMagic->nValue[0], pNpc->m_ManaMax * pMagic->nValue[0] / 100);	
+	g_DebugLog("[VALUE] %s max mana increased by %d%% (%d points)", pNpc->Name, pMagic->nValue[0], pNpc->m_ManaMax * pMagic->nValue[0] / 100);	
 }
 
 void KNpcAttribModify::ManaMaxV(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentManaMax += pMagic->nValue[0];
-	g_DebugLog("[数值]%s内力上限增加了%d点", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[VALUE] %s max mana increased by %d points", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::ManaReplenishV(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentManaReplenish += pMagic->nValue[0];
-	g_DebugLog("[数值]%s内力回复速度增加了%d点", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[VALUE] %s mana regeneration speed increased by %d points", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::ManaV(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentMana += pMagic->nValue[0];
-	g_DebugLog("[数值]%s内力增加了%d点", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[VALUE] %s mana increased by %d points", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::ManaShieldP(KNpc* pNpc, void* pData)
@@ -515,13 +515,13 @@ void KNpcAttribModify::ManaShieldP(KNpc* pNpc, void* pData)
 	{
 		pNpc->m_ManaShield.nValue[0] = pMagic->nValue[0];
 		pNpc->m_ManaShield.nTime = pMagic->nValue[1];
-		g_DebugLog("[数值]%s吸收伤害百分比为%d，持续%d帧", pNpc->Name, pMagic->nValue[0], pMagic->nValue[1]);	
+		g_DebugLog("[VALUE] %s mana shield absorbs %d%% damage, lasting %d frames", pNpc->Name, pMagic->nValue[0], pMagic->nValue[1]);	
 	}
 	else
 	{
 		pNpc->m_ManaShield.nValue[0] = 0;
 		pNpc->m_ManaShield.nTime = 0;
-		g_DebugLog("[数值]吸收伤害效果消失");
+		g_DebugLog("[Value]Damage absorption effect expired");
 	}
 }
 
@@ -529,20 +529,20 @@ void KNpcAttribModify::MeleeDamageReturnP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentMeleeDmgRetPercent += pMagic->nValue[0];
-	g_DebugLog("[数值]%s近程物理伤害反弹百分比增加%d", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[Value]%s melee physical damage reflection percent increased by %d", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::MeleeDamageReturnV(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentMeleeDmgRet += pMagic->nValue[0];
-	g_DebugLog("[数值]%s近程物理伤害反弹增加%d", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[Value]%s melee physical damage reflection increased by %d", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::MetalSkillV(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
-	g_DebugLog("[数值]%s金系技能加%d级, 未完成", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[Value]%s metal skill level increased by %d (not implemented yet", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::PhysicsArmorV(KNpc* pNpc, void* pData)
@@ -552,13 +552,13 @@ void KNpcAttribModify::PhysicsArmorV(KNpc* pNpc, void* pData)
 	{
 		pNpc->m_PhysicsArmor.nValue[0] = pMagic->nValue[0];
 		pNpc->m_PhysicsArmor.nTime = pMagic->nValue[1];
-		g_DebugLog("[数值]%s物理护盾变为%d点持续%d帧", pNpc->Name, pMagic->nValue[0], pMagic->nValue[1]);	
+		g_DebugLog("[Value]%s physical shield changed to %d, duration %d frames", pNpc->Name, pMagic->nValue[0], pMagic->nValue[1]);	
 	}
 	else
 	{
 		pNpc->m_PhysicsArmor.nValue[0] = 0;
 		pNpc->m_PhysicsArmor.nTime = 0;
-		g_DebugLog("[数值]%s物理护盾消失", pNpc->Name);	
+		g_DebugLog("[Value]%s physical shield expired", pNpc->Name);	
 	}
 }
 
@@ -566,14 +566,14 @@ void KNpcAttribModify::PhysicsresP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentPhysicsResist += pMagic->nValue[0];
-	g_DebugLog("[数值]%s物理抗性增加了%d点", pNpc->Name, pMagic->nValue[0]);	
+	g_DebugLog("[Value]%s physical resistance increased by %d", pNpc->Name, pMagic->nValue[0]);	
 }
 
 void KNpcAttribModify::Damage2ManaP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentDamage2Mana += pMagic->nValue[0];
-	g_DebugLog("[数值]%s伤害转内力百分比增加了%d", pNpc->Name, pMagic->nValue[0]);	
+	g_DebugLog("[Value]%s damage-to-mana percent increased by %d", pNpc->Name, pMagic->nValue[0]);	
 }
 
 void KNpcAttribModify::PoisonArmorV(KNpc* pNpc, void* pData)
@@ -583,13 +583,13 @@ void KNpcAttribModify::PoisonArmorV(KNpc* pNpc, void* pData)
 	{
 		pNpc->m_PoisonArmor.nValue[0] = pMagic->nValue[0];
 		pNpc->m_PoisonArmor.nTime = pMagic->nValue[1];
-		g_DebugLog("[数值]%s毒护盾变为%d点持续%d帧", pNpc->Name, pMagic->nValue[0], pMagic->nValue[1]);
+		g_DebugLog("[Value]%s poison shield changed to %d, duration %d frames", pNpc->Name, pMagic->nValue[0], pMagic->nValue[1]);
 	}
 	else
 	{
 		pNpc->m_PoisonArmor.nValue[0] = 0;
 		pNpc->m_PoisonArmor.nTime = 0;
-		g_DebugLog("[数值]%s毒护盾消失", pNpc->Name);
+		g_DebugLog("[Value]%s poison shield expired", pNpc->Name);
 	}
 }
 
@@ -601,14 +601,14 @@ void KNpcAttribModify::PoisonDamageReduceV(KNpc* pNpc, void* pData)
 	{
 		pNpc->m_PoisonState.nTime = 0;
 	}
-	g_DebugLog("[数值]%s中毒伤害减少%d", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[Value]%s poison damage reduced by %d", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::PoisonresP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentPoisonResist += pMagic->nValue[0];
-	g_DebugLog("[数值]%s毒抗性增加了%d点", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[Value]%s poison resistance increased by %d", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::PoisonTimeReduceP(KNpc* pNpc, void* pData)
@@ -624,21 +624,21 @@ void KNpcAttribModify::PoisonTimeReduceP(KNpc* pNpc, void* pData)
 //	g_DebugLog("[数值]%s中毒时间减少百分之%d", pNpc->Name, pMagic->nValue[0]);	
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentPoisonTimeReducePercent += pMagic->nValue[0];
-	g_DebugLog("[数值]%s中毒时间减少百分之%d", pNpc->Name, pMagic->nValue[0]);	
+	g_DebugLog("[Value]%s poison duration reduced by %d percent", pNpc->Name, pMagic->nValue[0]);	
 }
 
 void KNpcAttribModify::RangeDamageReturnV(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentRangeDmgRet += pMagic->nValue[0];
-	g_DebugLog("[数值]%s远程伤害反弹增加%d", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[Value]%s ranged damage reflection increased by %d", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::RangeDamageReturnP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentRangeDmgRetPercent += pMagic->nValue[0];
-	g_DebugLog("[数值]%s远程伤害反弹百分比增加%d", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[Value]%s ranged damage reflection percent increased by %d", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::SlowMissleB(KNpc* pNpc, void* pData)
@@ -649,35 +649,35 @@ void KNpcAttribModify::SlowMissleB(KNpc* pNpc, void* pData)
 		pNpc->m_CurrentSlowMissle = 1;
 	else
 		pNpc->m_CurrentSlowMissle = 0;
-	g_DebugLog("[数值]%s子弹减速状态变为%d", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[Value]%s projectile slow state changed to %d", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::StaminaMaxP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentStaminaMax += pNpc->m_StaminaMax * pMagic->nValue[0] / 100;
-	g_DebugLog("[数值]%s体力上限增加了百分之%d(%d点)", pNpc->Name, pMagic->nValue[0], pNpc->m_StaminaMax * pMagic->nValue[0] / 100);	
+	g_DebugLog("[Value]%s stamina max increased by %d%% (%d points)", pNpc->Name, pMagic->nValue[0], pNpc->m_StaminaMax * pMagic->nValue[0] / 100);	
 }
 
 void KNpcAttribModify::StaminaMaxV(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentStaminaMax += pMagic->nValue[0];
-	g_DebugLog("[数值]%s体力上限增加了%d点", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[Value]%s stamina max increased by %d", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::StaminaReplenishV(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentStaminaGain += pMagic->nValue[0];
-	g_DebugLog("[数值]%s体力回复速度增加了%d点", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[Value]%s stamina recovery speed increased by %d", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::StaminaV(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentStamina += pMagic->nValue[0];
-	g_DebugLog("[数值]%s体力增加了%d点", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[Value]%s stamina increased by %d", pNpc->Name, pMagic->nValue[0]);
 }
 
 
@@ -685,21 +685,21 @@ void KNpcAttribModify::StealLifeP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentLifeStolen += pMagic->nValue[0];
-	g_DebugLog("[数值]%s偷生命百分比为%d(比原本上升了%d点)", pNpc->Name, pNpc->m_CurrentLifeStolen, pMagic->nValue[0]);	
+	g_DebugLog("[Value]%s life steal percent is now %d (increased by %d)", pNpc->Name, pNpc->m_CurrentLifeStolen, pMagic->nValue[0]);	
 }
 
 void KNpcAttribModify::StealManaP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentManaStolen += pMagic->nValue[0];
-	g_DebugLog("[数值]%s偷内力百分比为%d(比原本上升了%d点)", pNpc->Name, pNpc->m_CurrentManaStolen, pMagic->nValue[0]);	
+	g_DebugLog("[Value]%s mana steal percent is now %d (increased by %d)", pNpc->Name, pNpc->m_CurrentManaStolen, pMagic->nValue[0]);	
 }
 
 void KNpcAttribModify::StealStaminaP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentStaminaStolen += pMagic->nValue[0];
-	g_DebugLog("[数值]%s偷体力百分比为%d(比原本上升了%d点)", pNpc->Name, pNpc->m_CurrentStaminaStolen, pMagic->nValue[0]);	
+	g_DebugLog("[Value]%s stamina steal percent is now %d (increased by %d)", pNpc->Name, pNpc->m_CurrentStaminaStolen, pMagic->nValue[0]);	
 }
 
 void KNpcAttribModify::StrengthV(KNpc* pNpc, void* pData)
@@ -710,7 +710,7 @@ void KNpcAttribModify::StrengthV(KNpc* pNpc, void* pData)
 	if (pNpc->m_nPlayerIdx <= 0)
 		return;
 	Player[pNpc->m_nPlayerIdx].ChangeCurStrength(pMagic->nValue[0]);
-	g_DebugLog("[数值]%s当前力量增加了%d点", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[Value]%s current strength increased by %d", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::StunTimeReduceP(KNpc* pNpc, void* pData)
@@ -725,14 +725,14 @@ void KNpcAttribModify::StunTimeReduceP(KNpc* pNpc, void* pData)
 //	g_DebugLog("[数值]%s眩晕时间减少%d", pNpc->Name, pMagic->nValue[0]);	
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentStunTimeReducePercent += pMagic->nValue[0];
-	g_DebugLog("[数值]%s眩晕时间减少%d", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[Value]%s stun duration reduced by %d", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::VisionRadiusP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentVisionRadius += pMagic->nValue[0];
-	g_DebugLog("[数值]%s视野范围增加%d", pNpc->Name, pMagic->nValue[0]);	
+	g_DebugLog("[Value]%s vision radius increased by %d", pNpc->Name, pMagic->nValue[0]);	
 }
 
 void KNpcAttribModify::VitalityV(KNpc* pNpc, void* pData)
@@ -743,61 +743,61 @@ void KNpcAttribModify::VitalityV(KNpc* pNpc, void* pData)
 	if (pNpc->m_nPlayerIdx <= 0)
 		return;
 	Player[pNpc->m_nPlayerIdx].ChangeCurVitality(pMagic->nValue[0]);
-	g_DebugLog("[数值]%s当前活力增加了%d点", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[Value]%s current vitality increased by %d", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::WaterSkillV(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
-	g_DebugLog("[数值]%s水系技能加%d级，未完成", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[Value]%s water skill level increased by %d (not implemented)", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::WoodSkillV(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
-	g_DebugLog("[数值]%s木系技能加%d级，未完成", pNpc->Name, pMagic->nValue[0]);	
+	g_DebugLog("[Value]%s wood skill level increased by %d (not implemented)", pNpc->Name, pMagic->nValue[0]);	
 }
 
 void KNpcAttribModify::FireresP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentFireResist += pMagic->nValue[0];
-	g_DebugLog("[数值]%s火抗性增加了%d点", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[Value]%s fire resistance increased by %d", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::ArmorDefenseV(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentDefend += pMagic->nValue[0];
-	g_DebugLog("[数值]%s防御增加了%d点", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[Value]%s defense increased by %d", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::ColdEnhanceP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentColdEnhance += pMagic->nValue[0];
-	g_DebugLog("[数值]%s冰增强增加了%d点", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[Value]%s cold damage enhance increased by %d", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::FireEnhanceP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentFireEnhance += pMagic->nValue[0];
-	g_DebugLog("[数值]%s火增强增加了%d点", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[Value]%s fire damage enhance increased by %d", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::LightingEnhanceP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentLightEnhance += pMagic->nValue[0];
-	g_DebugLog("[数值]%s电增强增加了%d点", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[Value]%s lightning damage enhance increased by %d", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::PoisonEnhanceP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentPoisonEnhance += pMagic->nValue[0];
-	g_DebugLog("[数值]%s毒增强增加了%d点", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[Value]%s poison damage enhance increased by %d", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::LifePotionV(KNpc* pNpc, void* pData)
@@ -814,7 +814,7 @@ void KNpcAttribModify::LifePotionV(KNpc* pNpc, void* pData)
 	pNpc->m_LifeState.nTime = max(nY1, nY2);
 	// 传入参数保证时间大于零，所以最大值一定大于零，所以不用判断除零
 	pNpc->m_LifeState.nValue[0] = (nX1 * nY1 + nX2 * nY2) / pNpc->m_LifeState.nTime;
-	g_DebugLog("[数值]%s喝了补血药，获得%d帧内每10帧回复%d点生命的效果", pNpc->Name,
+	g_DebugLog("[Value]%s drank a health potion, gains the effect: recover %d HP every 10 frames for %d frames", pNpc->Name,
 		pNpc->m_LifeState.nTime, 
 		pNpc->m_LifeState.nValue[0]);
 }
@@ -833,7 +833,7 @@ void KNpcAttribModify::ManaPotionV(KNpc* pNpc, void* pData)
 	pNpc->m_ManaState.nTime = max(nY1, nY2);
 	// 传入参数保证时间大于零，所以最大值一定大于零，所以不用判断除零
 	pNpc->m_ManaState.nValue[0] = (nX1 * nY1 + nX2 * nY2) / pNpc->m_ManaState.nTime;
-	g_DebugLog("[数值]%s喝了补内力药，获得%d帧内每10帧回复%d点内力的效果", pNpc->Name,
+	g_DebugLog("[Value]%s drank a mana potion, gains the effect: recover %d mana every 10 frames for %d frames", pNpc->Name,
 		pNpc->m_ManaState.nTime, 
 		pNpc->m_ManaState.nValue[0]);
 }
@@ -843,35 +843,35 @@ void KNpcAttribModify::PhysicsResMaxP(KNpc* pNpc, void* pData)
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 
 	pNpc->m_CurrentPhysicsResistMax += pMagic->nValue[0];
-	g_DebugLog("[数值]%s物理抗性上限增加了%d点", pNpc->Name, pMagic->nValue[0]);	
+	g_DebugLog("[Value]%s max physical resistance increased by %d", pNpc->Name, pMagic->nValue[0]);	
 }
 
 void KNpcAttribModify::ColdResMaxP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentColdResistMax += pMagic->nValue[0];
-	g_DebugLog("[数值]%s冰抗性上限增加了%d点", pNpc->Name, pMagic->nValue[0]);	
+	g_DebugLog("[Value]%s max cold resistance increased by %d", pNpc->Name, pMagic->nValue[0]);	
 }
 
 void KNpcAttribModify::FireResMaxP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentFireResistMax += pMagic->nValue[0];
-	g_DebugLog("[数值]%s火抗性上限增加了%d点", pNpc->Name, pMagic->nValue[0]);	
+	g_DebugLog("[Value]%s fire resistance max increased by %d", pNpc->Name, pMagic->nValue[0]);	
 }
 
 void KNpcAttribModify::LightingResMaxP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentLightResistMax += pMagic->nValue[0];
-	g_DebugLog("[数值]%s电抗性上限增加了%d点", pNpc->Name, pMagic->nValue[0]);	
+	g_DebugLog("[Value]%s lightning resistance max increased by %d", pNpc->Name, pMagic->nValue[0]);	
 }
 
 void KNpcAttribModify::PoisonResMaxP(KNpc* pNpc, void* pData)
 {
 	KMagicAttrib* pMagic = (KMagicAttrib *)pData;
 	pNpc->m_CurrentPoisonResistMax += pMagic->nValue[0];
-	g_DebugLog("[数值]%s毒抗性上限增加了%d点", pNpc->Name, pMagic->nValue[0]);	
+	g_DebugLog("[Value]%s poison resistance max increased by %d", pNpc->Name, pMagic->nValue[0]);	
 }
 
 void KNpcAttribModify::AllResMaxP(KNpc* pNpc, void* pData)
@@ -882,7 +882,7 @@ void KNpcAttribModify::AllResMaxP(KNpc* pNpc, void* pData)
 	pNpc->m_CurrentLightResistMax += pMagic->nValue[0];
 	pNpc->m_CurrentPoisonResistMax += pMagic->nValue[0];
 	pNpc->m_CurrentPhysicsResistMax += pMagic->nValue[0];
-	g_DebugLog("[数值]%s五防抗性上限增加%d", pNpc->Name, pMagic->nValue[0]);
+	g_DebugLog("[Value]%s five resistance max increased by %d", pNpc->Name, pMagic->nValue[0]);
 }
 
 void KNpcAttribModify::FatallyStrikeP(KNpc* pNpc, void* pData)

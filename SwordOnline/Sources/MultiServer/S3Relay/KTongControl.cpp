@@ -548,23 +548,23 @@ BOOL	CTongControl::Instate(STONG_INSTATE_COMMAND *pInstate, STONG_INSTATE_SYNC *
 	if (channid != -1)
 	{
 		if (pSync->m_szTitle[0])
-			sprintf(szMsg, "%s被任命为%s！", szName, pSync->m_szTitle);
+			sprintf(szMsg, "%s has been appointed as %s!", szName, pSync->m_szTitle);
 		else
 		{
 			switch (pSync->m_btNewFigure)
 			{
 			case enumTONG_FIGURE_DIRECTOR:
-				sprintf(szMsg, "%s被任命为长老！", szName);
+				sprintf(szMsg, "%s has been appointed as Elder!", szName);
 				break;
 			case enumTONG_FIGURE_MANAGER:
-				sprintf(szMsg, "%s被任命为队长！", szName);
+				sprintf(szMsg, "%s has been appointed as Team Leader!", szName);
 				break;
 			case enumTONG_FIGURE_MEMBER:
-				sprintf(szMsg, "%s被任命为普通帮众！", szName);
+				sprintf(szMsg, "%s is now a guild member!", szName);
 				break;
 			}
 		}
-		g_ChannelMgr.SayOnChannel(channid, TRUE, std::string(), std::string("公告"), std::string(szMsg));
+		g_ChannelMgr.SayOnChannel(channid, TRUE, std::string(), std::string("Announcement"), std::string(szMsg));
 	}
 
 	// 存盘，数据保存至数据库
@@ -946,8 +946,8 @@ BOOL	CTongControl::Kick(STONG_KICK_COMMAND *pKick, STONG_KICK_SYNC *pSync)
 	DWORD channid = g_ChannelMgr.GetChannelID(szMsg, 0);
 	if (channid != -1)
 	{
-		sprintf(szMsg, "%s被踢出帮会！", szName);
-		g_ChannelMgr.SayOnChannel(channid, TRUE, std::string(), std::string("公告"), std::string(szMsg));
+		sprintf(szMsg, "%s has been kicked out of the guild!", szName);
+		g_ChannelMgr.SayOnChannel(channid, TRUE, std::string(), std::string("Announcement"), std::string(szMsg));
 	}
 
 	return TRUE;
@@ -1047,8 +1047,8 @@ BOOL	CTongControl::Leave(STONG_LEAVE_COMMAND *pLeave, STONG_LEAVE_SYNC *pSync)
 	DWORD channid = g_ChannelMgr.GetChannelID(szMsg, 0);
 	if (channid != -1)
 	{
-		sprintf(szMsg, "%s叛出本帮！", szName);
-		g_ChannelMgr.SayOnChannel(channid, TRUE, std::string(), std::string("公告"), std::string(szMsg));
+		sprintf(szMsg, "%s has left the guild!", szName);
+		g_ChannelMgr.SayOnChannel(channid, TRUE, std::string(), std::string("Announcement"), std::string(szMsg));
 	}
 
 	return TRUE;
@@ -1237,8 +1237,8 @@ BOOL	CTongControl::AcceptMaster(STONG_ACCEPT_MASTER_COMMAND *pAccept)
 	DWORD channid = g_ChannelMgr.GetChannelID(szMsg, 0);
 	if (channid != -1)
 	{
-		sprintf(szMsg, "%s把帮主之位传给了%s！", szOldMaster, szName);
-		g_ChannelMgr.SayOnChannel(channid, TRUE, std::string(), std::string("公告"), std::string(szMsg));
+		sprintf(szMsg, "%s has passed the Guild Leader position to %s!", szOldMaster, szName);
+		g_ChannelMgr.SayOnChannel(channid, TRUE, std::string(), std::string("Announcement"), std::string(szMsg));
 	}
 
 	return TRUE;

@@ -11,7 +11,7 @@
 #include "GameDataDef.h"
 #include "KObjSet.h"
 
-#define  PHYSICSSKILLICON "\\spr\\Ui\\¼¼ÄÜÍ¼±ê\\icon_sk_ty_ap.spr"
+#define  PHYSICSSKILLICON "\\spr\\Ui\\SkillIcon\\icon_sk_ty_ap.spr"
 
 #define SHOW_SPACE_HEIGHT 5
 

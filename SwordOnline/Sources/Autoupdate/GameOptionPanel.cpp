@@ -240,7 +240,7 @@ void GameOptionPanel::OnDefault()
 		
 		if(Represent3DModule == NULL)
 		{
-			string ErrorInfo = string("调入动态库'") +Represent3DModuleFileName + string("'出错");
+			string ErrorInfo = string("Error loading dynamic library'") +Represent3DModuleFileName + string("'error");
 			throw exception (ErrorInfo.c_str());
 			
 			
@@ -252,7 +252,7 @@ void GameOptionPanel::OnDefault()
 		if(Check_Represent == NULL)
 		{
 			FreeLibrary(Represent3DModule);
-			string ErrorInfo = string("取得函数地址'") +Check_Represent_FunctionName + string("'出错");
+			string ErrorInfo = string("Error getting function address'") +Check_Represent_FunctionName + string("'error");
 			throw exception (ErrorInfo.c_str());
 		}
 		
@@ -282,7 +282,7 @@ void GameOptionPanel::OnDefault()
 		m_WindowOptionCtl.SetCheck(0);
 		if(!FreeLibrary(Represent3DModule))
 		{
-			string ErrorInfo = string("释放模块'") +Represent3DModuleFileName + string("'出错");
+			string ErrorInfo = string("Error releasing module'") +Represent3DModuleFileName + string("'error");
 			throw exception (ErrorInfo.c_str());	
 		}
 		
@@ -307,7 +307,7 @@ void GameOptionPanel::OnBtnCappath()
 	bi.hwndOwner=GetSafeHwnd();   //得到父窗口Handle值 
 	bi.pidlRoot=pidlRoot;   //这个变量就是我们在上面得到的. 
 	bi.pszDisplayName=NULL;//strDisplayName.GetBuffer(MAX_PATH+1);   //得到缓冲区指针, 
-	bi.lpszTitle="浏览文件夹";   //设置标题 
+	bi.lpszTitle="Browse for folder";   //设置标题 
 	bi.ulFlags=0;   //设置标志 
 	bi.lpfn=NULL; 
 	bi.lParam=0; 

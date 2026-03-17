@@ -700,14 +700,14 @@ BOOL	CStateMagicTable::Init()
 	for (i = 0; i < MAX_RES_STATE; i++)
 	{
 		cTabFile.GetString(i + 2, 3, "", szBuffer, sizeof(szBuffer));
-		if (strcmp(szBuffer, "Í·¶¥") == 0)
+		if (strcmp(szBuffer, "Head") == 0)
 			m_nType[i] = STATE_MAGIC_HEAD;
-		else if (strcmp(szBuffer, "½Åµ×") == 0)
+		else if (strcmp(szBuffer, "Foot") == 0)
 			m_nType[i] = STATE_MAGIC_FOOT;
 		else
 			m_nType[i] = STATE_MAGIC_BODY;
 		cTabFile.GetString(i + 2, 4, "", szBuffer, sizeof(szBuffer));
-		if (strcmp(szBuffer, "Ñ­»·") == 0)
+		if (strcmp(szBuffer, "Loop") == 0)
 			m_nPlayType[i] = 0;
 		else
 			m_nPlayType[i] = 1;

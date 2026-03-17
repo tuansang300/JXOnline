@@ -19,9 +19,9 @@
 #include "../../../Engine/Src/Text.h"
 #include <crtdbg.h>
 
-#define	MSG_RECONNECTING				"正在帮助您进行第 <color=red>%d<color> 次断线重连。\n%s..."
-#define	MSG_WAIT_TO_RECONNECT			"%d 秒钟之后将进行第 <color=red>%d<color> 次断线重连。"
-#define	MSG_WAIT_NEXT_GROUP_RECONNECT	"%d 秒钟之后将进行下一组断线重连。"
+#define	MSG_RECONNECTING				"Reconnecting attempt <color=red>%d<color>...\n%s..."
+#define	MSG_WAIT_TO_RECONNECT			"%d seconds until reconnect attempt <color=red>%d<color>."
+#define	MSG_WAIT_NEXT_GROUP_RECONNECT	"%d seconds until next reconnect batch."
 #define	MSG_HIDE_RECONNECT_MSG_ID		"21"
 
 //两组断线重连的间隔时间，单位毫秒
@@ -34,9 +34,9 @@
 #define INVISIBLE_RECONNECT_INTERVAL	5000
 
 //取消重连的按钮的文字
-#define	RECONNECT_QUIT_BTN_LABEL	"退出游戏"
+#define	RECONNECT_QUIT_BTN_LABEL	"Exit Game"
 //立即重连的按钮的文字
-#define	RECONNECT_START_AT_ONCE		"立即重连"
+#define	RECONNECT_START_AT_ONCE		"Reconnect Now"
 
 KReconnectWnd*	KReconnectWnd::m_pSelf = NULL;
 

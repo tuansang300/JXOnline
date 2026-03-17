@@ -501,19 +501,19 @@ int	KCoreShell::GetGameData(unsigned int uDataId, unsigned int uParam, int nPara
 			switch(pNpc->m_Series)
 			{
 			case series_water:
-				strcpy(pInfo->StatusDesc, "水系");
+				strcpy(pInfo->StatusDesc, "Water");
 				break;
 			case series_wood:
-				strcpy(pInfo->StatusDesc, "木系");
+				strcpy(pInfo->StatusDesc, "Wood");
 				break;
 			case series_metal:
-				strcpy(pInfo->StatusDesc, "金系");
+				strcpy(pInfo->StatusDesc, "Metal");
 				break;
 			case series_fire:
-				strcpy(pInfo->StatusDesc, "火系");
+				strcpy(pInfo->StatusDesc, "Fire");
 				break;
 			case series_earth:
-				strcpy(pInfo->StatusDesc, "土系");
+				strcpy(pInfo->StatusDesc, "Earth");
 				break;
 			}
 		}
@@ -2002,7 +2002,7 @@ int	KCoreShell::OperationRequest(unsigned int uOper, unsigned int uParam, int nP
 					Msg.eType = SMT_PLAYER;
 					Msg.byPriority = 1;
 					Msg.byParamSize = 0;
-					strcpy(Msg.szMessage, "骑马时无法打坐！");
+					strcpy(Msg.szMessage, "Cannot meditate while riding a horse!");
 					CoreDataChanged(GDCNI_SYSTEM_MESSAGE, (unsigned int)&Msg, 0);
 				}
 				break;

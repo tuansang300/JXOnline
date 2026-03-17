@@ -310,7 +310,7 @@ _declspec(dllexport) BOOL AppFindFile(LPCSTR sFileName,LPCSTR lpszFolderPathName
 	if (!AppFindFileA(sFileName,lpszFolderPathName,sPathName))
 	{
 		CString strErr;
-		strErr.Format("Can not find system file: '%s', ���������ļ�",sFileName);
+		strErr.Format("Cannot find system file: '%s'. This file is required for the system to function properly.",sFileName);
 //		AfxMessageBox(strErr);
 		return FALSE;
 	}

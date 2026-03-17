@@ -25,29 +25,29 @@ CString g_aStrTablePlaneName[TP_NUM+1] =
 
 CString g_aaStrTablePlaneValue[TP_NUM+1][MAX_VALUE_ITEM] = 
 {
-	{"平行于地表","平行且切分","垂直不切分","垂直于地表","",},
-	{"不受光","按照切分受光","按照重心受光","平行受光","",},
-	{"不挡光","按照底边挡光","按照一个圆挡光","",},
+	{"ParallelToGround","ParallelAndCut","PerpendicularNoCut","PerpendicularToGround","",},
+	{"NoLighting","CutBasedLighting","CenterBasedLighting","ParallelLighting","",},
+	{"NoShadow","BottomEdgeShadow","CircularShadow","",},
 	{"0.2","0.3","0.4","0.5",},
 
-	{"低于地表","地表","低于ver","ver","高于ver","天空",""},
+	{"BelowGround","Ground","BelowVer","Ver","AboveVer","Sky",""},
 	{"00","45","135",""},
 	{"00","30","60","90",""},
 
 	{"00",""},
 	{"00",""},
 	{"00",""},
-	{"非阻挡","一般阻挡","阻挡但是可以飞行","阻挡但是可以跳跃","阻挡可以跳跃和飞行",""},
-	{"静态物体","npc","box","trap","clientonlynpc","clientonlybox","clientonlytrap","player","nosave",""},
-	{"使用局部贴图","使用全部贴图",""},
-	{"一般类型","室内地表","室外道路",
-	"墙壁","树木","山洞洞壁",				//垂直的plane
-	"森林","房屋","平台", "河流","山脉",	//平行的obstacle
-	"组件的垂直部分","组件的阴影",			//组件
+	{"NoBlock","NormalBlock","BlockButCanFly","BlockButCanJump","BlockCanFlyAndJump",""},
+	{"StaticObject","NPC","Box","Trap","ClientOnlyNPC","ClientOnlyBox","ClientOnlyTrap","Player","NoSave",""},
+	{"UseLocalMap","UseGlobalMap",""},
+	{"Generic","IndoorGround","OutdoorRoad",
+	"Wall","Tree","CliffWall",				//垂直的plane
+	"Forest","House","Platform","River","Mountain",	//平行的obstacle
+	"ComponentVerticalPart","ComponentShadow",			//组件
 	//特殊存储的部分
-	"声音","飞鸟",
+	"Sound","Bird",
 	},
-	{"按照点排序", "按照边排序","按照树排序"},
+	{"SortByPoint","SortByEdge","SortByTree"},
 	{"20","30","40","50"},
 	{"1","0"},
 	{"00",""},
@@ -86,16 +86,16 @@ CString g_aStrTableDoodadName[TD_NUM+1] =
 
 CString g_aaStrTableDoodadValue[TD_NUM+1][MAX_VALUE_ITEM] = 
 {
-	{"只切分成垂直的面","切分成垂直的面和水平的面","等分平行的面","等分垂直的面",""},
-	{"45度角转折","任意转折",""},
+	{"SplitIntoVerticalPlanes","SplitIntoVerticalAndHorizontalPlanes","EvenSplitParallelPlanes","EvenSplitVerticalPlanes",""},
+	{"45DegreeRotation","FreeRotation",""},
 	{"400","350","300","250"},
-	{"非阻挡","一般阻挡","阻挡但是可以飞行","阻挡但是可以跳跃","阻挡可以跳跃和飞行",""},
+	{"NoBlock","NormalBlock","BlockButCanFly","BlockButCanJump","BlockCanFlyAndJump",""},
 	{"",},
 };
 
 CString g_aStrTableDoodadDefaultValue[TD_NUM+1] = 
 {
-	"只切分成垂直的面","45度角转折","300","一般阻挡",
+	"SplitIntoVerticalPlanes","45DegreeRotation","300","NormalBlock",
 	"",
 };
 

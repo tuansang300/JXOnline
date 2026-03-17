@@ -1218,9 +1218,9 @@ BOOL KGatewayDataProcess::ProAutoTime(S3PDBConVBC* pConn)
 				{
 					int nLen = 0;
 					if (i->nTime >= 60)
-						nLen = sprintf(szMessage, "您在游戏中还可以停留%d分钟, 请赶快充值!", i->nTime / 60);
+						nLen = sprintf(szMessage, "You can stay in the game for %d more minutes. Please recharge soon!", i->nTime / 60);
 					else
-						nLen = sprintf(szMessage, "您在游戏中还可以停留%d秒, 请赶快充值!", i->nTime);
+						nLen = sprintf(szMessage, "You can stay in the game for %d more seconds. Please recharge soon!", i->nTime);
 					SendSystemInfo(m_nClientID, i->Account, " GM", szMessage, nLen);
 				}
 				i++;

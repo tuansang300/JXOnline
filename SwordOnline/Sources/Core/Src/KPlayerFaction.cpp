@@ -13,8 +13,8 @@
 #include	"KFaction.h"
 #include	"KPlayerFaction.h"
 
-#define		FACTION_NEW			"初入江湖"
-#define		FACTION_OLD			"江湖游侠"
+#define		FACTION_NEW			"New Jianghu Adventurer"
+#define		FACTION_OLD			"Jianghu Wanderer"
 
 //---------------------------------------------------------------------------
 //	功能：构造函数

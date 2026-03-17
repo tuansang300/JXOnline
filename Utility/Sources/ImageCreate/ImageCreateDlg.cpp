@@ -210,12 +210,12 @@ BOOL CImageCreateDlg::IsFileNameValid()
 	UpdateData();
 	if (m_strFile.IsEmpty())
 	{
-		AfxMessageBox("请先输入文件名称!");
+		AfxMessageBox("Please enter a file name first!");
 		return FALSE;
 	}
 	if (m_strFile.Right(4) != ".tga")
 	{
-		AfxMessageBox("必须是tga的图片!");
+		AfxMessageBox("The file must be a TGA image!");
 		return FALSE;
 	}
 	return TRUE;

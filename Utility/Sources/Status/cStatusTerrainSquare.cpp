@@ -24,8 +24,8 @@ static char THIS_FILE[]=__FILE__;
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
-const CString c_strAutoFillGround = "自动填充.txt";
-const CString c_strFillGround = "填充矩形.txt";
+const CString c_strAutoFillGround = "AutoFill.txt";
+const CString c_strFillGround = "FillRectangle.txt";
 
 cStatusTerrainSquare::cStatusTerrainSquare()
 {
@@ -58,11 +58,11 @@ BOOL cStatusTerrainSquare::Create()
 	CString sTerrain[TYPE_NUM];
 	CString sConnection[TYPE_NUM];
 
-	sTerrain[TYPE_MIDDLE] = "游戏资源\\室外地表\\中型地表图素";
-	sConnection[TYPE_MIDDLE] ="游戏资源\\室外地表\\中型拼接图素";
+	sTerrain[TYPE_MIDDLE] = "GameResource\\OutdoorTerrain\\MediumTerrainTile";
+	sConnection[TYPE_MIDDLE] ="GameResource\\OutdoorTerrain\\MediumConnectionTile";
 	m_aSize[TYPE_MIDDLE] = 64;
-	sTerrain[TYPE_LARGE] = "游戏资源\\室外地表\\大型地表图素";
-	sConnection[TYPE_LARGE] ="游戏资源\\室外地表\\大型拼接图素";
+	sTerrain[TYPE_LARGE] = "GameResource\\OutdoorTerrain\\LargeTerrainTile";
+	sConnection[TYPE_LARGE] ="GameResource\\OutdoorTerrain\\LargeConnectionTile";
 	m_aSize[TYPE_LARGE] = 128;
 
 	for (int i=0; i<TYPE_NUM; i++)
@@ -74,7 +74,7 @@ BOOL cStatusTerrainSquare::Create()
 	}
 
 	//set the connections of the automap.
-	CString sFolder= "游戏资源\\室外地表\\setting";
+	CString sFolder= "GameResources\\Outdoor\\Terrain\\Setting";
 	AppGetFullPath(sFolder);
 
 	CString sPathName;

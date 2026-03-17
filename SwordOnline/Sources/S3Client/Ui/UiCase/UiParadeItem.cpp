@@ -16,7 +16,7 @@
 
 extern iCoreShell*		g_pCoreShell;
 
-#define	SCHEME_INI		"看对方玩家装备.ini"
+#define	SCHEME_INI		"inspect_player_equipment.ini"
 
 KUiParadeItem* KUiParadeItem::m_pSelf = NULL;
 

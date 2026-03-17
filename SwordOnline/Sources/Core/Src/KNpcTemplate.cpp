@@ -46,7 +46,7 @@ static KItemDropRate * g_GenItemDropRate(char * szDropIniFile)
 	}
 	else
 	{
-		printf("无法找到%s\n", szDropIniFile);
+		printf("Cannot find %s\n", szDropIniFile);
 		return NULL;
 	}
 
@@ -347,7 +347,7 @@ int KNpcTemplate::SkillString2Id(char * szSkillString)
 			return nSkillId;
 		}
 	}
-	g_DebugLog("无找到该[%s]魔法的Id,请检查！", szSkillString);
+	g_DebugLog("Magic ID for [%s] not found, please check!", szSkillString);
 	return 0;
 }
 

@@ -24,8 +24,8 @@ extern iCoreShell*		g_pCoreShell;
 
 KUiWorldmap* KUiWorldmap::m_pSelf = NULL;
 
-#define		SCHEME_INI_WORLD		"小地图_世界地图版.ini"
-#define		WORLD_MAP_INFO_FILE		"\\Settings\\MapList.ini"
+#define		SCHEME_INI_WORLD		"WorldMapLayout.ini"
+#define		WORLD_MAP_INFO_FILE		"\\Settings\\WorldMapList.ini"
 
 void MapToggleStatus();
 

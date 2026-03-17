@@ -22,8 +22,8 @@ AnnuncePanel::AnnuncePanel(CWnd* pParent /*=NULL*/)
 	: CDialog(AnnuncePanel::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(AnnuncePanel)
-	m_NoticeInfo = _T("系统检测到您的游戏版本太旧，以至无法完成自动升级。");
-    m_NoticeInfo = m_NoticeInfo + '\n' + _T("您需要下载最新的升级包进行升级。");
+	m_NoticeInfo = _T("Your game version is too old to complete the automatic update.");
+    m_NoticeInfo = m_NoticeInfo + '\n' + _T("Please download the latest patch to update the game.");
 
 	//}}AFX_DATA_INIT
 }

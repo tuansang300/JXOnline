@@ -19,9 +19,9 @@ static char THIS_FILE[]=__FILE__;
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
-const CString c_strCameraGet = "camera名称.txt";
-const CString c_strJumpRegion = "跳转region.txt";
-const CString c_strJumpPos = "跳转坐标.txt";
+const CString c_strCameraGet = "camera_name.txt";
+const CString c_strJumpRegion = "jump_region.txt";
+const CString c_strJumpPos = "jump_position.txt";
 
 cStatusCamera::cStatusCamera()
 {
@@ -36,7 +36,7 @@ BOOL cStatusCamera::Create()
 {
 	cStatus::Create();
 
-	CString sFolder = "游戏资源\\摄像机\\setting";
+	CString sFolder = "GameResources\\Camera\\Settings";
 	AppGetFullPath(sFolder);
 
 	//load attribute and settings!
@@ -57,7 +57,7 @@ BOOL cStatusCamera::Create()
 void cStatusCamera::CaptureCamera()
 {
 	CString sWork;
-	sWork = "\\游戏资源\\摄像机\\";
+	sWork = "\\GameResources\\Camera\\";
 	if (m_strCameraGet.IsEmpty())
 		sWork += "CameraQuick.txt";
 	else

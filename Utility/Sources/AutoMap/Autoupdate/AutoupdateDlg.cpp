@@ -121,12 +121,12 @@ int __stdcall RefreshStatus(int nCurrentStatus, long lParam)
 	switch(nCurrentStatus)
 	{
 	case defUPDATE_STATUS_INITIALIZING:
-		strcpy(Info.szTotalStatusInfo, "�������ӷ�����...");
+		strcpy(Info.szTotalStatusInfo, "Connecting to server...");
 		Info.nTotalPos = ConnectionProgress / 5;
 		Info.nCurrentPos = lParam;
 		break;
 	case defUPDATE_STATUS_VERIFING:
-		strcpy(Info.szTotalStatusInfo, "���ڽ����û�У��...");
+		strcpy(Info.szTotalStatusInfo, "Verifying user...");
 		Info.nTotalPos = ConnectionProgress * 2 / 5;
 		Info.nCurrentPos = lParam;
 		break;
@@ -135,17 +135,17 @@ int __stdcall RefreshStatus(int nCurrentStatus, long lParam)
 		strcpy(url, (char *)lParam);
 		break;
 	case defUPDATE_STATUS_PROCESSING_INDEX:
-		strcpy(Info.szTotalStatusInfo, "�������ظ����ļ�����Ϣ...");
+		strcpy(Info.szTotalStatusInfo, "Getting update file information...");
 		Info.nTotalPos = ConnectionProgress * 4 / 5;
 		Info.nCurrentPos = lParam;
 		break;
 	case defUPDATE_STATUS_DOWNLOADING:
-		strcpy(Info.szTotalStatusInfo, "�������ظ����ļ�...");
+		strcpy(Info.szTotalStatusInfo, "Downloading update files...");
 		Info.nTotalPos = ConnectionProgress + ((100 - ConnectionProgress) * (4 / 5)) * lParam / 100;
 		Info.nCurrentPos = lParam;
 		break;
 	case defUPDATE_STATUS_DOWNLOADING_FILE:
-		strcpy(Info.szTotalStatusInfo, "�������ظ����ļ�...");
+		strcpy(Info.szTotalStatusInfo, "Downloading update files...");
 		Info.nTotalPos = -1;
 		pFileinfo = (LPDOWNLOADFILESTATUS)lParam;
 		if (pFileinfo)
@@ -157,12 +157,12 @@ int __stdcall RefreshStatus(int nCurrentStatus, long lParam)
 		}
 		break;
 	case defUPDATE_STATUS_UPDATING:
-		strcpy(Info.szTotalStatusInfo, "���ڸ���ϵͳ...");
+		strcpy(Info.szTotalStatusInfo, "Updating system...");
 		Info.nTotalPos = 100 - (80 + (1/5) * ConnectionProgress);
 		Info.nCurrentPos = lParam;
 		break;
 	case defUPDATE_RESULT_UPDATE_SUCCESS:
-		strcpy(Info.szTotalStatusInfo, "�Ѿ������µİ汾...");
+		strcpy(Info.szTotalStatusInfo, "Already the latest version...");
 		Info.nTotalPos = 100;
 		Info.nCurrentPos = 100;
 		break;
@@ -254,7 +254,7 @@ UINT AutoUpdateDLL(char* pSite)
 	
 	CAutoupdateDlg* pDlg = (CAutoupdateDlg*)(AfxGetApp()->m_pMainWnd);
 	if (pDlg)
-		pDlg->m_strVerson.Format("���ذ汾 : %d", UpdateSet.nVersion);
+		pDlg->m_strVerson.Format("Current Version: %d", UpdateSet.nVersion);
 	
 	UpdateSet.bLog = g_bLog;
 	
@@ -290,7 +290,7 @@ Exit0:
 		0,
 		strVersion + "Version.cfg");
 	if (pDlg)
-		pDlg->m_strVerson.Format("���ذ汾 : %d", UpdateSet.nVersion);
+		pDlg->m_strVerson.Format("Current Version: %d", UpdateSet.nVersion);
 
 	UpdateFinish.SetEvent();
 
@@ -712,7 +712,7 @@ void CAutoupdateDlg::OnRefresh(LPSTATUSINFO pInfo)
 		m_progressCurrent.SetPos(0);
 		m_strProgressCurrent.Empty();
 		m_progress.SetPos(0);
-		m_strProgress = "�Զ����±�ȡ�� ��";
+		m_strProgress = "Auto update canceled";
 	}
 	else
 	{ 
@@ -724,7 +724,7 @@ void CAutoupdateDlg::OnRefresh(LPSTATUSINFO pInfo)
 			m_progressCurrent.SetPos(0);
 			m_strProgressCurrent.Empty();
 			m_progress.SetPos(100);
-			m_strProgress = "�Զ�������� ��";
+			m_strProgress = "Auto updating...";
 			
 			bClose = TRUE;
 			
@@ -738,11 +738,11 @@ void CAutoupdateDlg::OnRefresh(LPSTATUSINFO pInfo)
 			m_strProgressCurrent.Empty();
 			m_progress.SetPos(0);
 			if (pInfo->nFinish == defUPDATE_RESULT_INIT_FAILED)
-				m_strProgress = "�Զ�����ʧ��--��ʼ��ʧ�� ��";
+				m_strProgress = "Auto update failed: initialization error";
 			else if (pInfo->nFinish == defUPDATE_RESULT_DOWNLOAD_INDEX_FAILED)
-				m_strProgress = "��ǰ���������޸�����Ϣ";
+				m_strProgress = "Current version requires update information.";
 			else if (pInfo->nFinish == defUPDATE_RESULT_PROCESS_INDEX_FAILED)
-				m_strProgress = "��ǰ��������������Ϣ��Ч��";
+				m_strProgress = "Current version update information is invalid!";
 			
 			else if (pInfo->nFinish == defUPDATE_RESULT_VERSION_NOT_ENOUGH)
 			{
@@ -756,13 +756,13 @@ void CAutoupdateDlg::OnRefresh(LPSTATUSINFO pInfo)
 				m_web.Stop();
 			}
 			else if (pInfo->nFinish == defUPDATE_RESULT_CONNECT_SERVER_FAILED)
-				m_strProgress = "���ӵ�ǰ������ʧ�� ��";
+				m_strProgress = "Failed to connect to the current server";
 			else if (pInfo->nFinish == defUPDATE_RESULT_UPDATE_FAILED)
-				m_strProgress = "�ӵ�ǰ�������������ļ�ʧ�� ��";
+				m_strProgress = "Failed to download file from the current server";
 			else if (pInfo->nFinish == defUPDATE_RESULT_DOWNLOAD_FAILED)
-				m_strProgress = "�ӵ�ǰ�������������ļ���ȫ ��";
+				m_strProgress = "Downloaded file from the current server is incomplete";
 			else
-				m_strProgress = "�ӵ�ǰ���������Զ�����ʧ�� ��";			
+				m_strProgress = "Auto update from the current server failed";			
 			
 			
 			bClose = TRUE;
@@ -782,9 +782,9 @@ void CAutoupdateDlg::OnRefresh(LPSTATUSINFO pInfo)
 		
 
 		
-		if(ButtonText != CString("�ر�"))
+		if(ButtonText != CString("Close"))
 		{			
-			p->SetWindowText("�ر�");
+			p->SetWindowText("Close");
 
 		
 
@@ -795,9 +795,9 @@ void CAutoupdateDlg::OnRefresh(LPSTATUSINFO pInfo)
 	}
 	else
 	{
-		if(ButtonText != CString("ȡ��"))
+		if(ButtonText != CString("Cancel"))
 		{
-			p->SetWindowText("ȡ��");
+			p->SetWindowText("Cancel");
 			
 		}
 		
@@ -856,13 +856,13 @@ void CAutoupdateDlg::OnCancel()
 	CWnd* p = GetDlgItem(IDCANCEL);
 	CString str;
 	p->GetWindowText(str);
-	if (str.CompareNoCase("ȡ��") == 0)
+	if (str.CompareNoCase("Cancel") == 0)
 	{
 		UpdateCancel.SetEvent();
 		if (g_Update_Cancel)
 			g_Update_Cancel();
 	}
-	else if (str.CompareNoCase("�ر�") == 0)
+	else if (str.CompareNoCase("Close") == 0)
 		CDialog::OnCancel();
 	else
 		ASSERT(0);
@@ -1459,13 +1459,13 @@ void CAutoupdateDlg::InitStatic()
 void CAutoupdateDlg::OnRegister() 
 {
 	// TODO: Add your control notification handler code here
-	ShellExecute(NULL,"open","\\\\s\\�Զ�����\\������Ե3���Ͻ���ƽ̨.htm",NULL,NULL,SW_SHOW);
+	ShellExecute(NULL, "open", "\\\\s\\AutoUpdate\\Download3DGamePlatform.htm", NULL, NULL, SW_SHOW);
 }
 
 void CAutoupdateDlg::OnInvest() 
 {
 	// TODO: Add your control notification handler code here
-	ShellExecute(NULL,"open","\\\\s\\�Զ�����\\������Ե3���Ͻ���ƽ̨.htm",NULL,NULL,SW_SHOW);
+	ShellExecute(NULL, "open", "\\\\s\\AutoUpdate\\Download3DPlatform.htm", NULL, NULL, SW_SHOW);
 }
 
 /*void CAutoupdateDlg::OnLButtonDblClk(UINT nFlags, CPoint point) 

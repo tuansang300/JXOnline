@@ -276,12 +276,12 @@ void CNpcSettingDlg::OnDataChangedActiveiniformctrl1(LPCTSTR DataName)
 		KTabFile SysTabFile;
 		char PathName[300];
 		g_SetFilePath("\\Settings\\NpcRes");
-		g_GetFullPath(PathName, "人物类型.txt");
+		g_GetFullPath(PathName, "CharacterType.txt");
 		if (SysTabFile.Load(PathName))
 		{
 			char UnitFile[100];
 			
-			SysTabFile.GetString(atoi(m_ActiveIniForm.GetData(DataName)) + 2, "部件说明文件名","",UnitFile, 100);
+			SysTabFile.GetString(atoi(m_ActiveIniForm.GetData(DataName)) + 2, "ComponentDescriptionFileName","",UnitFile, 100);
 			//更换该部件
 			if (UnitFile[0])
 			{
@@ -314,23 +314,23 @@ void CNpcSettingDlg::OnDataChangedActiveiniformctrl1(LPCTSTR DataName)
 						}
 						char TypeName[200];
 						strcpy(TypeName,"");
-						if (!strcmp(UnitName,"头盔"))
+						if (!strcmp(UnitName,"Helm"))
 						{
 							strcpy(TypeName,"HelmType");
 						}
 						
-						if (!strcmp(UnitName,"装备"))
+						if (!strcmp(UnitName,"Armor"))
 						{
 							strcpy(TypeName,"ArmorType");
 						}
 						
-						if (!strcmp(UnitName,"武器"))
+						if (!strcmp(UnitName,"Weapon"))
 						{
 							strcpy(TypeName,"WeaponType");
 						}
 						
 						
-						if (!strcmp(UnitName,"马"))
+						if (!strcmp(UnitName,"Mount"))
 						{
 							strcpy(TypeName,"HorseType");
 						}

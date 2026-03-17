@@ -422,7 +422,7 @@ bool KNetConnectAgent::ProcessSwitchGameSvrMsg(void* pMsgData)
 		// 跨服务器失败
 //		MessageBox(NULL, "", "", MB_OK);
 
-#define	MSG_EXCHANGE_FAIL	"前方路途不太通畅，还是过会再来吧。"
+#define	MSG_EXCHANGE_FAIL	"Exchange failed. Please try again later"
 		KSystemMessage	Msg;
 		Msg.byConfirmType = SMCT_NONE;
 		Msg.byParamSize = 0;

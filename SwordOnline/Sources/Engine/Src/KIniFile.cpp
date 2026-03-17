@@ -85,7 +85,7 @@ BOOL KIniFile::Load(LPCSTR FileName)
 		g_DebugLog("Can't open ini file : %s", FileName);
 		return FALSE;
 	}
-#pragma message("KIniFile 当前不支持 KeyName 为中文! by Romandou")
+#pragma message("KIniFile currently does not support Chinese KeyName! by Romandou")
 
 	dwSize = File.Size();
 

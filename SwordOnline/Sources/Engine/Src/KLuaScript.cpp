@@ -127,7 +127,7 @@ BOOL KLuaScript::Load(char * Filename)
 	}
 	catch(...)
 	{
-		printf("Load Script %s �����쳣������!!\n", Filename);
+		printf("Error loading script %s!!\n", Filename);
 		return FALSE;
 	}
 		

@@ -30,8 +30,8 @@ int             KUiTongManager::m_nElderDataIndex = 0;
 int             KUiTongManager::m_nMemberDataIndex = 0;
 int             KUiTongManager::m_nCaptainDataIndex = 0;
 
-#define TONG_MANAGER_INI "帮会管理界面.ini"
-#define TONG_DATA_TEMP_FILE "帮会临时文件.ini"
+#define TONG_MANAGER_INI "TongManagerUI.ini"
+#define TONG_DATA_TEMP_FILE "TongTempData.ini"
 
 #define TONG_REQUEST_INTERVAL 100000
 

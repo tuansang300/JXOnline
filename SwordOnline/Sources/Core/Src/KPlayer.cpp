@@ -2253,7 +2253,7 @@ void	KPlayer::AddSelfExp(int nExp, int nTarLevel)
 		nGetExp = 1;
 	
 	m_nExp += nGetExp;
-	g_DebugLog("[数值]%s实际增加经验%d点", Npc[m_nIndex].Name, nGetExp);
+	g_DebugLog("[EXP]%s gained %d experience", Npc[m_nIndex].Name, nGetExp);
 #ifdef _SERVER
 	if (m_nExp >= m_nNextLevelExp)	// 升级
 	{
@@ -3581,14 +3581,14 @@ void	KPlayer::AddSkillPoint(BYTE* pProtocol)
 							if (nWantToBeLevel >=  g_SkillManager.GetSkillMaxLevel(pAdd->m_nSkillID))
 							{
 								char szMsg[100];
-								sprintf(szMsg, "您的%s技能等级已经达到极限，不能再升级了。", pSkill->GetSkillName());
-								KPlayerChat::SendSystemInfo(1, m_nPlayerIndex, "技能升级消息", (char *) szMsg, strlen(szMsg) );
+								sprintf(szMsg, "Your %s skill level has reached the maximum and cannot be upgraded anymore.", pSkill->GetSkillName());
+								KPlayerChat::SendSystemInfo(1, m_nPlayerIndex, "Skill Upgrade Message", (char *) szMsg, strlen(szMsg) );
 							}
 							else 
 							{
 								char szMsg[100];
-								sprintf(szMsg, "您的战斗技能必须达到%d级才能升级%s技能。", ((KSkill *)pSkill)->GetSkillReqLevel() -1 +  pAdd->m_nAddPoint + nSkillLevel,  ((KSkill*)pSkill)->GetSkillName());
-								KPlayerChat::SendSystemInfo(1, m_nPlayerIndex, "技能升级消息", (char *) szMsg, strlen(szMsg) );
+								sprintf(szMsg, "Your combat skill must reach level %d before you can upgrade %s.", ((KSkill *)pSkill)->GetSkillReqLevel() -1 +  pAdd->m_nAddPoint + nSkillLevel,  ((KSkill*)pSkill)->GetSkillName());
+								KPlayerChat::SendSystemInfo(1, m_nPlayerIndex, "Skill Upgrade Message", (char *) szMsg, strlen(szMsg) );
 							}
 							
 						}
@@ -5068,10 +5068,10 @@ void	KPlayer::OnScriptAction(PLAYER_SCRIPTACTION_SYNC * pMsg)
 							
 							
 							if (i < pScriptAction->m_bOptionNum - 1)
-								strcpy(pSpeakList[i].sConfirmText, "继续");
+								strcpy(pSpeakList[i].sConfirmText, "Continue");
 							else 
 							{
-								strcpy(pSpeakList[i].sConfirmText, "完成");
+								strcpy(pSpeakList[i].sConfirmText, "Finish");
 								if (pScriptAction->m_nParam == 1)						
 									pSpeakList[i].bNeedConfirmNotify = TRUE;
 								
@@ -5090,7 +5090,7 @@ void	KPlayer::OnScriptAction(PLAYER_SCRIPTACTION_SYNC * pMsg)
 								strcpy(pSpeakList[i].sInformation, g_GetStringRes(atoi(pAnswer), szString ,sizeof(szString)));
 							}
 							
-							strcpy(pSpeakList[i].sConfirmText, "完成");
+							strcpy(pSpeakList[i].sConfirmText, "Finish");
 							
 							if (pScriptAction->m_nParam == 1)						
 								pSpeakList[i].bNeedConfirmNotify = TRUE;

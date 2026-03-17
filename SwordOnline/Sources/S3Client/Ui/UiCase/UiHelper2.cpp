@@ -32,8 +32,8 @@ extern iCoreShell* g_pCoreShell;
 //extern KMouseOver	g_MouseOver;
 KUiHelper2* KUiHelper2::m_pSelf = NULL;
 
-#define		SCHEME_INI_HELP2	"详细帮助界面.ini"
-#define		DETAIL_HELP_LIST	"详细帮助项目.ini"
+#define		SCHEME_INI_HELP2	"detailed_help_ui.ini"
+#define		DETAIL_HELP_LIST	"detailed_help_items.ini"
 
 //--------------------------------------------------------------------------
 //	功能：如果窗口正被显示，则返回实例指针

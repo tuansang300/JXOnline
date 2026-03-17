@@ -2213,7 +2213,8 @@ void KNpc::CalcDamage(int nAttacker, int nMin, int nMax, DAMAGE_TYPE nType, BOOL
 			nRes = MAX_RESIST;
 		}
 
-		g_DebugLog("[数值]%s受到%d点原始火伤害，火抗性%d，火盾%d", Name, nDamage, nRes, m_FireArmor.nValue[0]);
+		g_DebugLog("[Value] %s receives %d raw fire damage, fire resistance %d, fire shield %d",
+			Name, nDamage, nRes, m_FireArmor.nValue[0]);
 
 		m_FireArmor.nValue[0] -= nDamage;
 		
@@ -2239,7 +2240,7 @@ void KNpc::CalcDamage(int nAttacker, int nMin, int nMax, DAMAGE_TYPE nType, BOOL
 		{
 			nRes = MAX_RESIST;
 		}
-		g_DebugLog("[数值]%s受到%d点原始电伤害，电抗性%d，电盾%d", Name, nDamage, nRes, m_LightArmor.nValue[0]);
+		g_DebugLog("[Value] %s receives %d raw lightning damage, lightning resistance %d, lightning shield %d", Name, nDamage, nRes, m_LightArmor.nValue[0]);
 
 		m_LightArmor.nValue[0] -= nDamage;
 		if (m_LightArmor.nValue[0] < 0)
@@ -2255,7 +2256,7 @@ void KNpc::CalcDamage(int nAttacker, int nMin, int nMax, DAMAGE_TYPE nType, BOOL
 		nMax = m_CurrentRangeDmgRetPercent;
 		break;
 	case damage_poison:
-		g_DebugLog("[数值]%s受到%d点原始毒伤害", Name, nDamage);
+		g_DebugLog("[Value] %s receives %d raw poison damage", Name, nDamage);
 		nRes = m_CurrentPoisonResist;
 		if (nRes > m_CurrentPoisonResistMax)
 		{
@@ -2266,7 +2267,7 @@ void KNpc::CalcDamage(int nAttacker, int nMin, int nMax, DAMAGE_TYPE nType, BOOL
 			nRes = MAX_RESIST;
 		}
 		
-		g_DebugLog("[数值]%s受到%d点原始毒伤害，毒抗性%d，毒盾%d", Name, nDamage, nRes, m_PoisonArmor.nValue[0]);
+		g_DebugLog("[Value] %s receives %d raw poison damage, poison resistance %d, poison shield %d", Name, nDamage, nRes, m_PoisonArmor.nValue[0]);
 
 		m_PoisonArmor.nValue[0] -= nDamage;
 		if (m_PoisonArmor.nValue[0] < 0)
@@ -2283,7 +2284,7 @@ void KNpc::CalcDamage(int nAttacker, int nMin, int nMax, DAMAGE_TYPE nType, BOOL
 		m_nLastPoisonDamageIdx = nAttacker;
 		break;
 	case damage_magic:
-		g_DebugLog("[数值]%s受到%d点原始魔法伤害", Name, nDamage);
+		g_DebugLog("[VALUE] %s received %d points of original magic damage", Name, nDamage);
 		nRes = 0;
 		break;
 	default:
@@ -2293,7 +2294,7 @@ void KNpc::CalcDamage(int nAttacker, int nMin, int nMax, DAMAGE_TYPE nType, BOOL
 	if (!nDamage)
 		return;
 	// 第二步判断是否有魔法盾存在
-	g_DebugLog("[数值]%s魔法盾吸收比例：%d", Name, m_ManaShield.nValue[0]);
+	g_DebugLog("[VALUE] %s Mana Shield absorption rate: %d", Name, m_ManaShield.nValue[0]);
 
 	if (m_ManaShield.nValue[0])
 	{
@@ -2312,7 +2313,7 @@ void KNpc::CalcDamage(int nAttacker, int nMin, int nMax, DAMAGE_TYPE nType, BOOL
 		}
 	}
 	nDamage = nDamage * (100 - nRes) / 100;
-	g_DebugLog("[数值]%s实际伤害：%d", Name, nDamage);
+	g_DebugLog("[VALUE] %s actual damage: %d", Name, nDamage);
 
 	// 反弹伤害
 	if (nAttacker > 0 && bReturn == FALSE)
@@ -2329,7 +2330,7 @@ void KNpc::CalcDamage(int nAttacker, int nMin, int nMax, DAMAGE_TYPE nType, BOOL
 			nMin += nDamage * nMax / 100;
 			Npc[nAttacker].CalcDamage(m_Index, nMin, nMin, damage_magic, FALSE, FALSE, TRUE);
 		}
-		g_DebugLog("[数值]%s返回伤害%d", Name, nMin);
+		g_DebugLog("[VALUE] %s reflected damage: %d", Name, nMin);
 	}
 
 	// PK处理，伤害乘一个系数
@@ -2388,7 +2389,7 @@ BOOL KNpc::ReceiveDamage(int nLauncher, BOOL bIsMelee, void *pData, BOOL bUseAR,
 	{
 		if (!CheckHitTarget(nAr, m_CurrentDefend, nIgnoreAr))
 		{
-			g_DebugLog("[数值]%s闪过攻击", Name);
+			g_DebugLog("[VALUE] %s dodged the attack", Name);
 			return FALSE;
 		}
 	}
@@ -3124,14 +3125,14 @@ void KNpc::Load(int nNpcSettingIdx, int nLevel)
 #ifndef _SERVER
 		if (nNpcSettingIdx == PLAYER_MALE_NPCTEMPLATEID)
 		{
-			strcpy(szNpcTypeName, "男主角");
+			strcpy(szNpcTypeName, "Male Player");
 			m_StandFrame = NpcSet.GetPlayerStandFrame(TRUE);
 			m_WalkFrame = NpcSet.GetPlayerWalkFrame(TRUE);
 			m_RunFrame = NpcSet.GetPlayerRunFrame(TRUE);
 		}
 		else
 		{
-			strcpy(szNpcTypeName, "女主角");
+			strcpy(szNpcTypeName, "Female Player");
 			m_StandFrame = NpcSet.GetPlayerStandFrame(FALSE);
 			m_WalkFrame = NpcSet.GetPlayerWalkFrame(FALSE);
 			m_RunFrame = NpcSet.GetPlayerRunFrame(FALSE);
@@ -3151,7 +3152,7 @@ void KNpc::Load(int nNpcSettingIdx, int nLevel)
 		g_NpcSetting.GetString(nNpcSettingIdx + 2, "NpcResType", "", szNpcTypeName, sizeof(szNpcTypeName));
 		if (!szNpcTypeName[0])
 		{
-			g_NpcKindFile.GetString(2, "人物名称", "", szNpcTypeName, sizeof(szNpcTypeName));//如果没找到，用第一个npc代替
+			g_NpcKindFile.GetString(2, "CharacterName", "", szNpcTypeName, sizeof(szNpcTypeName));//如果没找到，用第一个npc代替
 		}
 		g_NpcSetting.GetInteger(nNpcSettingIdx + 2, "AIMode", 12, &m_AiMode);
 		g_NpcSetting.GetInteger(nNpcSettingIdx + 2, "AIParam1", 12, &m_AiParam[0]);
@@ -3562,13 +3563,13 @@ int KNpc::PaintInfo(int nHeightOffset, bool bSelect, int nFontSize, DWORD dwBord
 		{
 			strcat(szString, "(");
 			if (m_FreezeState.nTime)
-				strcat(szString, "冰");
+				strcat(szString, "Freeze");
 			if (m_PoisonState.nTime)
-				strcat(szString, "毒");
+				strcat(szString, "Poison");
 			if (m_ConfuseState.nTime)
-				strcat(szString, "乱");
+				strcat(szString, "Confuse");
 			if (m_StunState.nTime)
-				strcat(szString, "晕");
+				strcat(szString, "Stun");
 			strcat(szString, ")");
 		}
 		g_pRepresent->OutputText(nFontSize, szString, KRF_ZERO_END, nMpsX - nFontSize * g_StrLen(Name) / 4, nMpsY, dwColor, 0, nHeightOff, dwBorderColor);
@@ -4529,7 +4530,7 @@ BOOL KNpc::CheckHitTarget(int nAR, int nDf, int nIngore/* = 0*/)
 		nPercent = MIN_HIT_PERCENT;
 
 	BOOL bRet = g_RandPercent(nPercent);
-	g_DebugLog("[数值]AttackRating %d : Defense %d: RandomPercent (%d, %d)", nAR, nDf, nPercent, bRet);
+	g_DebugLog("[VALUE] AttackRating %d : Defense %d : RandomPercent (%d, %d)", nAR, nDf, nPercent, bRet);
 	return bRet;
 }
 
@@ -4567,7 +4568,7 @@ void KNpc::GetNpcCopyFromTemplate(int nNpcTemplateId, int nLevel)
 			LevelScript.Init();
 			if (!LevelScript.Load(g_pNpcTemplate[nNpcTemplateId][0]->m_szLevelSettingScript))
 			{
-				g_DebugLog ("[error]致命错误,无法正确读取%s", g_pNpcTemplate[nNpcTemplateId][0]->m_szLevelSettingScript);
+				g_DebugLog ("[ERROR] Fatal error, unable to correctly read %s", g_pNpcTemplate[nNpcTemplateId][0]->m_szLevelSettingScript);
 				_ASSERT(0);
 				pLevelScript = g_pNpcLevelScript;
 			}
@@ -4589,7 +4590,7 @@ void	KNpc::LoadDataFromTemplate(int nNpcTemplateId, int nLevel)
 {
 	if (nNpcTemplateId < 0 )
 	{
-		g_DebugLog("载入Npc%d模板请求非法！", nNpcTemplateId);
+		g_DebugLog("[ERROR] Illegal request to load NPC %d template!", nNpcTemplateId);
 		return ;
 	}
 	

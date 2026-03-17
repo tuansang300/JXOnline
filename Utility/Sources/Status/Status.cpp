@@ -80,7 +80,7 @@ CStatusApp::CStatusApp()
 		(*lpDllEntryPoint)();
 	else
 	{
-		AfxMessageBox("ÎÞ·¨×¢²áActiveIniForm.ocx"); //unable to load DL
+		AfxMessageBox("Unable to register ActiveIniForm.ocx"); //unable to load DL
 		// Unable to locate entry point
 	}
 }	

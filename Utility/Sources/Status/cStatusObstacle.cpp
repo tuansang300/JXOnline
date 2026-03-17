@@ -17,11 +17,11 @@ using namespace std;
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
-const CString c_strObstacleType = "障碍类型.txt";
-const CString c_strObstacleSeam = "使用线段障碍.txt";
-const CString c_strObstacleHeight = "障碍高度.txt";
+const CString c_strObstacleType = "ObstacleType.txt";
+const CString c_strObstacleSeam = "UseLineObstacle.txt";
+const CString c_strObstacleHeight = "ObstacleHeight.txt";
 //const CString c_strPointModify = "修改点.txt";
-const CString c_strObstacleCapture= "截获障碍的名称.txt";
+const CString c_strObstacleCapture= "CapturedObstacleName.txt";
 
 class cAssertValue
 {
@@ -86,7 +86,7 @@ BOOL cStatusObstacle::Create()
 {
 	cStatus::Create();
 
-	CString sFolder = "游戏资源\\障碍\\setting";
+	CString sFolder = "GameResource\\Obstacle\\setting";
 	AppGetFullPath(sFolder);
 
 	//load attribute and settings!

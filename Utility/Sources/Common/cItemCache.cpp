@@ -129,7 +129,7 @@ _declspec(dllexport) iItem*	Common_CreateItem(LPCSTR szFile,long l)
 //	cItemCache& cache = *(theApp.m_pCache);
 	if (strlen(szFile) == 0)
 	{
-		AfxMessageBox("itemerror: 无法创建一个空的文件");
+		AfxMessageBox("Item error: Cannot create an empty file.");
 		return NULL;
 	}
 	return cache.CreateItem(szFile,l);

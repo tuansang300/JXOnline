@@ -105,7 +105,7 @@ CString cDoodad::GetGroupFile()
 		p->GetParam(param);
 		if (param.lGroupID == 0 || strlen(param.szGroup) == 0)
 		{
-			AfxMessageBox("�����Ȼ����ѡ�����ͼ��!");
+			AfxMessageBox("Please select a background image first!");
 			return s;
 		}
 	}
@@ -652,14 +652,14 @@ void cDoodad::SaveFirstPlane()
 		case GT_OBSTACLE_OLD:
 			if (bFirst)
 			{
-				AfxMessageBox("����ѡ��plane");
+				AfxMessageBox("Please select a plane first");
 				break;
 			}
 			break;
 		case GT_LIGHT:
 			if (bFirst)
 			{
-				AfxMessageBox("����ѡ��plane");
+				AfxMessageBox("Please select a plane first");
 				break;
 			}
 			break;
@@ -676,7 +676,7 @@ void cDoodad::SaveFirstPlane()
 			}
 			else
 			{
-				AfxMessageBox("����һ��plane�ļ�");
+				AfxMessageBox("Please select a plane file.");
 				return;
 			}
 		}
@@ -684,7 +684,7 @@ void cDoodad::SaveFirstPlane()
 	}
 	if (strPlaneTxt.IsEmpty())
 	{
-		AfxMessageBox("��ѡ��һ��plane�ļ�");
+		AfxMessageBox("No plane file selected.");
 		return;
 	}
 	CString strSrc = strPlaneTxt;
@@ -757,8 +757,8 @@ BOOL cDoodad::CopyFileToNet(LPCSTR szFile) 	//szFile already short name
 	wrap_ptr<iItem> ptr(pItem);
 
 	CString m_strNetRoot;
-	VERIFY(GetItemValue(pItem,"������Դ",m_strNetRoot));
-	int pos = m_strNetRoot.Find("\\��Ϸ��Դ");
+	VERIFY(GetItemValue(pItem,"NetworkResourcePath",m_strNetRoot));
+	int pos = m_strNetRoot.Find("\\GameResources");
 	ASSERT(pos != -1);
 	m_strNetRoot = m_strNetRoot.Left(pos);
 	

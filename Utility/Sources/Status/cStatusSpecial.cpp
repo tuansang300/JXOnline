@@ -63,24 +63,24 @@ void cStatusSpecial::CreateSpecial(CPoint point,iSpecial*& p)
 {
 	if (!IsSelected())
 		return;
-	if (m_strSelectFile.Find("雨")!= -1)
+	if (m_strSelectFile.Find("Rain")!= -1)
 	{
 		ElementEnum e = GT_SPECIAL_SNOW;
 		GetGraphics()->CreateGraphicsElement(e,&p);
-		p->SetParam("image","system\\spr\\rain.spr");
-		p->SetParam("雪的初始速度","-0.2f,0.f,-0.02f");
-		p->SetParam("雪的加速度","-0.02f");
-		p->SetParam("雪花的数目","512");		
+		p->SetParam("image", "system\\spr\\rain.spr");
+		p->SetParam("SnowInitialSpeed", "-0.2f,0.f,-0.02f");
+		p->SetParam("SnowAcceleration", "-0.02f");
+		p->SetParam("SnowflakeCount", "512");
 		ASSERT(p);
 	}
-	if (m_strSelectFile.Find("雪花")!= -1)
+	if (m_strSelectFile.Find("Snow")!= -1)
 	{
 		ElementEnum e = GT_SPECIAL_SNOW;
 		GetGraphics()->CreateGraphicsElement(e,&p);
 
 		ASSERT(p);
 	}
-	if (m_strSelectFile.Find("路标")!= -1)
+	if (m_strSelectFile.Find("RoadSign")!= -1)
 	{
 		ElementEnum e = GT_SPECIAL_SIGN;
 		GetGraphics()->CreateGraphicsElement(e,&p);
@@ -89,10 +89,10 @@ void cStatusSpecial::CreateSpecial(CPoint point,iSpecial*& p)
 		cPoint ptFocus;
 		GetCamera()->ScreenToGround(point,ptFocus);
 		ValueToString(ptFocus,strValue);
-		p->SetParam("sign的起始点",strValue);
-		p->SetParam("sign的终点",strValue);
+		p->SetParam("signStartPoint",strValue);
+		p->SetParam("signEndPoint",strValue);
 	}
-	if (m_strSelectFile.Find("萤火虫")!= -1)
+	if (m_strSelectFile.Find("Firefly")!= -1)
 	{
 		ElementEnum e = GT_SPECIAL_FIREFLY;
 		GetGraphics()->CreateGraphicsElement(e,&p);
@@ -101,9 +101,9 @@ void cStatusSpecial::CreateSpecial(CPoint point,iSpecial*& p)
 		cPoint ptFocus;
 		GetCamera()->ScreenToGround(point,ptFocus);
 		ValueToString(ptFocus,strValue);
-		p->SetParam("位置",strValue);
+		p->SetParam("Position",strValue);
 	}
-	if (m_strSelectFile.Find("双重卷轴") != -1)
+	if (m_strSelectFile.Find("DoubleScroll") != -1)
 	{
 		cPoint ptFocus = GetCameraFocus();
 		ElementEnum e = GT_SPECIAL_SCROLL;
@@ -114,20 +114,20 @@ void cStatusSpecial::CreateSpecial(CPoint point,iSpecial*& p)
 		GetCamera()->ScreenToGround(ptUpLeft,ptGround);
 		CString strValue;
 		ValueToString(ptGround,strValue);
-		p->SetParam("卷轴的起始点",strValue);
+		p->SetParam("ScrollStartPoint",strValue);
 		CPoint ptSize(4 * c_nWidthRegion, 2 * c_nHeightRegion);
 		ValueToString(ptSize,strValue);
-		p->SetParam("卷轴的范围",strValue);
+		p->SetParam("ScrollRange",strValue);
 		p->SetParam("image0","\\system\\spr\\background.jpg");
 //		p->SetParam("image1","\\system\\spr\\background.spr");
 		cPoint speed(16.f,-8.f,0.f);
 		ValueToString(speed,strValue);
-		p->SetParam("卷轴的速度",strValue);
+		p->SetParam("ScrollSpeed",strValue);
 		BOOL b = TRUE;
 		ValueToString(b,strValue);
-		p->SetParam("是否循环卷轴",strValue);
+		p->SetParam("IsScrollLoop",strValue);
 		ValueToString(ptFocus,strValue);
-		p->SetParam("camera的起始点",strValue);
+		p->SetParam("CameraStartPoint",strValue);
 	}
 }
 
@@ -248,7 +248,12 @@ BOOL cStatusSpecial::OnSelectedFile(LPCTSTR szFile,int nFrame)
 {
 	CString aString[] = 
 	{
-		"双重卷轴","雪花","雨","萤火虫","路标","",
+	"DoubleScroll",
+"Snow",
+"Rain",
+"Firefly",
+"RoadSign",
+""
 	};
 	CString s = szFile;
 	int i = 0;

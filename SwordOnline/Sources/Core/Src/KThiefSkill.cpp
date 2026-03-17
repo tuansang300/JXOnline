@@ -90,19 +90,19 @@ int KThiefSkill::Cast_Redress(KPlayer * pLaucherPlayer, KPlayer * pTargetPlayer)
 		int nThiefMoney = nTotalMoney * m_nThiefPercent / 100 ;
 		pTargetPlayer->Pay(nThiefMoney);
 		
-		sprintf(szMsg, "%s 从你身上偷到%d两银子捐给前线!", Npc[pLaucherPlayer->m_nIndex].Name, nThiefMoney );
-		KPlayerChat::SendSystemInfo(1, pTargetPlayer->GetPlayerIndex(), "被偷成功 ", (char *) szMsg, strlen(szMsg) );
+		sprintf(szMsg, "%s stole %d silver from you and gave it to the front line!", Npc[pLaucherPlayer->m_nIndex].Name, nThiefMoney );
+		KPlayerChat::SendSystemInfo(1, pTargetPlayer->GetPlayerIndex(), "Stolen Successfully", (char *) szMsg, strlen(szMsg) );
 		
-		sprintf(szMsg, "你成功的从%s 那里偷到%d两银子捐给前线!", Npc[pTargetPlayer->m_nIndex].Name, nThiefMoney);
-		KPlayerChat::SendSystemInfo(1, pLaucherPlayer->GetPlayerIndex(), "偷窃成功 ", (char *) szMsg, strlen(szMsg) );
+		sprintf(szMsg, "You successfully stole %d silver from %s and gave it to the front line!", Npc[pTargetPlayer->m_nIndex].Name, nThiefMoney);
+		KPlayerChat::SendSystemInfo(1, pLaucherPlayer->GetPlayerIndex(), "Steal Success ", (char *) szMsg, strlen(szMsg) );
 		return TRUE;
 	}
 	
-	sprintf(szMsg, "%s 试图偷你的钱,但未成功!", Npc[pLaucherPlayer->m_nIndex].Name);
-	KPlayerChat::SendSystemInfo(1, pTargetPlayer->GetPlayerIndex(), "被偷未遂", (char *) szMsg, strlen(szMsg) );
+	sprintf(szMsg, "%s tried to steal your money but failed!", Npc[pLaucherPlayer->m_nIndex].Name);
+	KPlayerChat::SendSystemInfo(1, pTargetPlayer->GetPlayerIndex(), "Steal Failed", (char *) szMsg, strlen(szMsg) );
 	
-	sprintf(szMsg, "你偷%s 失败!", Npc[pTargetPlayer->m_nIndex].Name);
-	KPlayerChat::SendSystemInfo(1, pLaucherPlayer->GetPlayerIndex(), "偷窃未遂", (char *) szMsg, strlen(szMsg) );
+	sprintf(szMsg, "You failed to steal from %s!", Npc[pTargetPlayer->m_nIndex].Name);
+	KPlayerChat::SendSystemInfo(1, pLaucherPlayer->GetPlayerIndex(), "Steal Failed", (char *) szMsg, strlen(szMsg) );
 	return TRUE;
 }
 
@@ -110,8 +110,8 @@ int KThiefSkill::Cast_ShowLife(KPlayer * pLauncherPlayer, KPlayer * pTargetPlaye
 {
 	_ASSERT(pLauncherPlayer && pTargetPlayer);
 	char szMsg[200];
-	sprintf(szMsg, "%s 当前生命值情况: %d / %d ", Npc[pTargetPlayer->m_nIndex].Name, Npc[pTargetPlayer->m_nIndex].m_CurrentLife, Npc[pTargetPlayer->m_nIndex].m_CurrentLifeMax);
-	KPlayerChat::SendSystemInfo(1, pLauncherPlayer->GetPlayerIndex(), "对方情报", (char *) szMsg, strlen(szMsg) );
+	sprintf(szMsg, "%s current HP: %d / %d ", Npc[pTargetPlayer->m_nIndex].Name, Npc[pTargetPlayer->m_nIndex].m_CurrentLife, Npc[pTargetPlayer->m_nIndex].m_CurrentLifeMax);
+	KPlayerChat::SendSystemInfo(1, pLauncherPlayer->GetPlayerIndex(), "Target Info", (char *) szMsg, strlen(szMsg) );
 	return TRUE;
 }
 
@@ -119,8 +119,8 @@ int KThiefSkill::Cast_ShowMana(KPlayer * pLauncherPlayer, KPlayer * pTargetPlaye
 {
 	_ASSERT(pLauncherPlayer && pTargetPlayer);
 	char szMsg[200];
-	sprintf(szMsg, "%s 当前内力值情况: %d / %d ", Npc[pTargetPlayer->m_nIndex].Name, Npc[pTargetPlayer->m_nIndex].m_CurrentMana, Npc[pTargetPlayer->m_nIndex].m_CurrentManaMax);
-	KPlayerChat::SendSystemInfo(1, pLauncherPlayer->GetPlayerIndex(), "对方情报", (char *) szMsg, strlen(szMsg) );
+	sprintf(szMsg, "%s current Mana: %d / %d", Npc[pTargetPlayer->m_nIndex].Name, Npc[pTargetPlayer->m_nIndex].m_CurrentMana, Npc[pTargetPlayer->m_nIndex].m_CurrentManaMax);
+	KPlayerChat::SendSystemInfo(1, pLauncherPlayer->GetPlayerIndex(), "Target Info", (char *) szMsg, strlen(szMsg) );
 	return TRUE;
 }
 
@@ -128,8 +128,8 @@ int KThiefSkill::Cast_ShowMoney(KPlayer * pLauncherPlayer, KPlayer * pTargetPlay
 {
 	_ASSERT(pLauncherPlayer && pTargetPlayer);
 	char szMsg[200];
-	sprintf(szMsg, "%s 当前现金情况: %d 两 ", Npc[pTargetPlayer->m_nIndex].Name, pTargetPlayer->m_ItemList.GetMoney(room_equipment));
-	KPlayerChat::SendSystemInfo(1, pLauncherPlayer->GetPlayerIndex(), "对方情报", (char *) szMsg, strlen(szMsg) );
+	sprintf(szMsg, "%s current money: %d silver ", Npc[pTargetPlayer->m_nIndex].Name, pTargetPlayer->m_ItemList.GetMoney(room_equipment));
+	KPlayerChat::SendSystemInfo(1, pLauncherPlayer->GetPlayerIndex(), "Target Info", (char *) szMsg, strlen(szMsg) );
 	return TRUE;
 }
 
@@ -271,7 +271,7 @@ BOOL	KThiefSkill::LoadSetting(char * szSettingFile)
 	KTabFile TabFile ;
 	if (!TabFile.Load(szSettingFile))
 	{
-		g_DebugLog("无法打开%s", szSettingFile);
+		g_DebugLog("Cannot open %s", szSettingFile);
 		return FALSE;
 	}
 
@@ -302,7 +302,7 @@ BOOL	KThiefSkill::LoadSetting(char * szSettingFile)
 
 #ifndef _SERVER
 	TabFile.GetString(2, "Desc", "", m_szSkillDesc, sizeof(m_szSkillDesc));
-	TabFile.GetString(2, "SkillIcon", "\\spr\\skill\\图标\\通用.spr", m_szSkillIcon, sizeof(m_szSkillIcon));
+	TabFile.GetString(2, "SkillIcon", "\\spr\\skill\\icon\\common.spr", m_szSkillIcon, sizeof(m_szSkillIcon));
 	TabFile.GetString(2, "Movie", "", m_szSkillSpecialFile, sizeof(m_szSkillSpecialFile));
 	TabFile.GetString(2, "TargetMovie", "", m_szTargetMovie, sizeof(m_szTargetMovie));
 	TabFile.GetString(2, "TargetMovieInfo", "1,1,1", m_szTargetMovieParam, sizeof(m_szTargetMovieParam));

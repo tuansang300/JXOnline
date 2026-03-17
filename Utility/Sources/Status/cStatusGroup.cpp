@@ -19,7 +19,7 @@
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 //const CString m_strShadow = "带阴影.txt";
-const CString c_strDoodadCapture = "组件文件名称.txt";
+const CString c_strDoodadCapture = "ComponentFileName.txt";
 
 cStatusGroup::cStatusGroup()
 {

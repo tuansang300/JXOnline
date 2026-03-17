@@ -138,24 +138,24 @@ extern char *g_pRoleName;
 DWORD CPlayer::m_dwTargetID = ( DWORD )( -1 );
 
 const char *g_szText[] = {
-			"%s, ����˭?",
-			"���Ǽ��ӵ��%s!",
-			"%s, �Ұ���! *^_^*",
-			"%s, ��˧��?",
-			"����ȥ������? %s",
-			"%s, ���Ժ�͸�������!",
-			"%s, ��������ȥ��?",
-			"����%s��~~~",
-			"���������������! %s",
-			"%s, �㻹�ð�?",
-			"����ɫ������! %s",
-			"%s, �Һ���ȥҰ��תת��",
-			"������ô��ô��ϻ�, ����%s�߾�����",
-			"%s, �����ȥ��?",
-			"�Ǻ�, ��ô����, ��ˬ��! %s, ���!",
-			"%s, ����������? -_-b",
-			"%s, �������Ư����?",
-			"%s" };
+			  "%s, who are you?",
+	"Hello %s!",
+	"%s, I like you! *^_^*",
+	"%s, are you handsome?",
+	"Where are you going, %s?",
+	"%s, tell me a secret!",
+	"%s, where are you going?",
+	"Miss you, %s~~~",
+	"Let's go play together! %s",
+	"%s, how are you doing?",
+	"You look great today! %s",
+	"%s, I want to go explore outside.",
+	"Why are you always so busy? Let's go together, %s!",
+	"%s, where are you heading?",
+	"Haha, so funny! %s, you're awesome!",
+	"%s, what are you thinking about? -_-b",
+	"%s, do you think I'm pretty?",
+	"%s };
 
 const int g_TextNumber = 17;
 

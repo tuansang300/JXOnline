@@ -191,9 +191,9 @@ void KPlayerSet::SendWelcomeMsg(int nPlayerIndex)
 	int		nLength;
 	static int nMsg = 0;
 	const char* Msgs[3] =
-	{	"我<color=green>%s<color=restore>来也，你等快来朝拜。",
-		"<color=green>%s<color=restore>脚踏凌波微步，飘然而至。",
-		"一道闪光，<color=green>%s<color=restore>从天而降。" };
+	{ "<color=green>%s<color=restore> has arrived. Come and pay your respects!",
+	"<color=green>%s<color=restore> steps through the air and arrives gracefully.",
+	"A flash of light appears as <color=green>%s<color=restore> descends from the sky." };
 
 	memset(szBuffer, 0, sizeof(szBuffer));
 	sprintf(szBuffer, Msgs[nMsg], Player[nPlayerIndex].m_PlayerName);
@@ -211,7 +211,7 @@ void KPlayerSet::SendWelcomeMsg(int nPlayerIndex)
 		for (int i = 0; i < nCount; i++)
 		{
 			int	nLen = *pAMsg;
-			KPlayerChat::SendSystemInfo(1, nPlayerIndex, "吴府管家", (((char*)pAMsg) + sizeof(int)), nLen);
+			KPlayerChat::SendSystemInfo(1, nPlayerIndex, "Guild Steward", (((char*)pAMsg) + sizeof(int)), nLen);
 			pAMsg = (int*)(((char*)pAMsg) + nLen + sizeof(int));
 		}
 	}

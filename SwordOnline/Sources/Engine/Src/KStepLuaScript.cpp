@@ -366,7 +366,7 @@ void	KStepLuaScript::GotoLabel( LPSTR szLabelName)
 	
 	if (szindex == NULL)
 	{
-		g_MessageBox("�ű�����: GotoLabel() = %s", szLabelName);
+		g_MessageBox("Script error: GotoLabel() = %s", szLabelName);
 		return;
 	}
 	

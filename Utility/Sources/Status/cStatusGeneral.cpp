@@ -30,20 +30,20 @@ const CString c_aStrTrace[] =
 
 const CString c_aStrShow[] =
 {
-	"显示菜单.txt",
-	"显示水平物件(Ctrl+Shift+F6).txt",
-	"显示垂直物件(Ctrl+F6).txt",
-	"显示动态物件.txt",
-	"显示灯光(Ctrl+F5).txt",
-	"显示障碍(Ctrl+F7).txt",
-	"显示地表(Ctrl+F3).txt",
-	"显示水平地表物件.txt",
-	"显示水平低于垂直物件.txt",
-	"显示水平高于垂直物件.txt",
-	"显示小地图右(Ctrl+F2).txt",
-	"显示特殊效果(Ctrl+F4).txt",
-	"显示小地图左(Ctrl+Shift+F2).txt",
-	"",
+	"ShowMenu.txt",
+"ShowHorizontalObjects (Ctrl+Shift+F6).txt",
+"ShowVerticalObjects (Ctrl+F6).txt",
+"ShowDynamicObjects.txt",
+"ShowLighting (Ctrl+F5).txt",
+"ShowObstacles (Ctrl+F7).txt",
+"ShowGround (Ctrl+F3).txt",
+"ShowHorizontalGroundObjects.txt",
+"ShowHorizontalBelowVerticalObjects.txt",
+"ShowHorizontalAboveVerticalObjects.txt",
+"ShowMiniMapRight (Ctrl+F2).txt",
+"ShowSpecialEffects (Ctrl+F4).txt",
+"ShowMiniMapLeft (Ctrl+Shift+F2).txt",
+"",
 };
 
 cStatusGeneral::cStatusGeneral()
@@ -71,7 +71,7 @@ BOOL cStatusGeneral::Create()
 {
 	cStatus::Create();
 
-	CString sFolder = "游戏资源\\General\\setting";
+	CString sFolder = "GameResource\\General\\setting";
 	AppGetFullPath(sFolder);
 
 	//load attribute and settings!

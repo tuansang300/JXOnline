@@ -2177,7 +2177,7 @@ void	KProtocolProcess::s2cShowMsg(BYTE *pMsg)
 			}
 			else
 			{
-				sprintf(sMsg.szMessage, MSG_TEAM_LEAVE, "����");
+				sprintf(sMsg.szMessage, MSG_TEAM_LEAVE, "Player");
 				for (int i = 0; i < MAX_TEAM_MEMBER; i++)
 				{
 					if ((DWORD)g_Team[0].m_nMember[i] == dwID)
@@ -2834,7 +2834,7 @@ void KProtocolProcess::s2cExtendTong(BYTE* pMsg)
 			sMsg.byPriority = 0;
 			sMsg.byParamSize = 0;
 
-			sprintf(sMsg.szMessage, "��ᴴ��ʧ�ܣ�");
+			sprintf(sMsg.szMessage, "Team creation failed!");
 			CoreDataChanged(GDCNI_SYSTEM_MESSAGE, (unsigned int)&sMsg, 0);
 
 			switch (pFail->m_btFailId)
@@ -2904,7 +2904,7 @@ void KProtocolProcess::s2cExtendTong(BYTE* pMsg)
 
 			// �����淢��Ϣ���յ����룬�Ƿ�ͬ��
 			KSystemMessage	sMsg;
-			sprintf(sMsg.szMessage, "%s��������ᣡ", szName);
+			sprintf(sMsg.szMessage, "%s has joined the team.", szName);
 			sMsg.eType = SMT_CLIQUE;
 			sMsg.byConfirmType = SMCT_UI_TONG_JOIN_APPLY;
 			sMsg.byPriority = 3;
@@ -3086,7 +3086,7 @@ void KProtocolProcess::s2cExtendTong(BYTE* pMsg)
 					sMsg.byConfirmType = SMCT_NONE;
 					sMsg.byPriority = 0;
 					sMsg.byParamSize = 0;
-					sprintf(sMsg.szMessage, "��λʧ�ܣ��Է������ߣ�");
+					sprintf(sMsg.szMessage, "Team invitation failed, the target player is offline.");
 					CoreDataChanged(GDCNI_SYSTEM_MESSAGE, (unsigned int)&sMsg, 0);
 				}
 				break;
@@ -3097,7 +3097,7 @@ void KProtocolProcess::s2cExtendTong(BYTE* pMsg)
 					sMsg.byConfirmType = SMCT_NONE;
 					sMsg.byPriority = 0;
 					sMsg.byParamSize = 0;
-					sprintf(sMsg.szMessage, "��λʧ�ܣ��Է�����������");
+					sprintf(sMsg.szMessage, "Team invitation failed, the target player is already in a team.");
 					CoreDataChanged(GDCNI_SYSTEM_MESSAGE, (unsigned int)&sMsg, 0);
 				}
 				break;
@@ -3108,7 +3108,7 @@ void KProtocolProcess::s2cExtendTong(BYTE* pMsg)
 					sMsg.byConfirmType = SMCT_NONE;
 					sMsg.byPriority = 0;
 					sMsg.byParamSize = 0;
-					sprintf(sMsg.szMessage, "��λʧ�ܣ��������޴��ˣ�");
+					sprintf(sMsg.szMessage, "Team action failed, the team is full.");
 					CoreDataChanged(GDCNI_SYSTEM_MESSAGE, (unsigned int)&sMsg, 0);
 				}
 				break;

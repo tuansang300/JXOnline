@@ -693,7 +693,7 @@ void KItem::GetDesc(char* pszMsg, bool bShowPrice, int nPriceScale, int nActiveA
 	if (bShowPrice && nPriceScale > 0)
 	{
 		char szPrice[32];
-		sprintf(szPrice, "�۸�%d", m_CommonAttrib.nPrice / nPriceScale);
+		sprintf(szPrice, "Price: %d", m_CommonAttrib.nPrice / nPriceScale);
 		strcat(pszMsg, szPrice);
 		strcat(pszMsg, "\n");
 	}
@@ -702,19 +702,19 @@ void KItem::GetDesc(char* pszMsg, bool bShowPrice, int nPriceScale, int nActiveA
 		switch(m_CommonAttrib.nSeries)
 		{
 		case series_metal:
-			strcat(pszMsg, "<color=White>�������ԣ�<color=Metal>��");
+			strcat(pszMsg, "<color=White>Element: <color=Metal>Metal");
 			break;
 		case series_wood:
-			strcat(pszMsg, "<color=White>�������ԣ�<color=Wood>ľ");
+			strcat(pszMsg, "<color=White>Element: <color=Wood>Wood");
 			break;
 		case series_water:
-			strcat(pszMsg, "<color=White>�������ԣ�<color=Water>ˮ");
+			strcat(pszMsg, "<color=White>Element: <color=Water>Waterˮ");
 			break;
 		case series_fire:
-			strcat(pszMsg, "<color=White>�������ԣ�<color=Fire>��");
+			strcat(pszMsg, "<color=White>Element: <color=Fire>Fire");
 			break;
 		case series_earth:
-			strcat(pszMsg, "<color=White>�������ԣ�<color=Earth>��");
+			strcat(pszMsg, "color=White>Element: <color=Earth>Earth");
 			break;
 		}
 	}
@@ -732,9 +732,9 @@ void KItem::GetDesc(char* pszMsg, bool bShowPrice, int nPriceScale, int nActiveA
 		{
 			char	szDurInfo[32];
 			if (m_nCurrentDur == -1)
-				sprintf(szDurInfo, "<color=Yellow>����ĥ��<color=White>");
+				sprintf(szDurInfo, "<color=Yellow>Unbreakable<color=White>");
 			else
-				sprintf(szDurInfo, "�;ö� %3d / %3d", GetDurability(), GetMaxDurability());
+				sprintf(szDurInfo, "Durability %3d / %3d", GetDurability(), GetMaxDurability());
 			strcat(pszMsg, szDurInfo);
 		}
 		else

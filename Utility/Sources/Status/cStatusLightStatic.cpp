@@ -15,21 +15,21 @@ using namespace std;
 //////////////////////////////////////////////////////////////////////
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
-const CString c_strLight = "灯光颜色.txt";
-const CString c_strRadius = "灯光半径.txt";
-const CString c_strHeight = "灯光高度.txt";
-const CString c_strLightCapture = "光源文件名称.txt";
+const CString c_strLight = "LightColor.txt";
+const CString c_strRadius = "LightRadius.txt";
+const CString c_strHeight = "LightHeight.txt";
+const CString c_strLightCapture = "LightSourceFileName.txt";
 
-const CString c_strfRangeVarMax		= "光源最大半径.txt";
-const CString c_strfRangeVarSpeed	= "光源半径变化速度.txt";
-const CString c_strfRangeVarFrame	= "光源半径变化帧数.txt";
+const CString c_strfRangeVarMax		= "LightMaxRadius.txt";
+const CString c_strfRangeVarSpeed	= "LightRadiusChangeSpeed.txt";
+const CString c_strfRangeVarFrame	= "LightRadiusChangeFrame.txt";
 
-const CString c_strfPosJumpFrame	= "光源位置变化帧数.txt";
-const CString c_strptPosJumpSpeed	= "光源位置变化速度.txt";
-const CString c_strfPosJumpMax		= "光源位置变化距离.txt";
+const CString c_strfPosJumpFrame	= "LightPositionChangeFrame.txt";
+const CString c_strptPosJumpSpeed	= "LightPositionChangeSpeed.txt";
+const CString c_strfPosJumpMax		= "LightPositionChangeDistance.txt";
 
-const CString c_strfFlashFrame	= "光源闪烁帧数.txt";
-const CString c_strnFlashDarkFrame	= "光源闪烁变暗帧数.txt";
+const CString c_strfFlashFrame	= "LightFlickerFrame.txt";
+const CString c_strnFlashDarkFrame	= "LightFlickerDarkFrame.txt";
 
 cStatusLightStatic::cStatusLightStatic()
 {
@@ -62,7 +62,7 @@ BOOL cStatusLightStatic::Create()
 {
 	cStatus::Create();
 
-	CString sFolder = "游戏资源\\灯光\\setting";
+	CString sFolder = "GameResource\\Light\\setting";
 	AppGetFullPath(sFolder);
 
 	//load attribute and settings!
@@ -366,7 +366,7 @@ void cStatusLightStatic::CaptureLight()
 	m_pLightRight->GetParam(param);
 
 	CString sWork;
-	sWork = "\\游戏资源\\灯光\\静态灯光\\";
+	sWork = "\\GameResource\\Light\\StaticLight\\";
 	if (m_strLightCapture.IsEmpty())
 		sWork += "LightQuick.txt";
 	else

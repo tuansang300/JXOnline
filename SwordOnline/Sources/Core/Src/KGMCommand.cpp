@@ -51,7 +51,7 @@ BOOL TextGMFilter(int nPlayerIdx, const char* pText, int nLen)
 	}
 	catch(...)
 	{
-		printf("ִ��GMָ��,�����쳣!\n");
+		printf("ִGM command execution failed!\n");
 		return FALSE;
 	}
 

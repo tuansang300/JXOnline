@@ -48,7 +48,7 @@ BOOL cStatusDoodadDynamic::Create()
 {
 	cStatus::Create();
 	m_pDynamic->Create();
-	m_pDynamic->CreateFromFolder("游戏资源\\动态物体");
+	m_pDynamic->CreateFromFolder("GameResources\\DynamicObjects");
 	
 	m_bLinkHor = false;
 	m_bLinkVer = false;

@@ -15,7 +15,7 @@
 #include "../UiSoundSetting.h"
 
 
-#define	SCHEME_INI 	" ‰»Î◊÷¥ÆΩÁ√Ê2.ini"
+#define	SCHEME_INI 	"input_dialog_2.ini"
 
 
 KUiTongGetString* KUiTongGetString::m_pSelf = NULL;
