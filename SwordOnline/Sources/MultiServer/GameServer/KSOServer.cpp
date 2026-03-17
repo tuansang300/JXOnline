@@ -307,15 +307,15 @@ BOOL KSwordOnLineSever::Init()
 	extern int g_nPort;
 	if (g_nPort)
 		m_nServerPort = g_nPort;
-	iniFile.GetString("Gateway", "Ip", "103.145.63.111", m_szGatewayIP, sizeof(m_szGatewayIP));
+	iniFile.GetString("Gateway", "Ip", "103.118.28.81", m_szGatewayIP, sizeof(m_szGatewayIP));
 	iniFile.GetInteger("Gateway", "Port", 5632, &m_nGatewayPort);
-	iniFile.GetString("Database", "Ip", "103.145.63.111", m_szDatabaseIP, sizeof(m_szDatabaseIP));
+	iniFile.GetString("Database", "Ip", "103.118.28.81", m_szDatabaseIP, sizeof(m_szDatabaseIP));
 	iniFile.GetInteger("Database", "Port", 5001, &m_nDatabasePort);
-	iniFile.GetString("Transfer", "Ip", "103.145.63.111", m_szTransferIP, sizeof(m_szTransferIP));
+	iniFile.GetString("Transfer", "Ip", "103.118.28.81", m_szTransferIP, sizeof(m_szTransferIP));
 	iniFile.GetInteger("Transfer", "Port", 5003, &m_nTransferPort);
-	iniFile.GetString("Chat", "Ip", "103.145.63.111", m_szChatIP, sizeof(m_szChatIP));
+	iniFile.GetString("Chat", "Ip", "103.118.28.81", m_szChatIP, sizeof(m_szChatIP));
 	iniFile.GetInteger("Chat", "Port", 5004, &m_nChatPort);
-	iniFile.GetString("Tong", "Ip", "103.145.63.111", m_szTongIP, sizeof(m_szTongIP));
+	iniFile.GetString("Tong", "Ip", "103.118.28.81", m_szTongIP, sizeof(m_szTongIP));
 	iniFile.GetInteger("Tong", "Port", 5005, &m_nTongPort);
 #ifdef WIN32
 	iniFile.GetInteger("Overload", "MaxPlayer", 450, &m_nMaxPlayerCount);

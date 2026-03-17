@@ -392,3 +392,7 @@ FodyWeavers.xsd
 /build/MultiServer/Heaven/Server Debug
 /build/MultiServer/Rainbow/Server Debug
 /build/MultiServer/S3Relay/Server Debug
+/Utility/Run/database.ini
+/Utility/Run/Engine.dll
+/Utility/Run/FilterText.dll
+/Utility/Run/heaven.dll
